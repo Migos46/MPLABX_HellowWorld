@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Mechatronics_HelloWorld.X
+PROJECTNAME=MPLABX_HellowWorld
 
 # Active Configuration
 DEFAULTCONF=default
