@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c ../ProxectoMicrosMaster.X/mcc_generated_files/adc.c ../ProxectoMicrosMaster.X/mcc_generated_files/device_config.c ../ProxectoMicrosMaster.X/mcc_generated_files/epwm1.c ../ProxectoMicrosMaster.X/mcc_generated_files/ext_int.c ../ProxectoMicrosMaster.X/mcc_generated_files/interrupt_manager.c ../ProxectoMicrosMaster.X/mcc_generated_files/mcc.c ../ProxectoMicrosMaster.X/mcc_generated_files/pin_manager.c ../ProxectoMicrosMaster.X/mcc_generated_files/pwm2.c ../ProxectoMicrosMaster.X/mcc_generated_files/tmr2.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/_ext/344743788/adc.p1 ${OBJECTDIR}/_ext/344743788/device_config.p1 ${OBJECTDIR}/_ext/344743788/epwm1.p1 ${OBJECTDIR}/_ext/344743788/ext_int.p1 ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1 ${OBJECTDIR}/_ext/344743788/mcc.p1 ${OBJECTDIR}/_ext/344743788/pin_manager.p1 ${OBJECTDIR}/_ext/344743788/pwm2.p1 ${OBJECTDIR}/_ext/344743788/tmr2.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/_ext/344743788/adc.p1.d ${OBJECTDIR}/_ext/344743788/device_config.p1.d ${OBJECTDIR}/_ext/344743788/epwm1.p1.d ${OBJECTDIR}/_ext/344743788/ext_int.p1.d ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1.d ${OBJECTDIR}/_ext/344743788/mcc.p1.d ${OBJECTDIR}/_ext/344743788/pin_manager.p1.d ${OBJECTDIR}/_ext/344743788/pwm2.p1.d ${OBJECTDIR}/_ext/344743788/tmr2.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/_ext/344743788/adc.p1 ${OBJECTDIR}/_ext/344743788/device_config.p1 ${OBJECTDIR}/_ext/344743788/epwm1.p1 ${OBJECTDIR}/_ext/344743788/ext_int.p1 ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1 ${OBJECTDIR}/_ext/344743788/mcc.p1 ${OBJECTDIR}/_ext/344743788/pin_manager.p1 ${OBJECTDIR}/_ext/344743788/pwm2.p1 ${OBJECTDIR}/_ext/344743788/tmr2.p1
 
 # Source Files
-SOURCEFILES=main.c
+SOURCEFILES=main.c ../ProxectoMicrosMaster.X/mcc_generated_files/adc.c ../ProxectoMicrosMaster.X/mcc_generated_files/device_config.c ../ProxectoMicrosMaster.X/mcc_generated_files/epwm1.c ../ProxectoMicrosMaster.X/mcc_generated_files/ext_int.c ../ProxectoMicrosMaster.X/mcc_generated_files/interrupt_manager.c ../ProxectoMicrosMaster.X/mcc_generated_files/mcc.c ../ProxectoMicrosMaster.X/mcc_generated_files/pin_manager.c ../ProxectoMicrosMaster.X/mcc_generated_files/pwm2.c ../ProxectoMicrosMaster.X/mcc_generated_files/tmr2.c
 
 
 
@@ -102,6 +102,78 @@ ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/_ext/344743788/adc.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/adc.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/adc.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/adc.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/adc.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/adc.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/adc.d ${OBJECTDIR}/_ext/344743788/adc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/device_config.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/device_config.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/device_config.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/device_config.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/device_config.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/device_config.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/device_config.d ${OBJECTDIR}/_ext/344743788/device_config.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/device_config.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/epwm1.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/epwm1.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/epwm1.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/epwm1.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/epwm1.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/epwm1.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/epwm1.d ${OBJECTDIR}/_ext/344743788/epwm1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/epwm1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/ext_int.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/ext_int.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/ext_int.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/ext_int.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/ext_int.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/ext_int.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/ext_int.d ${OBJECTDIR}/_ext/344743788/ext_int.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/ext_int.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/interrupt_manager.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/interrupt_manager.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/interrupt_manager.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/interrupt_manager.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/interrupt_manager.d ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/mcc.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/mcc.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/mcc.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/mcc.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/mcc.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/mcc.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/mcc.d ${OBJECTDIR}/_ext/344743788/mcc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/mcc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/pin_manager.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/pin_manager.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/pin_manager.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/pin_manager.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/pin_manager.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/pin_manager.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/pin_manager.d ${OBJECTDIR}/_ext/344743788/pin_manager.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/pin_manager.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/pwm2.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/pwm2.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/pwm2.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/pwm2.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/pwm2.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/pwm2.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/pwm2.d ${OBJECTDIR}/_ext/344743788/pwm2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/pwm2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/tmr2.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/tmr2.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/tmr2.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/tmr2.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/tmr2.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/tmr2.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/tmr2.d ${OBJECTDIR}/_ext/344743788/tmr2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/tmr2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -110,6 +182,78 @@ ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/main.p1 main.c 
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/adc.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/adc.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/adc.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/adc.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/adc.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/adc.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/adc.d ${OBJECTDIR}/_ext/344743788/adc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/device_config.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/device_config.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/device_config.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/device_config.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/device_config.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/device_config.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/device_config.d ${OBJECTDIR}/_ext/344743788/device_config.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/device_config.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/epwm1.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/epwm1.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/epwm1.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/epwm1.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/epwm1.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/epwm1.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/epwm1.d ${OBJECTDIR}/_ext/344743788/epwm1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/epwm1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/ext_int.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/ext_int.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/ext_int.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/ext_int.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/ext_int.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/ext_int.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/ext_int.d ${OBJECTDIR}/_ext/344743788/ext_int.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/ext_int.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/interrupt_manager.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/interrupt_manager.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/interrupt_manager.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/interrupt_manager.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/interrupt_manager.d ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/interrupt_manager.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/mcc.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/mcc.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/mcc.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/mcc.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/mcc.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/mcc.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/mcc.d ${OBJECTDIR}/_ext/344743788/mcc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/mcc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/pin_manager.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/pin_manager.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/pin_manager.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/pin_manager.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/pin_manager.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/pin_manager.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/pin_manager.d ${OBJECTDIR}/_ext/344743788/pin_manager.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/pin_manager.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/pwm2.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/pwm2.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/pwm2.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/pwm2.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/pwm2.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/pwm2.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/pwm2.d ${OBJECTDIR}/_ext/344743788/pwm2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/pwm2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/344743788/tmr2.p1: ../ProxectoMicrosMaster.X/mcc_generated_files/tmr2.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/344743788" 
+	@${RM} ${OBJECTDIR}/_ext/344743788/tmr2.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/344743788/tmr2.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/344743788/tmr2.p1 ../ProxectoMicrosMaster.X/mcc_generated_files/tmr2.c 
+	@-${MV} ${OBJECTDIR}/_ext/344743788/tmr2.d ${OBJECTDIR}/_ext/344743788/tmr2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/344743788/tmr2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

@@ -4,6 +4,19 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="mcc_generated_files"
+                     displayName="mcc_generated_files"
+                     projectFiles="true">
+        <itemPath>../ProxectoMicrosMaster.X/mcc_generated_files/adc.c</itemPath>
+        <itemPath>../ProxectoMicrosMaster.X/mcc_generated_files/device_config.c</itemPath>
+        <itemPath>../ProxectoMicrosMaster.X/mcc_generated_files/epwm1.c</itemPath>
+        <itemPath>../ProxectoMicrosMaster.X/mcc_generated_files/ext_int.c</itemPath>
+        <itemPath>../ProxectoMicrosMaster.X/mcc_generated_files/interrupt_manager.c</itemPath>
+        <itemPath>../ProxectoMicrosMaster.X/mcc_generated_files/mcc.c</itemPath>
+        <itemPath>../ProxectoMicrosMaster.X/mcc_generated_files/pin_manager.c</itemPath>
+        <itemPath>../ProxectoMicrosMaster.X/mcc_generated_files/pwm2.c</itemPath>
+        <itemPath>../ProxectoMicrosMaster.X/mcc_generated_files/tmr2.c</itemPath>
+      </logicalFolder>
       <itemPath>main.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -21,6 +34,10 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>mcc_generated_files</Elem>
+    <Elem>../ProxectoMicrosMaster.X/mcc_generated_files</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
