@@ -66,8 +66,8 @@ void ADC_Initialize(void)
     // VCFG1 external; VCFG0 external; 
     ADCON1 = 0x30;
     
-    // ADFM left; ACQT 8; ADCS FOSC/2; 
-    ADCON2 = 0x20;
+    // ADFM left; ACQT 0; ADCS FOSC/2; 
+    ADCON2 = 0x00;
     
     // ADRESL 0; 
     ADRESL = 0x00;

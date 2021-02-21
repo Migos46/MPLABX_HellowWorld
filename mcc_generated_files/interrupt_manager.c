@@ -1,11 +1,11 @@
 /**
-  Generated Interrupt Manager Source File
+  Generated Interrupt Manager Header File
 
   @Company:
     Microchip Technology Inc.
 
   @File Name:
-    interrupt_manager.c
+    interrupt_manager.h
 
   @Summary:
     This is the Interrupt Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
@@ -17,7 +17,7 @@
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
         Device            :  PIC18F45K20
-        Driver Version    :  2.04
+        Driver Version    :  2.12
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.31 and above or later
         MPLAB 	          :  MPLAB X 5.45
@@ -51,36 +51,25 @@
 
 void  INTERRUPT_Initialize (void)
 {
-    // Disable Interrupt Priority Vectors (16CXXX Compatibility Mode)
-    RCONbits.IPEN = 0;
+    // Enable Interrupt Priority Vectors
+    RCONbits.IPEN = 1;
+
+    // Assign peripheral interrupt priority vectors
+
+
+    // ADI - low priority
+    IPR1bits.ADIP = 0;    
+
 }
 
-void __interrupt() INTERRUPT_InterruptManager (void)
+
+void __interrupt(low_priority) INTERRUPT_InterruptManagerLow (void)
 {
     // interrupt handler
-    if(INTCONbits.INT0IE == 1 && INTCONbits.INT0IF == 1)
+    if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
     {
-        INT0_ISR();
+        ADC_ISR();
     }
-    else if(INTCON3bits.INT1IE == 1 && INTCON3bits.INT1IF == 1)
-    {
-        INT1_ISR();
-    }
-    else if(INTCON3bits.INT2IE == 1 && INTCON3bits.INT2IF == 1)
-    {
-        INT2_ISR();
-    }
-    else if(INTCONbits.PEIE == 1)
-    {
-        if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
-        {
-            ADC_ISR();
-        } 
-        else
-        {
-            //Unhandled Interrupt
-        }
-    }      
     else
     {
         //Unhandled Interrupt

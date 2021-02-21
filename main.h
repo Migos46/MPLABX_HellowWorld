@@ -5,35 +5,6 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-// TODO Insert appropriate #include <>
-
-// TODO Insert C++ class definitions if appropriate
-
-// TODO Insert declarations
-
-// Comment a function and leverage automatic documentation with slash star star
-/**
-    <p><b>Function prototype:</b></p>
-  
-    <p><b>Summary:</b></p>
-
-    <p><b>Description:</b></p>
-
-    <p><b>Precondition:</b></p>
-
-    <p><b>Parameters:</b></p>
-
-    <p><b>Returns:</b></p>
-
-    <p><b>Example:</b></p>
-    <code>
- 
-    </code>
-
-    <p><b>Remarks:</b></p>
- */
-// TODO Insert declarations or function prototypes (right here) to leverage 
-// live documentation
 
 #ifdef	__cplusplus
 extern "C" {
@@ -55,9 +26,8 @@ extern "C" {
 #include <stdlib.h>
 
 #pragma config LVP=OFF, WDTEN=OFF, FOSC=INTIO67, PBADEN=OFF
-#define _XTAL_FREQ 1000000      // define el clock a 1 MHz para las rutinas ?delay?
+#define _XTAL_FREQ 4000000      // define el clock a 1 MHz para las rutinas ?delay?
 
-void Setup();   // Setup function
 
 #endif
 

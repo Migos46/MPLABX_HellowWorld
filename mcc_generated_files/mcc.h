@@ -55,7 +55,6 @@
 #include "interrupt_manager.h"
 #include "pwm2.h"
 #include "epwm1.h"
-#include "ext_int.h"
 #include "tmr2.h"
 #include "adc.h"
 

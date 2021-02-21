@@ -53,17 +53,16 @@ void SYSTEM_Initialize(void)
     INTERRUPT_Initialize();
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
-    PWM2_Initialize();
-    ADC_Initialize();
     EPWM1_Initialize();
+    PWM2_Initialize();
     TMR2_Initialize();
-    EXT_INT_Initialize();
+    ADC_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)
 {
-    // SCS FOSC; OSTS intosc; IRCF 1MHz_HFINTOSC/16; IDLEN disabled; 
-    OSCCON = 0x30;
+    // SCS FOSC; OSTS intosc; IRCF 4MHz_HFINTOSC/4; IDLEN disabled; 
+    OSCCON = 0x50;
     // INTSRC disabled; PLLEN disabled; TUN 0; 
     OSCTUNE = 0x00;
 }

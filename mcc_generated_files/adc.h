@@ -94,8 +94,8 @@ typedef struct
 
 typedef enum
 {
-    channel_AN0 =  0x0,
-    channel_AN1 =  0x1,
+    PosMotVer =  0x0,
+    PosMotRot =  0x1,
     channel_FVR =  0xF
 } adc_channel_t;
 
