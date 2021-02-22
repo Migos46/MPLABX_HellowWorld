@@ -5,7 +5,7 @@ void inicializaGlobalRB_I_Int(void){
     ANSELH          = 0; // RB 0..4 como I/O dixital
     INTCONbits.GIEH = 1; // Habilita interrupción alta prioridade
     INTCONbits.GIEL = 1; // Habilita interrupción baixa prioridade
-    INTCON2bits.INTEDG0 = 1; // Flanco de subida para interrupcion
+    RCONbits.IPEN   = 1; //Habilita niveis de interrupción
     
     //INTCON2bits.RBPU    = 0; // Habilita resistencias de pull-up
 }
@@ -15,6 +15,7 @@ void inicializaRB0_I(){
     // WPUBbits.WPUB0      = 1; // Resistencia pull-up interna
     INTCONbits.INT0IF   = 0; // Flag de interrupcion
     INTCONbits.INT0IE   = 1; // Interrupcion habilitada
+    INTCON2bits.INTEDG0 = 1; // Flanco de subida para interrupcion
 }
 void inicializaRB1_I(void){
     TRISBbits.RB1       = 1;
@@ -74,14 +75,16 @@ void inicializaAN0_I(void){
     TRISAbits.RA0   = 1; //RA0 como entrada
     ANSELbits.ANS0  = 1; //RA0 como analóxica
 }
-void inicializaAN1_REF(void){
+void inicializaAN1_I(void){
     TRISAbits.RA1   = 1;
     ANSELbits.ANS1  = 1;
 }
 void inicializaAnalogicas(){
     PIR1bits.ADIF   = 0; // Borra flag de interrupcion
-    PIE1bits.ADIE   = 0; // Habilita interrupción de entrada analóxica
+    PIE1bits.ADIE   = 1; // Habilita interrupción de entrada analóxica
     IPR1bits.ADIP   = 0; // Prioridade baixa na interrupción
+    TRISAbits.RA2   = 1; // Entrada de referencia positiva
+    TRISAbits.RA3   = 1; // Entrada de referencia negativa
     ADRES           = 0; // Borra rexistro de valor analóxico
     ADCON0bits.CHS  = 0; // Primeira entrada a ler a AN0
     ADCON0bits.ADON = 1; // Habilita ADC
