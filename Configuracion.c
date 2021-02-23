@@ -1,5 +1,5 @@
 #include "Configuracion.h"
-#include "tmr2.h"
+
 
 void inicializaGlobalRB_I_Int(void){
     ANSELH          = 0; // RB 0..4 como I/O dixital
@@ -104,4 +104,21 @@ void inicializaRC7_USART(void){
 void inicializaPortD_Teclado(void){
     TRISD   = 0b11110000;   // 4 saidas e catro entradas dixitais no portD
     PORTD   = 0;            // Todas as saidas a 0
+}
+
+void inicializaManipuladorMagnetico(){
+    inicializaGlobalRB_I_Int();
+    inicializaRB0_I();
+    inicializaRB1_I();
+    inicializaRB2_I();
+    inicializaRC1_PWM();
+    inicializaRC2_PWM();
+    inicializaRC3_O();
+    inicializaRC4_O();
+    inicializaAnalogicas();
+    inicializaAN0_I();
+    inicializaAN1_I();
+    inicializaTimer2_PWM();
+    
+    ADCON0bits.GO = 1;
 }

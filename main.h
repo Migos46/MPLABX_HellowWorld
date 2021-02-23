@@ -1,10 +1,12 @@
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
+//#ifndef XC_HEADER_TEMPLATE_H
+//#define	XC_HEADER_TEMPLATE_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
+
+#pragma config LVP=OFF, WDTEN=OFF, FOSC=INTIO67, PBADEN=OFF
 
 #ifdef	__cplusplus
 extern "C" {
@@ -17,17 +19,19 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-#endif	/* XC_HEADER_TEMPLATE_H */
+//#endif	/* XC_HEADER_TEMPLATE_H */
 
 #ifndef MAIN_H
 #define MAIN_H
+#endif
 
 #include <string.h>
 #include <stdlib.h>
 
-#pragma config LVP=OFF, WDTEN=OFF, FOSC=INTIO67, PBADEN=OFF
-#define _XTAL_FREQ 4000000      // define el clock a 1 MHz para las rutinas ?delay?
+//#pragma config LVP=OFF, WDTEN=OFF, FOSC=INTIO67, PBADEN=OFF
+#define _XTAL_FREQ 4000000      // define el clock a 4M Hz para las rutinas ?delay?
 
-
-#endif
+void interrupt high_priority interrupcionAlta();
+void interrupt low_priority interrupcionBaixa();
+//#endif
 
