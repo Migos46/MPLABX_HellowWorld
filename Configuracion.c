@@ -32,6 +32,18 @@ void inicializaRB2_I(void){
     INTCON2bits.INTEDG2 = 1;
 }
 
+void inicializaRB4_5_O(void){
+    TRISBbits.RB4 = 1;
+    TRISBbits.RB5 = 1;
+    
+    INTCONbits.RBIE = 1;
+    INTCONbits.RBIF = 0;
+    
+    INTCON2bits.RBIP = 0;
+    IOCBbits.IOCB4 =1;
+    IOCBbits.IOCB5 = 1;
+}
+
 void inicializaRC3_O(void){
     TRISCbits.RC3   = 0;
     PORTCbits.RC3   = 0;
@@ -137,5 +149,6 @@ void inicializaManipuladorMagnetico(){
     inicializaRC0_O();
     inicializaRC5_O();
     inicializaRC0_O();
+    inicializaRB4_5_O();
     ADCON0bits.GO = 1;
 }

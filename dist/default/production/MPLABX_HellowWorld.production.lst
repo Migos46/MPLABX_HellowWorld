@@ -1,1470 +1,1700 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.38 build -256452561 
-                                                                                               Sat Feb 27 18:06:27 2021
+                                                                                               Sat Feb 27 19:19:47 2021
 
 Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010351
      1                           	processor	18F45K20
      2                           	fnconf	rparam,??,?,0
      3                           	opt	pw 120
      4                           	opt	lm
-     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
-     6                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
-     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
-     8                           	psect	text0,global,reloc=2,class=CODE,delta=1
-     9                           	psect	text1,global,reloc=2,class=CODE,delta=1
-    10                           	psect	text2,global,reloc=2,class=CODE,delta=1
-    11                           	psect	text3,global,reloc=2,class=CODE,delta=1
-    12                           	psect	text4,global,reloc=2,class=CODE,delta=1
-    13                           	psect	text5,global,reloc=2,class=CODE,delta=1
-    14                           	psect	text6,global,reloc=2,class=CODE,delta=1
-    15                           	psect	text7,global,reloc=2,class=CODE,delta=1
-    16                           	psect	text8,global,reloc=2,class=CODE,delta=1
-    17                           	psect	text9,global,reloc=2,class=CODE,delta=1
-    18                           	psect	text10,global,reloc=2,class=CODE,delta=1
-    19                           	psect	text11,global,reloc=2,class=CODE,delta=1
-    20                           	psect	text12,global,reloc=2,class=CODE,delta=1
-    21                           	psect	text13,global,reloc=2,class=CODE,delta=1
-    22                           	psect	text14,global,reloc=2,class=CODE,delta=1
-    23                           	psect	text15,global,reloc=2,class=CODE,delta=1
-    24                           	psect	intcodelo,global,reloc=2,class=CODE,delta=1
-    25                           	psect	intcode,global,reloc=2,class=CODE,delta=1
-    26                           	psect	intcode_body,global,reloc=2,class=CODE,delta=1
-    27                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
-    28                           	psect	rparam,global,class=COMRAM,space=1,delta=1
-    29                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
-    30  0000                     _ADRES	set	4035
-    31  0000                     _ADCON0bits	set	4034
-    32  0000                     _ADCON2bits	set	4032
-    33  0000                     _ADRESH	set	4036
-    34  0000                     _ADRESL	set	4035
-    35  0000                     _ANSELH	set	3967
-    36  0000                     _ANSELbits	set	3966
-    37  0000                     _CCP1CONbits	set	4029
-    38  0000                     _CCP2CONbits	set	4026
-    39  0000                     _CCPR1H	set	4031
-    40  0000                     _CCPR1L	set	4030
-    41  0000                     _CCPR2H	set	4028
-    42  0000                     _CCPR2L	set	4027
-    43  0000                     _INTCON2bits	set	4081
-    44  0000                     _INTCON3bits	set	4080
-    45  0000                     _INTCONbits	set	4082
-    46  0000                     _IPR1bits	set	3999
-    47  0000                     _LATBbits	set	3978
-    48  0000                     _PIE1bits	set	3997
-    49  0000                     _PIR1bits	set	3998
-    50  0000                     _PORTCbits	set	3970
-    51  0000                     _PORTD	set	3971
-    52  0000                     _PR2	set	4043
-    53  0000                     _RCONbits	set	4048
-    54  0000                     _T2CONbits	set	4042
-    55  0000                     _TMR2	set	4044
-    56  0000                     _TRISAbits	set	3986
-    57  0000                     _TRISBbits	set	3987
-    58  0000                     _TRISCbits	set	3988
-    59  0000                     _TRISD	set	3989
-    60                           
-    61                           ; #config settings
-    62  0000                     
-    63                           	psect	cinit
-    64  00025E                     __pcinit:
-    65                           	opt stack 0
-    66  00025E                     start_initialization:
-    67                           	opt stack 0
-    68  00025E                     __initialization:
-    69                           	opt stack 0
-    70                           
-    71                           ; Clear objects allocated to COMRAM (6 bytes)
-    72  00025E  6A2D               	clrf	(__pbssCOMRAM+5)& (0+255),c
-    73  000260  6A2C               	clrf	(__pbssCOMRAM+4)& (0+255),c
-    74  000262  6A2B               	clrf	(__pbssCOMRAM+3)& (0+255),c
-    75  000264  6A2A               	clrf	(__pbssCOMRAM+2)& (0+255),c
-    76  000266  6A29               	clrf	(__pbssCOMRAM+1)& (0+255),c
-    77  000268  6A28               	clrf	__pbssCOMRAM& (0+255),c
-    78  00026A                     end_of_initialization:
+     5                           	psect	nvCOMRAM,global,class=COMRAM,space=1,delta=1
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
+     8                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+     9                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text13,global,reloc=2,class=CODE,delta=1
+    23                           	psect	text14,global,reloc=2,class=CODE,delta=1
+    24                           	psect	text15,global,reloc=2,class=CODE,delta=1
+    25                           	psect	text16,global,reloc=2,class=CODE,delta=1
+    26                           	psect	intcodelo,global,reloc=2,class=CODE,delta=1
+    27                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    28                           	psect	intcode_body,global,reloc=2,class=CODE,delta=1
+    29                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    30                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    31                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    32  0000                     
+    33                           	psect	nvCOMRAM
+    34  00002F                     __pnvCOMRAM:
+    35                           	opt stack 0
+    36  00002F                     _anteriorRB4:
+    37                           	opt stack 0
+    38  00002F                     	ds	2
+    39  000031                     _anteriorRB5:
+    40                           	opt stack 0
+    41  000031                     	ds	2
+    42  0000                     _ADRES	set	4035
+    43  0000                     _ADCON0bits	set	4034
+    44  0000                     _ADCON2bits	set	4032
+    45  0000                     _ADRESH	set	4036
+    46  0000                     _ADRESL	set	4035
+    47  0000                     _ANSELH	set	3967
+    48  0000                     _ANSELbits	set	3966
+    49  0000                     _CCP1CONbits	set	4029
+    50  0000                     _CCP2CONbits	set	4026
+    51  0000                     _CCPR1H	set	4031
+    52  0000                     _CCPR1L	set	4030
+    53  0000                     _CCPR2H	set	4028
+    54  0000                     _CCPR2L	set	4027
+    55  0000                     _INTCON2bits	set	4081
+    56  0000                     _INTCON3bits	set	4080
+    57  0000                     _INTCONbits	set	4082
+    58  0000                     _IOCBbits	set	3965
+    59  0000                     _IPR1bits	set	3999
+    60  0000                     _LATBbits	set	3978
+    61  0000                     _PIE1bits	set	3997
+    62  0000                     _PIR1bits	set	3998
+    63  0000                     _PORTBbits	set	3969
+    64  0000                     _PORTCbits	set	3970
+    65  0000                     _PORTD	set	3971
+    66  0000                     _PR2	set	4043
+    67  0000                     _RCONbits	set	4048
+    68  0000                     _T2CONbits	set	4042
+    69  0000                     _TMR2	set	4044
+    70  0000                     _TRISAbits	set	3986
+    71  0000                     _TRISBbits	set	3987
+    72  0000                     _TRISCbits	set	3988
+    73  0000                     _TRISD	set	3989
+    74                           
+    75                           ; #config settings
+    76  0000                     
+    77                           	psect	cinit
+    78  000322                     __pcinit:
     79                           	opt stack 0
-    80  00026A                     __end_of__initialization:
+    80  000322                     start_initialization:
     81                           	opt stack 0
-    82  00026A  902E               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
-    83  00026C  922E               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
-    84  00026E  0100               	movlb	0
-    85  000270  EF17  F001         	goto	_main	;jump to C main() function
-    86                           
-    87                           	psect	bssCOMRAM
-    88  000028                     __pbssCOMRAM:
-    89                           	opt stack 0
-    90  000028                     _actual:
-    91                           	opt stack 0
-    92  000028                     	ds	2
-    93  00002A                     _ultimaLectura0:
-    94                           	opt stack 0
-    95  00002A                     	ds	2
-    96  00002C                     _ultimaLectura1:
-    97                           	opt stack 0
-    98  00002C                     	ds	2
-    99                           
-   100                           	psect	cstackCOMRAM
-   101  000001                     __pcstackCOMRAM:
-   102                           	opt stack 0
-   103  000001                     ??_interrupcionAlta:
-   104  000001                     
-   105                           ; 2 bytes @ 0x0
-   106  000001                     	ds	14
-   107  00000F                     ??_interrupcionBaixa:
-   108                           
-   109                           ; 1 bytes @ 0xE
-   110  00000F                     	ds	21
-   111  000024                     main@var1:
-   112                           	opt stack 0
+    82  000322                     __initialization:
+    83                           	opt stack 0
+    84                           
+    85                           ; Clear objects allocated to COMRAM (6 bytes)
+    86  000322  6A2E               	clrf	(__pbssCOMRAM+5)& (0+255),c
+    87  000324  6A2D               	clrf	(__pbssCOMRAM+4)& (0+255),c
+    88  000326  6A2C               	clrf	(__pbssCOMRAM+3)& (0+255),c
+    89  000328  6A2B               	clrf	(__pbssCOMRAM+2)& (0+255),c
+    90  00032A  6A2A               	clrf	(__pbssCOMRAM+1)& (0+255),c
+    91  00032C  6A29               	clrf	__pbssCOMRAM& (0+255),c
+    92  00032E                     end_of_initialization:
+    93                           	opt stack 0
+    94  00032E                     __end_of__initialization:
+    95                           	opt stack 0
+    96  00032E  9033               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+    97  000330  9233               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+    98  000332  0100               	movlb	0
+    99  000334  EF48  F001         	goto	_main	;jump to C main() function
+   100                           
+   101                           	psect	bssCOMRAM
+   102  000029                     __pbssCOMRAM:
+   103                           	opt stack 0
+   104  000029                     _actual:
+   105                           	opt stack 0
+   106  000029                     	ds	2
+   107  00002B                     _ultimaLectura0:
+   108                           	opt stack 0
+   109  00002B                     	ds	2
+   110  00002D                     _ultimaLectura1:
+   111                           	opt stack 0
+   112  00002D                     	ds	2
    113                           
-   114                           ; 2 bytes @ 0x23
-   115  000024                     	ds	2
-   116  000026                     main@var2:
-   117                           	opt stack 0
-   118                           
-   119                           ; 2 bytes @ 0x25
-   120  000026                     	ds	2
-   121                           
-   122 ;;
-   123 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   124 ;;
-   125 ;; *************** function _main *****************
-   126 ;; Defined at:
-   127 ;;		line 45 in file "main.c"
-   128 ;; Parameters:    Size  Location     Type
-   129 ;;		None
-   130 ;; Auto vars:     Size  Location     Type
-   131 ;;  var2            2   37[COMRAM] short 
-   132 ;;  var1            2   35[COMRAM] short 
-   133 ;; Return value:  Size  Location     Type
-   134 ;;                  1    wreg      void 
-   135 ;; Registers used:
-   136 ;;		wreg, status,2, cstack
-   137 ;; Tracked objects:
-   138 ;;		On entry : 0/0
-   139 ;;		On exit  : 0/0
-   140 ;;		Unchanged: 0/0
-   141 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   142 ;;      Params:         0       0       0       0       0       0       0
-   143 ;;      Locals:         4       0       0       0       0       0       0
-   144 ;;      Temps:          0       0       0       0       0       0       0
-   145 ;;      Totals:         4       0       0       0       0       0       0
-   146 ;;Total ram usage:        4 bytes
-   147 ;; Hardware stack levels required when called:    4
-   148 ;; This function calls:
-   149 ;;		_inicializaManipuladorMagnetico
-   150 ;; This function is called by:
-   151 ;;		Startup code after reset
-   152 ;; This function uses a non-reentrant model
-   153 ;;
-   154                           
-   155                           	psect	text0
-   156  00022E                     __ptext0:
-   157                           	opt stack 0
-   158  00022E                     _main:
-   159                           	opt stack 27
-   160                           
-   161                           ;main.c: 47: short var1;
-   162                           ;main.c: 48: short var2;
-   163                           ;main.c: 49: inicializaManipuladorMagnetico();
-   164                           
-   165                           ;incstack = 0
-   166  00022E  ECD8  F000         	call	_inicializaManipuladorMagnetico	;wreg free
-   167  000232                     l873:
-   168                           
-   169                           ;main.c: 51: {
-   170                           ;main.c: 52: var1=ultimaLectura0;
-   171  000232  C02A  F024         	movff	_ultimaLectura0,main@var1
-   172  000236  C02B  F025         	movff	_ultimaLectura0+1,main@var1+1
-   173                           
-   174                           ;main.c: 53: var2=ultimaLectura1;
-   175  00023A  C02C  F026         	movff	_ultimaLectura1,main@var2
-   176  00023E  C02D  F027         	movff	_ultimaLectura1+1,main@var2+1
-   177                           
-   178                           ;main.c: 57: __nop();
-   179  000242  F000               	nop	
-   180  000244  D7F6               	goto	l873
-   181  000246                     __end_of_main:
-   182                           	opt stack 0
-   183                           
-   184 ;; *************** function _inicializaManipuladorMagnetico *****************
-   185 ;; Defined at:
-   186 ;;		line 124 in file "Configuracion.c"
-   187 ;; Parameters:    Size  Location     Type
-   188 ;;		None
-   189 ;; Auto vars:     Size  Location     Type
-   190 ;;		None
-   191 ;; Return value:  Size  Location     Type
-   192 ;;                  2   20[None  ] int 
-   193 ;; Registers used:
-   194 ;;		wreg, status,2, cstack
-   195 ;; Tracked objects:
-   196 ;;		On entry : 0/0
-   197 ;;		On exit  : 0/0
-   198 ;;		Unchanged: 0/0
-   199 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   200 ;;      Params:         0       0       0       0       0       0       0
-   201 ;;      Locals:         0       0       0       0       0       0       0
-   202 ;;      Temps:          0       0       0       0       0       0       0
-   203 ;;      Totals:         0       0       0       0       0       0       0
-   204 ;;Total ram usage:        0 bytes
-   205 ;; Hardware stack levels used:    1
-   206 ;; Hardware stack levels required when called:    3
-   207 ;; This function calls:
-   208 ;;		_inicializaAN0_I
-   209 ;;		_inicializaAN1_I
-   210 ;;		_inicializaAnalogicas
-   211 ;;		_inicializaGlobalRB_I_Int
-   212 ;;		_inicializaRB0_I
-   213 ;;		_inicializaRB1_I
-   214 ;;		_inicializaRB2_I
-   215 ;;		_inicializaRC0_O
-   216 ;;		_inicializaRC1_PWM
-   217 ;;		_inicializaRC2_PWM
-   218 ;;		_inicializaRC3_O
-   219 ;;		_inicializaRC4_O
-   220 ;;		_inicializaRC5_O
-   221 ;;		_inicializaTimer2_PWM
-   222 ;; This function is called by:
-   223 ;;		_main
-   224 ;; This function uses a non-reentrant model
-   225 ;;
-   226                           
-   227                           	psect	text1
-   228  0001B0                     __ptext1:
-   229                           	opt stack 0
-   230  0001B0                     _inicializaManipuladorMagnetico:
-   231                           	opt stack 27
-   232                           
-   233                           ;Configuracion.c: 125: inicializaGlobalRB_I_Int();
-   234                           
-   235                           ;incstack = 0
-   236  0001B0  EC45  F001         	call	_inicializaGlobalRB_I_Int	;wreg free
-   237                           
-   238                           ;Configuracion.c: 126: inicializaRB0_I();
-   239  0001B4  EC55  F001         	call	_inicializaRB0_I	;wreg free
-   240                           
-   241                           ;Configuracion.c: 127: inicializaRB1_I();
-   242  0001B8  EC50  F001         	call	_inicializaRB1_I	;wreg free
-   243                           
-   244                           ;Configuracion.c: 128: inicializaRB2_I();
-   245  0001BC  EC4B  F001         	call	_inicializaRB2_I	;wreg free
-   246                           
-   247                           ;Configuracion.c: 129: inicializaRC1_PWM();
-   248  0001C0  EC23  F001         	call	_inicializaRC1_PWM	;wreg free
-   249                           
-   250                           ;Configuracion.c: 130: inicializaRC2_PWM();
-   251  0001C4  EC09  F001         	call	_inicializaRC2_PWM	;wreg free
-   252                           
-   253                           ;Configuracion.c: 131: inicializaRC3_O();
-   254  0001C8  EC60  F001         	call	_inicializaRC3_O	;wreg free
-   255                           
-   256                           ;Configuracion.c: 132: inicializaRC4_O();
-   257  0001CC  EC5D  F001         	call	_inicializaRC4_O	;wreg free
-   258                           
-   259                           ;Configuracion.c: 133: inicializaAnalogicas();
-   260  0001D0  ECF8  F000         	call	_inicializaAnalogicas	;wreg free
-   261                           
-   262                           ;Configuracion.c: 134: inicializaAN0_I();
-   263  0001D4  EC69  F001         	call	_inicializaAN0_I	;wreg free
-   264                           
-   265                           ;Configuracion.c: 135: inicializaAN1_I();
-   266  0001D8  EC66  F001         	call	_inicializaAN1_I	;wreg free
-   267                           
-   268                           ;Configuracion.c: 136: inicializaTimer2_PWM();
-   269  0001DC  EC3A  F001         	call	_inicializaTimer2_PWM	;wreg free
-   270                           
-   271                           ;Configuracion.c: 137: inicializaRC0_O();
-   272  0001E0  EC63  F001         	call	_inicializaRC0_O	;wreg free
-   273                           
-   274                           ;Configuracion.c: 138: inicializaRC5_O();
-   275  0001E4  EC5A  F001         	call	_inicializaRC5_O	;wreg free
-   276                           
-   277                           ;Configuracion.c: 139: inicializaRC0_O();
-   278  0001E8  EC63  F001         	call	_inicializaRC0_O	;wreg free
+   114                           	psect	cstackCOMRAM
+   115  000001                     __pcstackCOMRAM:
+   116                           	opt stack 0
+   117  000001                     ??_interrupcionAlta:
+   118  000001                     
+   119                           ; 2 bytes @ 0x0
+   120  000001                     	ds	14
+   121  00000F                     ??_interrupcionBaixa:
+   122                           
+   123                           ; 1 bytes @ 0xE
+   124  00000F                     	ds	21
+   125  000024                     ??_main:
+   126  000024                     
+   127                           ; 1 bytes @ 0x23
+   128  000024                     	ds	1
+   129  000025                     main@var1:
+   130                           	opt stack 0
+   131                           
+   132                           ; 2 bytes @ 0x24
+   133  000025                     	ds	2
+   134  000027                     main@var2:
+   135                           	opt stack 0
+   136                           
+   137                           ; 2 bytes @ 0x26
+   138  000027                     	ds	2
+   139                           
+   140 ;;
+   141 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   142 ;;
+   143 ;; *************** function _main *****************
+   144 ;; Defined at:
+   145 ;;		line 61 in file "main.c"
+   146 ;; Parameters:    Size  Location     Type
+   147 ;;		None
+   148 ;; Auto vars:     Size  Location     Type
+   149 ;;  var2            2   38[COMRAM] short 
+   150 ;;  var1            2   36[COMRAM] short 
+   151 ;; Return value:  Size  Location     Type
+   152 ;;                  1    wreg      void 
+   153 ;; Registers used:
+   154 ;;		wreg, status,2, cstack
+   155 ;; Tracked objects:
+   156 ;;		On entry : 0/0
+   157 ;;		On exit  : 0/0
+   158 ;;		Unchanged: 0/0
+   159 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   160 ;;      Params:         0       0       0       0       0       0       0
+   161 ;;      Locals:         4       0       0       0       0       0       0
+   162 ;;      Temps:          1       0       0       0       0       0       0
+   163 ;;      Totals:         5       0       0       0       0       0       0
+   164 ;;Total ram usage:        5 bytes
+   165 ;; Hardware stack levels required when called:    4
+   166 ;; This function calls:
+   167 ;;		_inicializaManipuladorMagnetico
+   168 ;; This function is called by:
+   169 ;;		Startup code after reset
+   170 ;; This function uses a non-reentrant model
+   171 ;;
+   172                           
+   173                           	psect	text0
+   174  000290                     __ptext0:
+   175                           	opt stack 0
+   176  000290                     _main:
+   177                           	opt stack 27
+   178                           
+   179                           ;main.c: 63: short var1;
+   180                           ;main.c: 64: short var2;
+   181                           ;main.c: 65: inicializaManipuladorMagnetico();
+   182                           
+   183                           ;incstack = 0
+   184  000290  EC26  F001         	call	_inicializaManipuladorMagnetico	;wreg free
+   185                           
+   186                           ;main.c: 66: anteriorRB4 = PORTBbits.RB4;
+   187  000294  A881               	btfss	3969,4,c	;volatile
+   188  000296  D003               	goto	u200
+   189  000298  6A24               	clrf	??_main& (0+255),c
+   190  00029A  2A24               	incf	??_main& (0+255),f,c
+   191  00029C  D001               	goto	u208
+   192  00029E                     u200:
+   193  00029E  6A24               	clrf	??_main& (0+255),c
+   194  0002A0                     u208:
+   195  0002A0  5024               	movf	??_main,w,c
+   196  0002A2  6E2F               	movwf	_anteriorRB4,c
+   197  0002A4  6A30               	clrf	_anteriorRB4+1,c
+   198                           
+   199                           ;main.c: 67: anteriorRB5 = PORTBbits.RB5;
+   200  0002A6  AA81               	btfss	3969,5,c	;volatile
+   201  0002A8  D003               	goto	u210
+   202  0002AA  6A24               	clrf	??_main& (0+255),c
+   203  0002AC  2A24               	incf	??_main& (0+255),f,c
+   204  0002AE  D001               	goto	u218
+   205  0002B0                     u210:
+   206  0002B0  6A24               	clrf	??_main& (0+255),c
+   207  0002B2                     u218:
+   208  0002B2  5024               	movf	??_main,w,c
+   209  0002B4  6E31               	movwf	_anteriorRB5,c
+   210  0002B6  6A32               	clrf	_anteriorRB5+1,c
+   211  0002B8                     l919:
+   212                           
+   213                           ;main.c: 69: {
+   214                           ;main.c: 70: var1=ultimaLectura0;
+   215  0002B8  C02B  F025         	movff	_ultimaLectura0,main@var1
+   216  0002BC  C02C  F026         	movff	_ultimaLectura0+1,main@var1+1
+   217                           
+   218                           ;main.c: 71: var2=ultimaLectura1;
+   219  0002C0  C02D  F027         	movff	_ultimaLectura1,main@var2
+   220  0002C4  C02E  F028         	movff	_ultimaLectura1+1,main@var2+1
+   221                           
+   222                           ;main.c: 75: __nop();
+   223  0002C8  F000               	nop	
+   224  0002CA  D7F6               	goto	l919
+   225  0002CC                     __end_of_main:
+   226                           	opt stack 0
+   227                           
+   228 ;; *************** function _inicializaManipuladorMagnetico *****************
+   229 ;; Defined at:
+   230 ;;		line 136 in file "Configuracion.c"
+   231 ;; Parameters:    Size  Location     Type
+   232 ;;		None
+   233 ;; Auto vars:     Size  Location     Type
+   234 ;;		None
+   235 ;; Return value:  Size  Location     Type
+   236 ;;                  2   24[None  ] int 
+   237 ;; Registers used:
+   238 ;;		wreg, status,2, cstack
+   239 ;; Tracked objects:
+   240 ;;		On entry : 0/0
+   241 ;;		On exit  : 0/0
+   242 ;;		Unchanged: 0/0
+   243 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   244 ;;      Params:         0       0       0       0       0       0       0
+   245 ;;      Locals:         0       0       0       0       0       0       0
+   246 ;;      Temps:          0       0       0       0       0       0       0
+   247 ;;      Totals:         0       0       0       0       0       0       0
+   248 ;;Total ram usage:        0 bytes
+   249 ;; Hardware stack levels used:    1
+   250 ;; Hardware stack levels required when called:    3
+   251 ;; This function calls:
+   252 ;;		_inicializaAN0_I
+   253 ;;		_inicializaAN1_I
+   254 ;;		_inicializaAnalogicas
+   255 ;;		_inicializaGlobalRB_I_Int
+   256 ;;		_inicializaRB0_I
+   257 ;;		_inicializaRB1_I
+   258 ;;		_inicializaRB2_I
+   259 ;;		_inicializaRB4_5_O
+   260 ;;		_inicializaRC0_O
+   261 ;;		_inicializaRC1_PWM
+   262 ;;		_inicializaRC2_PWM
+   263 ;;		_inicializaRC3_O
+   264 ;;		_inicializaRC4_O
+   265 ;;		_inicializaRC5_O
+   266 ;;		_inicializaTimer2_PWM
+   267 ;; This function is called by:
+   268 ;;		_main
+   269 ;; This function uses a non-reentrant model
+   270 ;;
+   271                           
+   272                           	psect	text1
+   273  00024C                     __ptext1:
+   274                           	opt stack 0
+   275  00024C                     _inicializaManipuladorMagnetico:
+   276                           	opt stack 27
+   277                           
+   278                           ;Configuracion.c: 137: inicializaGlobalRB_I_Int();
    279                           
-   280                           ;Configuracion.c: 140: ADCON0bits.GO = 1;
-   281  0001EC  82C2               	bsf	4034,1,c	;volatile
-   282  0001EE  0012               	return		;funcret
-   283  0001F0                     __end_of_inicializaManipuladorMagnetico:
-   284                           	opt stack 0
+   280                           ;incstack = 0
+   281  00024C  ECAF  F001         	call	_inicializaGlobalRB_I_Int	;wreg free
+   282                           
+   283                           ;Configuracion.c: 138: inicializaRB0_I();
+   284  000250  ECBF  F001         	call	_inicializaRB0_I	;wreg free
    285                           
-   286 ;; *************** function _inicializaTimer2_PWM *****************
-   287 ;; Defined at:
-   288 ;;		line 60 in file "Configuracion.c"
-   289 ;; Parameters:    Size  Location     Type
-   290 ;;		None
-   291 ;; Auto vars:     Size  Location     Type
-   292 ;;		None
-   293 ;; Return value:  Size  Location     Type
-   294 ;;                  1    wreg      void 
-   295 ;; Registers used:
-   296 ;;		wreg, status,2
-   297 ;; Tracked objects:
-   298 ;;		On entry : 0/0
-   299 ;;		On exit  : 0/0
-   300 ;;		Unchanged: 0/0
-   301 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   302 ;;      Params:         0       0       0       0       0       0       0
-   303 ;;      Locals:         0       0       0       0       0       0       0
-   304 ;;      Temps:          0       0       0       0       0       0       0
-   305 ;;      Totals:         0       0       0       0       0       0       0
-   306 ;;Total ram usage:        0 bytes
-   307 ;; Hardware stack levels used:    1
-   308 ;; Hardware stack levels required when called:    2
-   309 ;; This function calls:
-   310 ;;		Nothing
-   311 ;; This function is called by:
-   312 ;;		_inicializaManipuladorMagnetico
-   313 ;; This function uses a non-reentrant model
-   314 ;;
+   286                           ;Configuracion.c: 139: inicializaRB1_I();
+   287  000254  ECBA  F001         	call	_inicializaRB1_I	;wreg free
+   288                           
+   289                           ;Configuracion.c: 140: inicializaRB2_I();
+   290  000258  ECB5  F001         	call	_inicializaRB2_I	;wreg free
+   291                           
+   292                           ;Configuracion.c: 141: inicializaRC1_PWM();
+   293  00025C  EC85  F001         	call	_inicializaRC1_PWM	;wreg free
+   294                           
+   295                           ;Configuracion.c: 142: inicializaRC2_PWM();
+   296  000260  EC77  F001         	call	_inicializaRC2_PWM	;wreg free
+   297                           
+   298                           ;Configuracion.c: 143: inicializaRC3_O();
+   299  000264  ECCA  F001         	call	_inicializaRC3_O	;wreg free
+   300                           
+   301                           ;Configuracion.c: 144: inicializaRC4_O();
+   302  000268  ECC7  F001         	call	_inicializaRC4_O	;wreg free
+   303                           
+   304                           ;Configuracion.c: 145: inicializaAnalogicas();
+   305  00026C  EC66  F001         	call	_inicializaAnalogicas	;wreg free
+   306                           
+   307                           ;Configuracion.c: 146: inicializaAN0_I();
+   308  000270  ECD3  F001         	call	_inicializaAN0_I	;wreg free
+   309                           
+   310                           ;Configuracion.c: 147: inicializaAN1_I();
+   311  000274  ECD0  F001         	call	_inicializaAN1_I	;wreg free
+   312                           
+   313                           ;Configuracion.c: 148: inicializaTimer2_PWM();
+   314  000278  EC9C  F001         	call	_inicializaTimer2_PWM	;wreg free
    315                           
-   316                           	psect	text2
-   317  000274                     __ptext2:
-   318                           	opt stack 0
-   319  000274                     _inicializaTimer2_PWM:
-   320                           	opt stack 27
+   316                           ;Configuracion.c: 149: inicializaRC0_O();
+   317  00027C  ECCD  F001         	call	_inicializaRC0_O	;wreg free
+   318                           
+   319                           ;Configuracion.c: 150: inicializaRC5_O();
+   320  000280  ECC4  F001         	call	_inicializaRC5_O	;wreg free
    321                           
-   322                           ;Configuracion.c: 61: PIE1bits.TMR2IE = 0;
-   323                           
-   324                           ;incstack = 0
-   325  000274  929D               	bcf	3997,1,c	;volatile
-   326                           
-   327                           ;Configuracion.c: 67: PR2 = 249;
-   328  000276  0EF9               	movlw	249
-   329  000278  6ECB               	movwf	4043,c	;volatile
-   330                           
-   331                           ;Configuracion.c: 68: TMR2 = 0;
-   332  00027A  0E00               	movlw	0
-   333  00027C  6ECC               	movwf	4044,c	;volatile
-   334                           
-   335                           ;Configuracion.c: 69: T2CONbits.T2CKPS = 0b01;
-   336  00027E  50CA               	movf	4042,w,c	;volatile
-   337  000280  0BFC               	andlw	-4
-   338  000282  0901               	iorlw	1
-   339  000284  6ECA               	movwf	4042,c	;volatile
-   340                           
-   341                           ;Configuracion.c: 70: T2CONbits.TMR2ON = 1;
-   342  000286  84CA               	bsf	4042,2,c	;volatile
-   343  000288  0012               	return		;funcret
-   344  00028A                     __end_of_inicializaTimer2_PWM:
-   345                           	opt stack 0
-   346                           
-   347 ;; *************** function _inicializaRC5_O *****************
-   348 ;; Defined at:
-   349 ;;		line 107 in file "Configuracion.c"
-   350 ;; Parameters:    Size  Location     Type
-   351 ;;		None
-   352 ;; Auto vars:     Size  Location     Type
-   353 ;;		None
-   354 ;; Return value:  Size  Location     Type
-   355 ;;                  1    wreg      void 
-   356 ;; Registers used:
-   357 ;;		None
-   358 ;; Tracked objects:
-   359 ;;		On entry : 0/0
-   360 ;;		On exit  : 0/0
-   361 ;;		Unchanged: 0/0
-   362 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   363 ;;      Params:         0       0       0       0       0       0       0
-   364 ;;      Locals:         0       0       0       0       0       0       0
-   365 ;;      Temps:          0       0       0       0       0       0       0
-   366 ;;      Totals:         0       0       0       0       0       0       0
-   367 ;;Total ram usage:        0 bytes
-   368 ;; Hardware stack levels used:    1
-   369 ;; Hardware stack levels required when called:    2
-   370 ;; This function calls:
-   371 ;;		Nothing
-   372 ;; This function is called by:
-   373 ;;		_inicializaManipuladorMagnetico
-   374 ;; This function uses a non-reentrant model
-   375 ;;
-   376                           
-   377                           	psect	text3
-   378  0002B4                     __ptext3:
-   379                           	opt stack 0
-   380  0002B4                     _inicializaRC5_O:
-   381                           	opt stack 27
+   322                           ;Configuracion.c: 151: inicializaRC0_O();
+   323  000284  ECCD  F001         	call	_inicializaRC0_O	;wreg free
+   324                           
+   325                           ;Configuracion.c: 152: inicializaRB4_5_O();
+   326  000288  ECA7  F001         	call	_inicializaRB4_5_O	;wreg free
+   327                           
+   328                           ;Configuracion.c: 153: ADCON0bits.GO = 1;
+   329  00028C  82C2               	bsf	4034,1,c	;volatile
+   330  00028E  0012               	return		;funcret
+   331  000290                     __end_of_inicializaManipuladorMagnetico:
+   332                           	opt stack 0
+   333                           
+   334 ;; *************** function _inicializaTimer2_PWM *****************
+   335 ;; Defined at:
+   336 ;;		line 72 in file "Configuracion.c"
+   337 ;; Parameters:    Size  Location     Type
+   338 ;;		None
+   339 ;; Auto vars:     Size  Location     Type
+   340 ;;		None
+   341 ;; Return value:  Size  Location     Type
+   342 ;;                  1    wreg      void 
+   343 ;; Registers used:
+   344 ;;		wreg, status,2
+   345 ;; Tracked objects:
+   346 ;;		On entry : 0/0
+   347 ;;		On exit  : 0/0
+   348 ;;		Unchanged: 0/0
+   349 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   350 ;;      Params:         0       0       0       0       0       0       0
+   351 ;;      Locals:         0       0       0       0       0       0       0
+   352 ;;      Temps:          0       0       0       0       0       0       0
+   353 ;;      Totals:         0       0       0       0       0       0       0
+   354 ;;Total ram usage:        0 bytes
+   355 ;; Hardware stack levels used:    1
+   356 ;; Hardware stack levels required when called:    2
+   357 ;; This function calls:
+   358 ;;		Nothing
+   359 ;; This function is called by:
+   360 ;;		_inicializaManipuladorMagnetico
+   361 ;; This function uses a non-reentrant model
+   362 ;;
+   363                           
+   364                           	psect	text2
+   365  000338                     __ptext2:
+   366                           	opt stack 0
+   367  000338                     _inicializaTimer2_PWM:
+   368                           	opt stack 27
+   369                           
+   370                           ;Configuracion.c: 73: PIE1bits.TMR2IE = 0;
+   371                           
+   372                           ;incstack = 0
+   373  000338  929D               	bcf	3997,1,c	;volatile
+   374                           
+   375                           ;Configuracion.c: 79: PR2 = 249;
+   376  00033A  0EF9               	movlw	249
+   377  00033C  6ECB               	movwf	4043,c	;volatile
+   378                           
+   379                           ;Configuracion.c: 80: TMR2 = 0;
+   380  00033E  0E00               	movlw	0
+   381  000340  6ECC               	movwf	4044,c	;volatile
    382                           
-   383                           ;Configuracion.c: 108: TRISCbits.RC5 = 0;
-   384                           
-   385                           ;incstack = 0
-   386  0002B4  9A94               	bcf	3988,5,c	;volatile
-   387                           
-   388                           ;Configuracion.c: 109: PORTCbits.RC5 = 0;
-   389  0002B6  9A82               	bcf	3970,5,c	;volatile
-   390  0002B8  0012               	return		;funcret
-   391  0002BA                     __end_of_inicializaRC5_O:
-   392                           	opt stack 0
-   393                           
-   394 ;; *************** function _inicializaRC4_O *****************
-   395 ;; Defined at:
-   396 ;;		line 39 in file "Configuracion.c"
-   397 ;; Parameters:    Size  Location     Type
-   398 ;;		None
-   399 ;; Auto vars:     Size  Location     Type
-   400 ;;		None
-   401 ;; Return value:  Size  Location     Type
-   402 ;;                  1    wreg      void 
-   403 ;; Registers used:
-   404 ;;		None
-   405 ;; Tracked objects:
-   406 ;;		On entry : 0/0
-   407 ;;		On exit  : 0/0
-   408 ;;		Unchanged: 0/0
-   409 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   410 ;;      Params:         0       0       0       0       0       0       0
-   411 ;;      Locals:         0       0       0       0       0       0       0
-   412 ;;      Temps:          0       0       0       0       0       0       0
-   413 ;;      Totals:         0       0       0       0       0       0       0
-   414 ;;Total ram usage:        0 bytes
-   415 ;; Hardware stack levels used:    1
-   416 ;; Hardware stack levels required when called:    2
-   417 ;; This function calls:
-   418 ;;		Nothing
-   419 ;; This function is called by:
-   420 ;;		_inicializaManipuladorMagnetico
-   421 ;; This function uses a non-reentrant model
-   422 ;;
-   423                           
-   424                           	psect	text4
-   425  0002BA                     __ptext4:
-   426                           	opt stack 0
-   427  0002BA                     _inicializaRC4_O:
-   428                           	opt stack 27
-   429                           
-   430                           ;Configuracion.c: 40: TRISCbits.RC4 = 0;
-   431                           
-   432                           ;incstack = 0
-   433  0002BA  9894               	bcf	3988,4,c	;volatile
-   434                           
-   435                           ;Configuracion.c: 41: PORTCbits.RC4 = 0;
-   436  0002BC  9882               	bcf	3970,4,c	;volatile
-   437  0002BE  0012               	return		;funcret
-   438  0002C0                     __end_of_inicializaRC4_O:
-   439                           	opt stack 0
-   440                           
-   441 ;; *************** function _inicializaRC3_O *****************
-   442 ;; Defined at:
-   443 ;;		line 35 in file "Configuracion.c"
-   444 ;; Parameters:    Size  Location     Type
-   445 ;;		None
-   446 ;; Auto vars:     Size  Location     Type
-   447 ;;		None
-   448 ;; Return value:  Size  Location     Type
-   449 ;;                  1    wreg      void 
-   450 ;; Registers used:
-   451 ;;		None
-   452 ;; Tracked objects:
-   453 ;;		On entry : 0/0
-   454 ;;		On exit  : 0/0
-   455 ;;		Unchanged: 0/0
-   456 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   457 ;;      Params:         0       0       0       0       0       0       0
-   458 ;;      Locals:         0       0       0       0       0       0       0
-   459 ;;      Temps:          0       0       0       0       0       0       0
-   460 ;;      Totals:         0       0       0       0       0       0       0
-   461 ;;Total ram usage:        0 bytes
-   462 ;; Hardware stack levels used:    1
-   463 ;; Hardware stack levels required when called:    2
-   464 ;; This function calls:
-   465 ;;		Nothing
-   466 ;; This function is called by:
-   467 ;;		_inicializaManipuladorMagnetico
-   468 ;; This function uses a non-reentrant model
-   469 ;;
-   470                           
-   471                           	psect	text5
-   472  0002C0                     __ptext5:
-   473                           	opt stack 0
-   474  0002C0                     _inicializaRC3_O:
-   475                           	opt stack 27
-   476                           
-   477                           ;Configuracion.c: 36: TRISCbits.RC3 = 0;
-   478                           
-   479                           ;incstack = 0
-   480  0002C0  9694               	bcf	3988,3,c	;volatile
-   481                           
-   482                           ;Configuracion.c: 37: PORTCbits.RC3 = 0;
-   483  0002C2  9682               	bcf	3970,3,c	;volatile
-   484  0002C4  0012               	return		;funcret
-   485  0002C6                     __end_of_inicializaRC3_O:
-   486                           	opt stack 0
-   487                           
-   488 ;; *************** function _inicializaRC2_PWM *****************
-   489 ;; Defined at:
-   490 ;;		line 51 in file "Configuracion.c"
-   491 ;; Parameters:    Size  Location     Type
-   492 ;;		None
-   493 ;; Auto vars:     Size  Location     Type
-   494 ;;		None
-   495 ;; Return value:  Size  Location     Type
-   496 ;;                  1    wreg      void 
-   497 ;; Registers used:
-   498 ;;		wreg, status,2
-   499 ;; Tracked objects:
-   500 ;;		On entry : 0/0
-   501 ;;		On exit  : 0/0
-   502 ;;		Unchanged: 0/0
-   503 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   504 ;;      Params:         0       0       0       0       0       0       0
-   505 ;;      Locals:         0       0       0       0       0       0       0
-   506 ;;      Temps:          0       0       0       0       0       0       0
-   507 ;;      Totals:         0       0       0       0       0       0       0
-   508 ;;Total ram usage:        0 bytes
-   509 ;; Hardware stack levels used:    1
-   510 ;; Hardware stack levels required when called:    2
-   511 ;; This function calls:
-   512 ;;		Nothing
-   513 ;; This function is called by:
-   514 ;;		_inicializaManipuladorMagnetico
-   515 ;; This function uses a non-reentrant model
-   516 ;;
-   517                           
-   518                           	psect	text6
-   519  000212                     __ptext6:
-   520                           	opt stack 0
-   521  000212                     _inicializaRC2_PWM:
-   522                           	opt stack 27
-   523                           
-   524                           ;Configuracion.c: 52: TRISCbits.RC2 = 0;
-   525                           
-   526                           ;incstack = 0
-   527  000212  9494               	bcf	3988,2,c	;volatile
-   528                           
-   529                           ;Configuracion.c: 53: CCP1CONbits.P1M = 0b00;
-   530  000214  0E3F               	movlw	-193
-   531  000216  16BD               	andwf	4029,f,c	;volatile
-   532                           
-   533                           ;Configuracion.c: 54: CCP1CONbits.CCP1M = 0b1100;
-   534  000218  50BD               	movf	4029,w,c	;volatile
-   535  00021A  0BF0               	andlw	-16
-   536  00021C  090C               	iorlw	12
-   537  00021E  6EBD               	movwf	4029,c	;volatile
-   538                           
-   539                           ;Configuracion.c: 55: CCP1CONbits.DC1B = 0b00;
-   540  000220  0ECF               	movlw	-49
-   541  000222  16BD               	andwf	4029,f,c	;volatile
-   542                           
-   543                           ;Configuracion.c: 56: CCPR1L = 0;
-   544  000224  0E00               	movlw	0
-   545  000226  6EBE               	movwf	4030,c	;volatile
-   546                           
-   547                           ;Configuracion.c: 57: CCPR1H = 0;
-   548  000228  0E00               	movlw	0
-   549  00022A  6EBF               	movwf	4031,c	;volatile
-   550  00022C  0012               	return		;funcret
-   551  00022E                     __end_of_inicializaRC2_PWM:
-   552                           	opt stack 0
-   553                           
-   554 ;; *************** function _inicializaRC1_PWM *****************
-   555 ;; Defined at:
-   556 ;;		line 44 in file "Configuracion.c"
-   557 ;; Parameters:    Size  Location     Type
-   558 ;;		None
-   559 ;; Auto vars:     Size  Location     Type
-   560 ;;		None
-   561 ;; Return value:  Size  Location     Type
-   562 ;;                  1    wreg      void 
-   563 ;; Registers used:
-   564 ;;		wreg, status,2
-   565 ;; Tracked objects:
-   566 ;;		On entry : 0/0
-   567 ;;		On exit  : 0/0
-   568 ;;		Unchanged: 0/0
-   569 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   570 ;;      Params:         0       0       0       0       0       0       0
-   571 ;;      Locals:         0       0       0       0       0       0       0
-   572 ;;      Temps:          0       0       0       0       0       0       0
-   573 ;;      Totals:         0       0       0       0       0       0       0
-   574 ;;Total ram usage:        0 bytes
-   575 ;; Hardware stack levels used:    1
-   576 ;; Hardware stack levels required when called:    2
-   577 ;; This function calls:
-   578 ;;		Nothing
-   579 ;; This function is called by:
-   580 ;;		_inicializaManipuladorMagnetico
-   581 ;; This function uses a non-reentrant model
-   582 ;;
-   583                           
-   584                           	psect	text7
-   585  000246                     __ptext7:
-   586                           	opt stack 0
-   587  000246                     _inicializaRC1_PWM:
-   588                           	opt stack 27
-   589                           
-   590                           ;Configuracion.c: 45: TRISCbits.RC1 = 0;
-   591                           
-   592                           ;incstack = 0
-   593  000246  9294               	bcf	3988,1,c	;volatile
+   383                           ;Configuracion.c: 81: T2CONbits.T2CKPS = 0b01;
+   384  000342  50CA               	movf	4042,w,c	;volatile
+   385  000344  0BFC               	andlw	-4
+   386  000346  0901               	iorlw	1
+   387  000348  6ECA               	movwf	4042,c	;volatile
+   388                           
+   389                           ;Configuracion.c: 82: T2CONbits.TMR2ON = 1;
+   390  00034A  84CA               	bsf	4042,2,c	;volatile
+   391  00034C  0012               	return		;funcret
+   392  00034E                     __end_of_inicializaTimer2_PWM:
+   393                           	opt stack 0
+   394                           
+   395 ;; *************** function _inicializaRC5_O *****************
+   396 ;; Defined at:
+   397 ;;		line 119 in file "Configuracion.c"
+   398 ;; Parameters:    Size  Location     Type
+   399 ;;		None
+   400 ;; Auto vars:     Size  Location     Type
+   401 ;;		None
+   402 ;; Return value:  Size  Location     Type
+   403 ;;                  1    wreg      void 
+   404 ;; Registers used:
+   405 ;;		None
+   406 ;; Tracked objects:
+   407 ;;		On entry : 0/0
+   408 ;;		On exit  : 0/0
+   409 ;;		Unchanged: 0/0
+   410 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   411 ;;      Params:         0       0       0       0       0       0       0
+   412 ;;      Locals:         0       0       0       0       0       0       0
+   413 ;;      Temps:          0       0       0       0       0       0       0
+   414 ;;      Totals:         0       0       0       0       0       0       0
+   415 ;;Total ram usage:        0 bytes
+   416 ;; Hardware stack levels used:    1
+   417 ;; Hardware stack levels required when called:    2
+   418 ;; This function calls:
+   419 ;;		Nothing
+   420 ;; This function is called by:
+   421 ;;		_inicializaManipuladorMagnetico
+   422 ;; This function uses a non-reentrant model
+   423 ;;
+   424                           
+   425                           	psect	text3
+   426  000388                     __ptext3:
+   427                           	opt stack 0
+   428  000388                     _inicializaRC5_O:
+   429                           	opt stack 27
+   430                           
+   431                           ;Configuracion.c: 120: TRISCbits.RC5 = 0;
+   432                           
+   433                           ;incstack = 0
+   434  000388  9A94               	bcf	3988,5,c	;volatile
+   435                           
+   436                           ;Configuracion.c: 121: PORTCbits.RC5 = 0;
+   437  00038A  9A82               	bcf	3970,5,c	;volatile
+   438  00038C  0012               	return		;funcret
+   439  00038E                     __end_of_inicializaRC5_O:
+   440                           	opt stack 0
+   441                           
+   442 ;; *************** function _inicializaRC4_O *****************
+   443 ;; Defined at:
+   444 ;;		line 51 in file "Configuracion.c"
+   445 ;; Parameters:    Size  Location     Type
+   446 ;;		None
+   447 ;; Auto vars:     Size  Location     Type
+   448 ;;		None
+   449 ;; Return value:  Size  Location     Type
+   450 ;;                  1    wreg      void 
+   451 ;; Registers used:
+   452 ;;		None
+   453 ;; Tracked objects:
+   454 ;;		On entry : 0/0
+   455 ;;		On exit  : 0/0
+   456 ;;		Unchanged: 0/0
+   457 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   458 ;;      Params:         0       0       0       0       0       0       0
+   459 ;;      Locals:         0       0       0       0       0       0       0
+   460 ;;      Temps:          0       0       0       0       0       0       0
+   461 ;;      Totals:         0       0       0       0       0       0       0
+   462 ;;Total ram usage:        0 bytes
+   463 ;; Hardware stack levels used:    1
+   464 ;; Hardware stack levels required when called:    2
+   465 ;; This function calls:
+   466 ;;		Nothing
+   467 ;; This function is called by:
+   468 ;;		_inicializaManipuladorMagnetico
+   469 ;; This function uses a non-reentrant model
+   470 ;;
+   471                           
+   472                           	psect	text4
+   473  00038E                     __ptext4:
+   474                           	opt stack 0
+   475  00038E                     _inicializaRC4_O:
+   476                           	opt stack 27
+   477                           
+   478                           ;Configuracion.c: 52: TRISCbits.RC4 = 0;
+   479                           
+   480                           ;incstack = 0
+   481  00038E  9894               	bcf	3988,4,c	;volatile
+   482                           
+   483                           ;Configuracion.c: 53: PORTCbits.RC4 = 0;
+   484  000390  9882               	bcf	3970,4,c	;volatile
+   485  000392  0012               	return		;funcret
+   486  000394                     __end_of_inicializaRC4_O:
+   487                           	opt stack 0
+   488                           
+   489 ;; *************** function _inicializaRC3_O *****************
+   490 ;; Defined at:
+   491 ;;		line 47 in file "Configuracion.c"
+   492 ;; Parameters:    Size  Location     Type
+   493 ;;		None
+   494 ;; Auto vars:     Size  Location     Type
+   495 ;;		None
+   496 ;; Return value:  Size  Location     Type
+   497 ;;                  1    wreg      void 
+   498 ;; Registers used:
+   499 ;;		None
+   500 ;; Tracked objects:
+   501 ;;		On entry : 0/0
+   502 ;;		On exit  : 0/0
+   503 ;;		Unchanged: 0/0
+   504 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   505 ;;      Params:         0       0       0       0       0       0       0
+   506 ;;      Locals:         0       0       0       0       0       0       0
+   507 ;;      Temps:          0       0       0       0       0       0       0
+   508 ;;      Totals:         0       0       0       0       0       0       0
+   509 ;;Total ram usage:        0 bytes
+   510 ;; Hardware stack levels used:    1
+   511 ;; Hardware stack levels required when called:    2
+   512 ;; This function calls:
+   513 ;;		Nothing
+   514 ;; This function is called by:
+   515 ;;		_inicializaManipuladorMagnetico
+   516 ;; This function uses a non-reentrant model
+   517 ;;
+   518                           
+   519                           	psect	text5
+   520  000394                     __ptext5:
+   521                           	opt stack 0
+   522  000394                     _inicializaRC3_O:
+   523                           	opt stack 27
+   524                           
+   525                           ;Configuracion.c: 48: TRISCbits.RC3 = 0;
+   526                           
+   527                           ;incstack = 0
+   528  000394  9694               	bcf	3988,3,c	;volatile
+   529                           
+   530                           ;Configuracion.c: 49: PORTCbits.RC3 = 0;
+   531  000396  9682               	bcf	3970,3,c	;volatile
+   532  000398  0012               	return		;funcret
+   533  00039A                     __end_of_inicializaRC3_O:
+   534                           	opt stack 0
+   535                           
+   536 ;; *************** function _inicializaRC2_PWM *****************
+   537 ;; Defined at:
+   538 ;;		line 63 in file "Configuracion.c"
+   539 ;; Parameters:    Size  Location     Type
+   540 ;;		None
+   541 ;; Auto vars:     Size  Location     Type
+   542 ;;		None
+   543 ;; Return value:  Size  Location     Type
+   544 ;;                  1    wreg      void 
+   545 ;; Registers used:
+   546 ;;		wreg, status,2
+   547 ;; Tracked objects:
+   548 ;;		On entry : 0/0
+   549 ;;		On exit  : 0/0
+   550 ;;		Unchanged: 0/0
+   551 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   552 ;;      Params:         0       0       0       0       0       0       0
+   553 ;;      Locals:         0       0       0       0       0       0       0
+   554 ;;      Temps:          0       0       0       0       0       0       0
+   555 ;;      Totals:         0       0       0       0       0       0       0
+   556 ;;Total ram usage:        0 bytes
+   557 ;; Hardware stack levels used:    1
+   558 ;; Hardware stack levels required when called:    2
+   559 ;; This function calls:
+   560 ;;		Nothing
+   561 ;; This function is called by:
+   562 ;;		_inicializaManipuladorMagnetico
+   563 ;; This function uses a non-reentrant model
+   564 ;;
+   565                           
+   566                           	psect	text6
+   567  0002EE                     __ptext6:
+   568                           	opt stack 0
+   569  0002EE                     _inicializaRC2_PWM:
+   570                           	opt stack 27
+   571                           
+   572                           ;Configuracion.c: 64: TRISCbits.RC2 = 0;
+   573                           
+   574                           ;incstack = 0
+   575  0002EE  9494               	bcf	3988,2,c	;volatile
+   576                           
+   577                           ;Configuracion.c: 65: CCP1CONbits.P1M = 0b00;
+   578  0002F0  0E3F               	movlw	-193
+   579  0002F2  16BD               	andwf	4029,f,c	;volatile
+   580                           
+   581                           ;Configuracion.c: 66: CCP1CONbits.CCP1M = 0b1100;
+   582  0002F4  50BD               	movf	4029,w,c	;volatile
+   583  0002F6  0BF0               	andlw	-16
+   584  0002F8  090C               	iorlw	12
+   585  0002FA  6EBD               	movwf	4029,c	;volatile
+   586                           
+   587                           ;Configuracion.c: 67: CCP1CONbits.DC1B = 0b00;
+   588  0002FC  0ECF               	movlw	-49
+   589  0002FE  16BD               	andwf	4029,f,c	;volatile
+   590                           
+   591                           ;Configuracion.c: 68: CCPR1L = 0;
+   592  000300  0E00               	movlw	0
+   593  000302  6EBE               	movwf	4030,c	;volatile
    594                           
-   595                           ;Configuracion.c: 46: CCP2CONbits.CCP2M = 0b1100;
-   596  000248  50BA               	movf	4026,w,c	;volatile
-   597  00024A  0BF0               	andlw	-16
-   598  00024C  090C               	iorlw	12
-   599  00024E  6EBA               	movwf	4026,c	;volatile
-   600                           
-   601                           ;Configuracion.c: 47: CCP2CONbits.DC2B = 0b00;
-   602  000250  0ECF               	movlw	-49
-   603  000252  16BA               	andwf	4026,f,c	;volatile
-   604                           
-   605                           ;Configuracion.c: 48: CCPR2L = 0;
-   606  000254  0E00               	movlw	0
-   607  000256  6EBB               	movwf	4027,c	;volatile
-   608                           
-   609                           ;Configuracion.c: 49: CCPR2H = 0;
-   610  000258  0E00               	movlw	0
-   611  00025A  6EBC               	movwf	4028,c	;volatile
-   612  00025C  0012               	return		;funcret
-   613  00025E                     __end_of_inicializaRC1_PWM:
-   614                           	opt stack 0
-   615                           
-   616 ;; *************** function _inicializaRC0_O *****************
-   617 ;; Defined at:
-   618 ;;		line 103 in file "Configuracion.c"
-   619 ;; Parameters:    Size  Location     Type
-   620 ;;		None
-   621 ;; Auto vars:     Size  Location     Type
-   622 ;;		None
-   623 ;; Return value:  Size  Location     Type
-   624 ;;                  1    wreg      void 
-   625 ;; Registers used:
-   626 ;;		None
-   627 ;; Tracked objects:
-   628 ;;		On entry : 0/0
-   629 ;;		On exit  : 0/0
-   630 ;;		Unchanged: 0/0
-   631 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   632 ;;      Params:         0       0       0       0       0       0       0
-   633 ;;      Locals:         0       0       0       0       0       0       0
-   634 ;;      Temps:          0       0       0       0       0       0       0
-   635 ;;      Totals:         0       0       0       0       0       0       0
-   636 ;;Total ram usage:        0 bytes
-   637 ;; Hardware stack levels used:    1
-   638 ;; Hardware stack levels required when called:    2
-   639 ;; This function calls:
-   640 ;;		Nothing
-   641 ;; This function is called by:
-   642 ;;		_inicializaManipuladorMagnetico
-   643 ;; This function uses a non-reentrant model
-   644 ;;
-   645                           
-   646                           	psect	text8
-   647  0002C6                     __ptext8:
-   648                           	opt stack 0
-   649  0002C6                     _inicializaRC0_O:
-   650                           	opt stack 27
-   651                           
-   652                           ;Configuracion.c: 104: TRISCbits.RC0 = 0;
-   653                           
-   654                           ;incstack = 0
-   655  0002C6  9094               	bcf	3988,0,c	;volatile
+   595                           ;Configuracion.c: 69: CCPR1H = 0;
+   596  000304  0E00               	movlw	0
+   597  000306  6EBF               	movwf	4031,c	;volatile
+   598  000308  0012               	return		;funcret
+   599  00030A                     __end_of_inicializaRC2_PWM:
+   600                           	opt stack 0
+   601                           
+   602 ;; *************** function _inicializaRC1_PWM *****************
+   603 ;; Defined at:
+   604 ;;		line 56 in file "Configuracion.c"
+   605 ;; Parameters:    Size  Location     Type
+   606 ;;		None
+   607 ;; Auto vars:     Size  Location     Type
+   608 ;;		None
+   609 ;; Return value:  Size  Location     Type
+   610 ;;                  1    wreg      void 
+   611 ;; Registers used:
+   612 ;;		wreg, status,2
+   613 ;; Tracked objects:
+   614 ;;		On entry : 0/0
+   615 ;;		On exit  : 0/0
+   616 ;;		Unchanged: 0/0
+   617 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   618 ;;      Params:         0       0       0       0       0       0       0
+   619 ;;      Locals:         0       0       0       0       0       0       0
+   620 ;;      Temps:          0       0       0       0       0       0       0
+   621 ;;      Totals:         0       0       0       0       0       0       0
+   622 ;;Total ram usage:        0 bytes
+   623 ;; Hardware stack levels used:    1
+   624 ;; Hardware stack levels required when called:    2
+   625 ;; This function calls:
+   626 ;;		Nothing
+   627 ;; This function is called by:
+   628 ;;		_inicializaManipuladorMagnetico
+   629 ;; This function uses a non-reentrant model
+   630 ;;
+   631                           
+   632                           	psect	text7
+   633  00030A                     __ptext7:
+   634                           	opt stack 0
+   635  00030A                     _inicializaRC1_PWM:
+   636                           	opt stack 27
+   637                           
+   638                           ;Configuracion.c: 57: TRISCbits.RC1 = 0;
+   639                           
+   640                           ;incstack = 0
+   641  00030A  9294               	bcf	3988,1,c	;volatile
+   642                           
+   643                           ;Configuracion.c: 58: CCP2CONbits.CCP2M = 0b1100;
+   644  00030C  50BA               	movf	4026,w,c	;volatile
+   645  00030E  0BF0               	andlw	-16
+   646  000310  090C               	iorlw	12
+   647  000312  6EBA               	movwf	4026,c	;volatile
+   648                           
+   649                           ;Configuracion.c: 59: CCP2CONbits.DC2B = 0b00;
+   650  000314  0ECF               	movlw	-49
+   651  000316  16BA               	andwf	4026,f,c	;volatile
+   652                           
+   653                           ;Configuracion.c: 60: CCPR2L = 0;
+   654  000318  0E00               	movlw	0
+   655  00031A  6EBB               	movwf	4027,c	;volatile
    656                           
-   657                           ;Configuracion.c: 105: PORTCbits.RC0 = 0;
-   658  0002C8  9082               	bcf	3970,0,c	;volatile
-   659  0002CA  0012               	return		;funcret
-   660  0002CC                     __end_of_inicializaRC0_O:
-   661                           	opt stack 0
-   662                           
-   663 ;; *************** function _inicializaRB2_I *****************
-   664 ;; Defined at:
-   665 ;;		line 27 in file "Configuracion.c"
-   666 ;; Parameters:    Size  Location     Type
-   667 ;;		None
-   668 ;; Auto vars:     Size  Location     Type
-   669 ;;		None
-   670 ;; Return value:  Size  Location     Type
-   671 ;;                  1    wreg      void 
-   672 ;; Registers used:
-   673 ;;		None
-   674 ;; Tracked objects:
-   675 ;;		On entry : 0/0
-   676 ;;		On exit  : 0/0
-   677 ;;		Unchanged: 0/0
-   678 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   679 ;;      Params:         0       0       0       0       0       0       0
-   680 ;;      Locals:         0       0       0       0       0       0       0
-   681 ;;      Temps:          0       0       0       0       0       0       0
-   682 ;;      Totals:         0       0       0       0       0       0       0
-   683 ;;Total ram usage:        0 bytes
-   684 ;; Hardware stack levels used:    1
-   685 ;; Hardware stack levels required when called:    2
-   686 ;; This function calls:
-   687 ;;		Nothing
-   688 ;; This function is called by:
-   689 ;;		_inicializaManipuladorMagnetico
-   690 ;; This function uses a non-reentrant model
-   691 ;;
-   692                           
-   693                           	psect	text9
-   694  000296                     __ptext9:
-   695                           	opt stack 0
-   696  000296                     _inicializaRB2_I:
-   697                           	opt stack 27
-   698                           
-   699                           ;Configuracion.c: 28: TRISBbits.RB2 = 1;
-   700                           
-   701                           ;incstack = 0
-   702  000296  8493               	bsf	3987,2,c	;volatile
-   703                           
-   704                           ;Configuracion.c: 30: INTCON3bits.INT2F = 0;
-   705  000298  92F0               	bcf	intcon3,1,c	;volatile
-   706                           
-   707                           ;Configuracion.c: 31: INTCON3bits.INT2E = 1;
-   708  00029A  88F0               	bsf	intcon3,4,c	;volatile
-   709                           
-   710                           ;Configuracion.c: 32: INTCON2bits.INTEDG2 = 1;
-   711  00029C  88F1               	bsf	intcon2,4,c	;volatile
-   712  00029E  0012               	return		;funcret
-   713  0002A0                     __end_of_inicializaRB2_I:
-   714                           	opt stack 0
-   715                           intcon2	equ	0xFF1
-   716                           intcon3	equ	0xFF0
-   717                           
-   718 ;; *************** function _inicializaRB1_I *****************
-   719 ;; Defined at:
-   720 ;;		line 20 in file "Configuracion.c"
-   721 ;; Parameters:    Size  Location     Type
-   722 ;;		None
-   723 ;; Auto vars:     Size  Location     Type
-   724 ;;		None
-   725 ;; Return value:  Size  Location     Type
-   726 ;;                  1    wreg      void 
-   727 ;; Registers used:
-   728 ;;		None
-   729 ;; Tracked objects:
-   730 ;;		On entry : 0/0
-   731 ;;		On exit  : 0/0
-   732 ;;		Unchanged: 0/0
-   733 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   734 ;;      Params:         0       0       0       0       0       0       0
-   735 ;;      Locals:         0       0       0       0       0       0       0
-   736 ;;      Temps:          0       0       0       0       0       0       0
-   737 ;;      Totals:         0       0       0       0       0       0       0
-   738 ;;Total ram usage:        0 bytes
-   739 ;; Hardware stack levels used:    1
-   740 ;; Hardware stack levels required when called:    2
-   741 ;; This function calls:
-   742 ;;		Nothing
-   743 ;; This function is called by:
-   744 ;;		_inicializaManipuladorMagnetico
-   745 ;; This function uses a non-reentrant model
-   746 ;;
-   747                           
-   748                           	psect	text10
-   749  0002A0                     __ptext10:
-   750                           	opt stack 0
-   751  0002A0                     _inicializaRB1_I:
-   752                           	opt stack 27
-   753                           
-   754                           ;Configuracion.c: 21: TRISBbits.RB1 = 1;
-   755                           
-   756                           ;incstack = 0
-   757  0002A0  8293               	bsf	3987,1,c	;volatile
-   758                           
-   759                           ;Configuracion.c: 23: INTCON3bits.INT1F = 0;
-   760  0002A2  90F0               	bcf	intcon3,0,c	;volatile
-   761                           
-   762                           ;Configuracion.c: 24: INTCON3bits.INT1E = 1;
-   763  0002A4  86F0               	bsf	intcon3,3,c	;volatile
-   764                           
-   765                           ;Configuracion.c: 25: INTCON2bits.INTEDG1 = 1;
-   766  0002A6  8AF1               	bsf	intcon2,5,c	;volatile
-   767  0002A8  0012               	return		;funcret
-   768  0002AA                     __end_of_inicializaRB1_I:
-   769                           	opt stack 0
-   770                           intcon2	equ	0xFF1
-   771                           intcon3	equ	0xFF0
-   772                           
-   773 ;; *************** function _inicializaRB0_I *****************
-   774 ;; Defined at:
-   775 ;;		line 13 in file "Configuracion.c"
-   776 ;; Parameters:    Size  Location     Type
-   777 ;;		None
-   778 ;; Auto vars:     Size  Location     Type
+   657                           ;Configuracion.c: 61: CCPR2H = 0;
+   658  00031C  0E00               	movlw	0
+   659  00031E  6EBC               	movwf	4028,c	;volatile
+   660  000320  0012               	return		;funcret
+   661  000322                     __end_of_inicializaRC1_PWM:
+   662                           	opt stack 0
+   663                           
+   664 ;; *************** function _inicializaRC0_O *****************
+   665 ;; Defined at:
+   666 ;;		line 115 in file "Configuracion.c"
+   667 ;; Parameters:    Size  Location     Type
+   668 ;;		None
+   669 ;; Auto vars:     Size  Location     Type
+   670 ;;		None
+   671 ;; Return value:  Size  Location     Type
+   672 ;;                  1    wreg      void 
+   673 ;; Registers used:
+   674 ;;		None
+   675 ;; Tracked objects:
+   676 ;;		On entry : 0/0
+   677 ;;		On exit  : 0/0
+   678 ;;		Unchanged: 0/0
+   679 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   680 ;;      Params:         0       0       0       0       0       0       0
+   681 ;;      Locals:         0       0       0       0       0       0       0
+   682 ;;      Temps:          0       0       0       0       0       0       0
+   683 ;;      Totals:         0       0       0       0       0       0       0
+   684 ;;Total ram usage:        0 bytes
+   685 ;; Hardware stack levels used:    1
+   686 ;; Hardware stack levels required when called:    2
+   687 ;; This function calls:
+   688 ;;		Nothing
+   689 ;; This function is called by:
+   690 ;;		_inicializaManipuladorMagnetico
+   691 ;; This function uses a non-reentrant model
+   692 ;;
+   693                           
+   694                           	psect	text8
+   695  00039A                     __ptext8:
+   696                           	opt stack 0
+   697  00039A                     _inicializaRC0_O:
+   698                           	opt stack 27
+   699                           
+   700                           ;Configuracion.c: 116: TRISCbits.RC0 = 0;
+   701                           
+   702                           ;incstack = 0
+   703  00039A  9094               	bcf	3988,0,c	;volatile
+   704                           
+   705                           ;Configuracion.c: 117: PORTCbits.RC0 = 0;
+   706  00039C  9082               	bcf	3970,0,c	;volatile
+   707  00039E  0012               	return		;funcret
+   708  0003A0                     __end_of_inicializaRC0_O:
+   709                           	opt stack 0
+   710                           
+   711 ;; *************** function _inicializaRB4_5_O *****************
+   712 ;; Defined at:
+   713 ;;		line 35 in file "Configuracion.c"
+   714 ;; Parameters:    Size  Location     Type
+   715 ;;		None
+   716 ;; Auto vars:     Size  Location     Type
+   717 ;;		None
+   718 ;; Return value:  Size  Location     Type
+   719 ;;                  1    wreg      void 
+   720 ;; Registers used:
+   721 ;;		None
+   722 ;; Tracked objects:
+   723 ;;		On entry : 0/0
+   724 ;;		On exit  : 0/0
+   725 ;;		Unchanged: 0/0
+   726 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   727 ;;      Params:         0       0       0       0       0       0       0
+   728 ;;      Locals:         0       0       0       0       0       0       0
+   729 ;;      Temps:          0       0       0       0       0       0       0
+   730 ;;      Totals:         0       0       0       0       0       0       0
+   731 ;;Total ram usage:        0 bytes
+   732 ;; Hardware stack levels used:    1
+   733 ;; Hardware stack levels required when called:    2
+   734 ;; This function calls:
+   735 ;;		Nothing
+   736 ;; This function is called by:
+   737 ;;		_inicializaManipuladorMagnetico
+   738 ;; This function uses a non-reentrant model
+   739 ;;
+   740                           
+   741                           	psect	text9
+   742  00034E                     __ptext9:
+   743                           	opt stack 0
+   744  00034E                     _inicializaRB4_5_O:
+   745                           	opt stack 27
+   746                           
+   747                           ;Configuracion.c: 36: TRISBbits.RB4 = 1;
+   748                           
+   749                           ;incstack = 0
+   750  00034E  8893               	bsf	3987,4,c	;volatile
+   751                           
+   752                           ;Configuracion.c: 37: TRISBbits.RB5 = 1;
+   753  000350  8A93               	bsf	3987,5,c	;volatile
+   754                           
+   755                           ;Configuracion.c: 39: INTCONbits.RBIE = 1;
+   756  000352  86F2               	bsf	intcon,3,c	;volatile
+   757                           
+   758                           ;Configuracion.c: 40: INTCONbits.RBIF = 0;
+   759  000354  90F2               	bcf	intcon,0,c	;volatile
+   760                           
+   761                           ;Configuracion.c: 42: INTCON2bits.RBIP = 0;
+   762  000356  90F1               	bcf	intcon2,0,c	;volatile
+   763                           
+   764                           ;Configuracion.c: 43: IOCBbits.IOCB4 =1;
+   765  000358  887D               	bsf	3965,4,c	;volatile
+   766                           
+   767                           ;Configuracion.c: 44: IOCBbits.IOCB5 = 1;
+   768  00035A  8A7D               	bsf	3965,5,c	;volatile
+   769  00035C  0012               	return		;funcret
+   770  00035E                     __end_of_inicializaRB4_5_O:
+   771                           	opt stack 0
+   772                           intcon	equ	0xFF2
+   773                           intcon2	equ	0xFF1
+   774                           
+   775 ;; *************** function _inicializaRB2_I *****************
+   776 ;; Defined at:
+   777 ;;		line 27 in file "Configuracion.c"
+   778 ;; Parameters:    Size  Location     Type
    779 ;;		None
-   780 ;; Return value:  Size  Location     Type
-   781 ;;                  1    wreg      void 
-   782 ;; Registers used:
-   783 ;;		None
-   784 ;; Tracked objects:
-   785 ;;		On entry : 0/0
-   786 ;;		On exit  : 0/0
-   787 ;;		Unchanged: 0/0
-   788 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   789 ;;      Params:         0       0       0       0       0       0       0
-   790 ;;      Locals:         0       0       0       0       0       0       0
-   791 ;;      Temps:          0       0       0       0       0       0       0
-   792 ;;      Totals:         0       0       0       0       0       0       0
-   793 ;;Total ram usage:        0 bytes
-   794 ;; Hardware stack levels used:    1
-   795 ;; Hardware stack levels required when called:    2
-   796 ;; This function calls:
-   797 ;;		Nothing
-   798 ;; This function is called by:
-   799 ;;		_inicializaManipuladorMagnetico
-   800 ;; This function uses a non-reentrant model
-   801 ;;
-   802                           
-   803                           	psect	text11
-   804  0002AA                     __ptext11:
-   805                           	opt stack 0
-   806  0002AA                     _inicializaRB0_I:
-   807                           	opt stack 27
-   808                           
-   809                           ;Configuracion.c: 14: TRISBbits.RB0 = 1;
+   780 ;; Auto vars:     Size  Location     Type
+   781 ;;		None
+   782 ;; Return value:  Size  Location     Type
+   783 ;;                  1    wreg      void 
+   784 ;; Registers used:
+   785 ;;		None
+   786 ;; Tracked objects:
+   787 ;;		On entry : 0/0
+   788 ;;		On exit  : 0/0
+   789 ;;		Unchanged: 0/0
+   790 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   791 ;;      Params:         0       0       0       0       0       0       0
+   792 ;;      Locals:         0       0       0       0       0       0       0
+   793 ;;      Temps:          0       0       0       0       0       0       0
+   794 ;;      Totals:         0       0       0       0       0       0       0
+   795 ;;Total ram usage:        0 bytes
+   796 ;; Hardware stack levels used:    1
+   797 ;; Hardware stack levels required when called:    2
+   798 ;; This function calls:
+   799 ;;		Nothing
+   800 ;; This function is called by:
+   801 ;;		_inicializaManipuladorMagnetico
+   802 ;; This function uses a non-reentrant model
+   803 ;;
+   804                           
+   805                           	psect	text10
+   806  00036A                     __ptext10:
+   807                           	opt stack 0
+   808  00036A                     _inicializaRB2_I:
+   809                           	opt stack 27
    810                           
-   811                           ;incstack = 0
-   812  0002AA  8093               	bsf	3987,0,c	;volatile
-   813                           
-   814                           ;Configuracion.c: 16: INTCONbits.INT0IF = 0;
-   815  0002AC  92F2               	bcf	intcon,1,c	;volatile
-   816                           
-   817                           ;Configuracion.c: 17: INTCONbits.INT0IE = 1;
-   818  0002AE  88F2               	bsf	intcon,4,c	;volatile
-   819                           
-   820                           ;Configuracion.c: 18: INTCON2bits.INTEDG0 = 1;
-   821  0002B0  8CF1               	bsf	intcon2,6,c	;volatile
-   822  0002B2  0012               	return		;funcret
-   823  0002B4                     __end_of_inicializaRB0_I:
-   824                           	opt stack 0
-   825                           intcon	equ	0xFF2
-   826                           intcon2	equ	0xFF1
-   827                           intcon3	equ	0xFF0
-   828                           
-   829 ;; *************** function _inicializaGlobalRB_I_Int *****************
-   830 ;; Defined at:
-   831 ;;		line 4 in file "Configuracion.c"
-   832 ;; Parameters:    Size  Location     Type
-   833 ;;		None
-   834 ;; Auto vars:     Size  Location     Type
+   811                           ;Configuracion.c: 28: TRISBbits.RB2 = 1;
+   812                           
+   813                           ;incstack = 0
+   814  00036A  8493               	bsf	3987,2,c	;volatile
+   815                           
+   816                           ;Configuracion.c: 30: INTCON3bits.INT2F = 0;
+   817  00036C  92F0               	bcf	intcon3,1,c	;volatile
+   818                           
+   819                           ;Configuracion.c: 31: INTCON3bits.INT2E = 1;
+   820  00036E  88F0               	bsf	intcon3,4,c	;volatile
+   821                           
+   822                           ;Configuracion.c: 32: INTCON2bits.INTEDG2 = 1;
+   823  000370  88F1               	bsf	intcon2,4,c	;volatile
+   824  000372  0012               	return		;funcret
+   825  000374                     __end_of_inicializaRB2_I:
+   826                           	opt stack 0
+   827                           intcon	equ	0xFF2
+   828                           intcon2	equ	0xFF1
+   829                           intcon3	equ	0xFF0
+   830                           
+   831 ;; *************** function _inicializaRB1_I *****************
+   832 ;; Defined at:
+   833 ;;		line 20 in file "Configuracion.c"
+   834 ;; Parameters:    Size  Location     Type
    835 ;;		None
-   836 ;; Return value:  Size  Location     Type
-   837 ;;                  1    wreg      void 
-   838 ;; Registers used:
-   839 ;;		wreg, status,2
-   840 ;; Tracked objects:
-   841 ;;		On entry : 0/0
-   842 ;;		On exit  : 0/0
-   843 ;;		Unchanged: 0/0
-   844 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   845 ;;      Params:         0       0       0       0       0       0       0
-   846 ;;      Locals:         0       0       0       0       0       0       0
-   847 ;;      Temps:          0       0       0       0       0       0       0
-   848 ;;      Totals:         0       0       0       0       0       0       0
-   849 ;;Total ram usage:        0 bytes
-   850 ;; Hardware stack levels used:    1
-   851 ;; Hardware stack levels required when called:    2
-   852 ;; This function calls:
-   853 ;;		Nothing
-   854 ;; This function is called by:
-   855 ;;		_inicializaManipuladorMagnetico
-   856 ;; This function uses a non-reentrant model
-   857 ;;
-   858                           
-   859                           	psect	text12
-   860  00028A                     __ptext12:
-   861                           	opt stack 0
-   862  00028A                     _inicializaGlobalRB_I_Int:
-   863                           	opt stack 27
-   864                           
-   865                           ;Configuracion.c: 5: ANSELH = 0;
+   836 ;; Auto vars:     Size  Location     Type
+   837 ;;		None
+   838 ;; Return value:  Size  Location     Type
+   839 ;;                  1    wreg      void 
+   840 ;; Registers used:
+   841 ;;		None
+   842 ;; Tracked objects:
+   843 ;;		On entry : 0/0
+   844 ;;		On exit  : 0/0
+   845 ;;		Unchanged: 0/0
+   846 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   847 ;;      Params:         0       0       0       0       0       0       0
+   848 ;;      Locals:         0       0       0       0       0       0       0
+   849 ;;      Temps:          0       0       0       0       0       0       0
+   850 ;;      Totals:         0       0       0       0       0       0       0
+   851 ;;Total ram usage:        0 bytes
+   852 ;; Hardware stack levels used:    1
+   853 ;; Hardware stack levels required when called:    2
+   854 ;; This function calls:
+   855 ;;		Nothing
+   856 ;; This function is called by:
+   857 ;;		_inicializaManipuladorMagnetico
+   858 ;; This function uses a non-reentrant model
+   859 ;;
+   860                           
+   861                           	psect	text11
+   862  000374                     __ptext11:
+   863                           	opt stack 0
+   864  000374                     _inicializaRB1_I:
+   865                           	opt stack 27
    866                           
-   867                           ;incstack = 0
-   868  00028A  0E00               	movlw	0
-   869  00028C  6E7F               	movwf	3967,c	;volatile
-   870                           
-   871                           ;Configuracion.c: 6: INTCONbits.GIEH = 1;
-   872  00028E  8EF2               	bsf	intcon,7,c	;volatile
-   873                           
-   874                           ;Configuracion.c: 7: INTCONbits.GIEL = 1;
-   875  000290  8CF2               	bsf	intcon,6,c	;volatile
-   876                           
-   877                           ;Configuracion.c: 8: RCONbits.IPEN = 1;
-   878  000292  8ED0               	bsf	4048,7,c	;volatile
-   879  000294  0012               	return		;funcret
-   880  000296                     __end_of_inicializaGlobalRB_I_Int:
-   881                           	opt stack 0
-   882                           intcon	equ	0xFF2
-   883                           intcon2	equ	0xFF1
-   884                           intcon3	equ	0xFF0
-   885                           
-   886 ;; *************** function _inicializaAnalogicas *****************
-   887 ;; Defined at:
-   888 ;;		line 82 in file "Configuracion.c"
-   889 ;; Parameters:    Size  Location     Type
-   890 ;;		None
-   891 ;; Auto vars:     Size  Location     Type
-   892 ;;		None
-   893 ;; Return value:  Size  Location     Type
-   894 ;;                  1    wreg      void 
-   895 ;; Registers used:
-   896 ;;		wreg, status,2
-   897 ;; Tracked objects:
-   898 ;;		On entry : 0/0
-   899 ;;		On exit  : 0/0
-   900 ;;		Unchanged: 0/0
-   901 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   902 ;;      Params:         0       0       0       0       0       0       0
-   903 ;;      Locals:         0       0       0       0       0       0       0
-   904 ;;      Temps:          0       0       0       0       0       0       0
-   905 ;;      Totals:         0       0       0       0       0       0       0
-   906 ;;Total ram usage:        0 bytes
-   907 ;; Hardware stack levels used:    1
-   908 ;; Hardware stack levels required when called:    2
-   909 ;; This function calls:
-   910 ;;		Nothing
-   911 ;; This function is called by:
-   912 ;;		_inicializaManipuladorMagnetico
-   913 ;; This function uses a non-reentrant model
-   914 ;;
-   915                           
-   916                           	psect	text13
-   917  0001F0                     __ptext13:
-   918                           	opt stack 0
-   919  0001F0                     _inicializaAnalogicas:
-   920                           	opt stack 27
-   921                           
-   922                           ;Configuracion.c: 83: PIR1bits.ADIF = 0;
-   923                           
-   924                           ;incstack = 0
-   925  0001F0  9C9E               	bcf	3998,6,c	;volatile
-   926                           
-   927                           ;Configuracion.c: 84: PIE1bits.ADIE = 1;
-   928  0001F2  8C9D               	bsf	3997,6,c	;volatile
-   929                           
-   930                           ;Configuracion.c: 85: IPR1bits.ADIP = 0;
-   931  0001F4  9C9F               	bcf	3999,6,c	;volatile
-   932                           
-   933                           ;Configuracion.c: 88: ADRES = 0;
-   934  0001F6  0E00               	movlw	0
-   935  0001F8  6EC4               	movwf	4036,c	;volatile
-   936  0001FA  0E00               	movlw	0
-   937  0001FC  6EC3               	movwf	4035,c	;volatile
-   938                           
-   939                           ;Configuracion.c: 89: ADCON0bits.CHS = 0;
-   940  0001FE  94C2               	bcf	4034,2,c	;volatile
-   941  000200  96C2               	bcf	4034,3,c	;volatile
-   942  000202  98C2               	bcf	4034,4,c	;volatile
-   943  000204  9AC2               	bcf	4034,5,c	;volatile
-   944                           
-   945                           ;Configuracion.c: 90: ADCON0bits.ADON = 1;
-   946  000206  80C2               	bsf	4034,0,c	;volatile
-   947                           
-   948                           ;Configuracion.c: 93: ADCON2bits.ADFM = 0;
-   949  000208  9EC0               	bcf	4032,7,c	;volatile
-   950                           
-   951                           ;Configuracion.c: 94: ADCON2bits.ADCS = 0b111;
-   952  00020A  80C0               	bsf	4032,0,c	;volatile
-   953  00020C  82C0               	bsf	4032,1,c	;volatile
-   954  00020E  84C0               	bsf	4032,2,c	;volatile
-   955  000210  0012               	return		;funcret
-   956  000212                     __end_of_inicializaAnalogicas:
-   957                           	opt stack 0
-   958                           intcon	equ	0xFF2
-   959                           intcon2	equ	0xFF1
-   960                           intcon3	equ	0xFF0
-   961                           
-   962 ;; *************** function _inicializaAN1_I *****************
-   963 ;; Defined at:
-   964 ;;		line 78 in file "Configuracion.c"
-   965 ;; Parameters:    Size  Location     Type
-   966 ;;		None
-   967 ;; Auto vars:     Size  Location     Type
-   968 ;;		None
-   969 ;; Return value:  Size  Location     Type
-   970 ;;                  1    wreg      void 
-   971 ;; Registers used:
-   972 ;;		None
-   973 ;; Tracked objects:
-   974 ;;		On entry : 0/0
-   975 ;;		On exit  : 0/0
-   976 ;;		Unchanged: 0/0
-   977 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   978 ;;      Params:         0       0       0       0       0       0       0
-   979 ;;      Locals:         0       0       0       0       0       0       0
-   980 ;;      Temps:          0       0       0       0       0       0       0
-   981 ;;      Totals:         0       0       0       0       0       0       0
-   982 ;;Total ram usage:        0 bytes
-   983 ;; Hardware stack levels used:    1
-   984 ;; Hardware stack levels required when called:    2
-   985 ;; This function calls:
-   986 ;;		Nothing
-   987 ;; This function is called by:
-   988 ;;		_inicializaManipuladorMagnetico
-   989 ;; This function uses a non-reentrant model
-   990 ;;
-   991                           
-   992                           	psect	text14
-   993  0002CC                     __ptext14:
-   994                           	opt stack 0
-   995  0002CC                     _inicializaAN1_I:
-   996                           	opt stack 27
-   997                           
-   998                           ;Configuracion.c: 79: TRISAbits.RA1 = 1;
+   867                           ;Configuracion.c: 21: TRISBbits.RB1 = 1;
+   868                           
+   869                           ;incstack = 0
+   870  000374  8293               	bsf	3987,1,c	;volatile
+   871                           
+   872                           ;Configuracion.c: 23: INTCON3bits.INT1F = 0;
+   873  000376  90F0               	bcf	intcon3,0,c	;volatile
+   874                           
+   875                           ;Configuracion.c: 24: INTCON3bits.INT1E = 1;
+   876  000378  86F0               	bsf	intcon3,3,c	;volatile
+   877                           
+   878                           ;Configuracion.c: 25: INTCON2bits.INTEDG1 = 1;
+   879  00037A  8AF1               	bsf	intcon2,5,c	;volatile
+   880  00037C  0012               	return		;funcret
+   881  00037E                     __end_of_inicializaRB1_I:
+   882                           	opt stack 0
+   883                           intcon	equ	0xFF2
+   884                           intcon2	equ	0xFF1
+   885                           intcon3	equ	0xFF0
+   886                           
+   887 ;; *************** function _inicializaRB0_I *****************
+   888 ;; Defined at:
+   889 ;;		line 13 in file "Configuracion.c"
+   890 ;; Parameters:    Size  Location     Type
+   891 ;;		None
+   892 ;; Auto vars:     Size  Location     Type
+   893 ;;		None
+   894 ;; Return value:  Size  Location     Type
+   895 ;;                  1    wreg      void 
+   896 ;; Registers used:
+   897 ;;		None
+   898 ;; Tracked objects:
+   899 ;;		On entry : 0/0
+   900 ;;		On exit  : 0/0
+   901 ;;		Unchanged: 0/0
+   902 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   903 ;;      Params:         0       0       0       0       0       0       0
+   904 ;;      Locals:         0       0       0       0       0       0       0
+   905 ;;      Temps:          0       0       0       0       0       0       0
+   906 ;;      Totals:         0       0       0       0       0       0       0
+   907 ;;Total ram usage:        0 bytes
+   908 ;; Hardware stack levels used:    1
+   909 ;; Hardware stack levels required when called:    2
+   910 ;; This function calls:
+   911 ;;		Nothing
+   912 ;; This function is called by:
+   913 ;;		_inicializaManipuladorMagnetico
+   914 ;; This function uses a non-reentrant model
+   915 ;;
+   916                           
+   917                           	psect	text12
+   918  00037E                     __ptext12:
+   919                           	opt stack 0
+   920  00037E                     _inicializaRB0_I:
+   921                           	opt stack 27
+   922                           
+   923                           ;Configuracion.c: 14: TRISBbits.RB0 = 1;
+   924                           
+   925                           ;incstack = 0
+   926  00037E  8093               	bsf	3987,0,c	;volatile
+   927                           
+   928                           ;Configuracion.c: 16: INTCONbits.INT0IF = 0;
+   929  000380  92F2               	bcf	intcon,1,c	;volatile
+   930                           
+   931                           ;Configuracion.c: 17: INTCONbits.INT0IE = 1;
+   932  000382  88F2               	bsf	intcon,4,c	;volatile
+   933                           
+   934                           ;Configuracion.c: 18: INTCON2bits.INTEDG0 = 1;
+   935  000384  8CF1               	bsf	intcon2,6,c	;volatile
+   936  000386  0012               	return		;funcret
+   937  000388                     __end_of_inicializaRB0_I:
+   938                           	opt stack 0
+   939                           intcon	equ	0xFF2
+   940                           intcon2	equ	0xFF1
+   941                           intcon3	equ	0xFF0
+   942                           
+   943 ;; *************** function _inicializaGlobalRB_I_Int *****************
+   944 ;; Defined at:
+   945 ;;		line 4 in file "Configuracion.c"
+   946 ;; Parameters:    Size  Location     Type
+   947 ;;		None
+   948 ;; Auto vars:     Size  Location     Type
+   949 ;;		None
+   950 ;; Return value:  Size  Location     Type
+   951 ;;                  1    wreg      void 
+   952 ;; Registers used:
+   953 ;;		wreg, status,2
+   954 ;; Tracked objects:
+   955 ;;		On entry : 0/0
+   956 ;;		On exit  : 0/0
+   957 ;;		Unchanged: 0/0
+   958 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   959 ;;      Params:         0       0       0       0       0       0       0
+   960 ;;      Locals:         0       0       0       0       0       0       0
+   961 ;;      Temps:          0       0       0       0       0       0       0
+   962 ;;      Totals:         0       0       0       0       0       0       0
+   963 ;;Total ram usage:        0 bytes
+   964 ;; Hardware stack levels used:    1
+   965 ;; Hardware stack levels required when called:    2
+   966 ;; This function calls:
+   967 ;;		Nothing
+   968 ;; This function is called by:
+   969 ;;		_inicializaManipuladorMagnetico
+   970 ;; This function uses a non-reentrant model
+   971 ;;
+   972                           
+   973                           	psect	text13
+   974  00035E                     __ptext13:
+   975                           	opt stack 0
+   976  00035E                     _inicializaGlobalRB_I_Int:
+   977                           	opt stack 27
+   978                           
+   979                           ;Configuracion.c: 5: ANSELH = 0;
+   980                           
+   981                           ;incstack = 0
+   982  00035E  0E00               	movlw	0
+   983  000360  6E7F               	movwf	3967,c	;volatile
+   984                           
+   985                           ;Configuracion.c: 6: INTCONbits.GIEH = 1;
+   986  000362  8EF2               	bsf	intcon,7,c	;volatile
+   987                           
+   988                           ;Configuracion.c: 7: INTCONbits.GIEL = 1;
+   989  000364  8CF2               	bsf	intcon,6,c	;volatile
+   990                           
+   991                           ;Configuracion.c: 8: RCONbits.IPEN = 1;
+   992  000366  8ED0               	bsf	4048,7,c	;volatile
+   993  000368  0012               	return		;funcret
+   994  00036A                     __end_of_inicializaGlobalRB_I_Int:
+   995                           	opt stack 0
+   996                           intcon	equ	0xFF2
+   997                           intcon2	equ	0xFF1
+   998                           intcon3	equ	0xFF0
    999                           
-  1000                           ;incstack = 0
-  1001  0002CC  8292               	bsf	3986,1,c	;volatile
-  1002                           
-  1003                           ;Configuracion.c: 80: ANSELbits.ANS1 = 1;
-  1004  0002CE  827E               	bsf	3966,1,c	;volatile
-  1005  0002D0  0012               	return		;funcret
-  1006  0002D2                     __end_of_inicializaAN1_I:
-  1007                           	opt stack 0
-  1008                           intcon	equ	0xFF2
-  1009                           intcon2	equ	0xFF1
-  1010                           intcon3	equ	0xFF0
-  1011                           
-  1012 ;; *************** function _inicializaAN0_I *****************
-  1013 ;; Defined at:
-  1014 ;;		line 74 in file "Configuracion.c"
-  1015 ;; Parameters:    Size  Location     Type
-  1016 ;;		None
-  1017 ;; Auto vars:     Size  Location     Type
-  1018 ;;		None
-  1019 ;; Return value:  Size  Location     Type
-  1020 ;;                  1    wreg      void 
-  1021 ;; Registers used:
-  1022 ;;		None
-  1023 ;; Tracked objects:
-  1024 ;;		On entry : 0/0
-  1025 ;;		On exit  : 0/0
-  1026 ;;		Unchanged: 0/0
-  1027 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-  1028 ;;      Params:         0       0       0       0       0       0       0
-  1029 ;;      Locals:         0       0       0       0       0       0       0
-  1030 ;;      Temps:          0       0       0       0       0       0       0
-  1031 ;;      Totals:         0       0       0       0       0       0       0
-  1032 ;;Total ram usage:        0 bytes
-  1033 ;; Hardware stack levels used:    1
-  1034 ;; Hardware stack levels required when called:    2
-  1035 ;; This function calls:
-  1036 ;;		Nothing
-  1037 ;; This function is called by:
-  1038 ;;		_inicializaManipuladorMagnetico
-  1039 ;; This function uses a non-reentrant model
-  1040 ;;
-  1041                           
-  1042                           	psect	text15
-  1043  0002D2                     __ptext15:
-  1044                           	opt stack 0
-  1045  0002D2                     _inicializaAN0_I:
-  1046                           	opt stack 27
-  1047                           
-  1048                           ;Configuracion.c: 75: TRISAbits.RA0 = 1;
-  1049                           
-  1050                           ;incstack = 0
-  1051  0002D2  8092               	bsf	3986,0,c	;volatile
+  1000 ;; *************** function _inicializaAnalogicas *****************
+  1001 ;; Defined at:
+  1002 ;;		line 94 in file "Configuracion.c"
+  1003 ;; Parameters:    Size  Location     Type
+  1004 ;;		None
+  1005 ;; Auto vars:     Size  Location     Type
+  1006 ;;		None
+  1007 ;; Return value:  Size  Location     Type
+  1008 ;;                  1    wreg      void 
+  1009 ;; Registers used:
+  1010 ;;		wreg, status,2
+  1011 ;; Tracked objects:
+  1012 ;;		On entry : 0/0
+  1013 ;;		On exit  : 0/0
+  1014 ;;		Unchanged: 0/0
+  1015 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1016 ;;      Params:         0       0       0       0       0       0       0
+  1017 ;;      Locals:         0       0       0       0       0       0       0
+  1018 ;;      Temps:          0       0       0       0       0       0       0
+  1019 ;;      Totals:         0       0       0       0       0       0       0
+  1020 ;;Total ram usage:        0 bytes
+  1021 ;; Hardware stack levels used:    1
+  1022 ;; Hardware stack levels required when called:    2
+  1023 ;; This function calls:
+  1024 ;;		Nothing
+  1025 ;; This function is called by:
+  1026 ;;		_inicializaManipuladorMagnetico
+  1027 ;; This function uses a non-reentrant model
+  1028 ;;
+  1029                           
+  1030                           	psect	text14
+  1031  0002CC                     __ptext14:
+  1032                           	opt stack 0
+  1033  0002CC                     _inicializaAnalogicas:
+  1034                           	opt stack 27
+  1035                           
+  1036                           ;Configuracion.c: 95: PIR1bits.ADIF = 0;
+  1037                           
+  1038                           ;incstack = 0
+  1039  0002CC  9C9E               	bcf	3998,6,c	;volatile
+  1040                           
+  1041                           ;Configuracion.c: 96: PIE1bits.ADIE = 1;
+  1042  0002CE  8C9D               	bsf	3997,6,c	;volatile
+  1043                           
+  1044                           ;Configuracion.c: 97: IPR1bits.ADIP = 0;
+  1045  0002D0  9C9F               	bcf	3999,6,c	;volatile
+  1046                           
+  1047                           ;Configuracion.c: 100: ADRES = 0;
+  1048  0002D2  0E00               	movlw	0
+  1049  0002D4  6EC4               	movwf	4036,c	;volatile
+  1050  0002D6  0E00               	movlw	0
+  1051  0002D8  6EC3               	movwf	4035,c	;volatile
   1052                           
-  1053                           ;Configuracion.c: 76: ANSELbits.ANS0 = 1;
-  1054  0002D4  807E               	bsf	3966,0,c	;volatile
-  1055  0002D6  0012               	return		;funcret
-  1056  0002D8                     __end_of_inicializaAN0_I:
-  1057                           	opt stack 0
-  1058                           intcon	equ	0xFF2
-  1059                           intcon2	equ	0xFF1
-  1060                           intcon3	equ	0xFF0
+  1053                           ;Configuracion.c: 101: ADCON0bits.CHS = 0;
+  1054  0002DA  94C2               	bcf	4034,2,c	;volatile
+  1055  0002DC  96C2               	bcf	4034,3,c	;volatile
+  1056  0002DE  98C2               	bcf	4034,4,c	;volatile
+  1057  0002E0  9AC2               	bcf	4034,5,c	;volatile
+  1058                           
+  1059                           ;Configuracion.c: 102: ADCON0bits.ADON = 1;
+  1060  0002E2  80C2               	bsf	4034,0,c	;volatile
   1061                           
-  1062 ;; *************** function _interrupcionBaixa *****************
-  1063 ;; Defined at:
-  1064 ;;		line 24 in file "main.c"
-  1065 ;; Parameters:    Size  Location     Type
-  1066 ;;		None
-  1067 ;; Auto vars:     Size  Location     Type
-  1068 ;;		None
-  1069 ;; Return value:  Size  Location     Type
-  1070 ;;                  1    wreg      void 
-  1071 ;; Registers used:
-  1072 ;;		wreg, status,2, status,0
-  1073 ;; Tracked objects:
-  1074 ;;		On entry : 0/0
-  1075 ;;		On exit  : 0/0
-  1076 ;;		Unchanged: 0/0
-  1077 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-  1078 ;;      Params:         0       0       0       0       0       0       0
-  1079 ;;      Locals:         0       0       0       0       0       0       0
-  1080 ;;      Temps:         21       0       0       0       0       0       0
-  1081 ;;      Totals:        21       0       0       0       0       0       0
-  1082 ;;Total ram usage:       21 bytes
-  1083 ;; Hardware stack levels used:    1
-  1084 ;; Hardware stack levels required when called:    1
-  1085 ;; This function calls:
-  1086 ;;		Nothing
-  1087 ;; This function is called by:
-  1088 ;;		Interrupt level 1
-  1089 ;; This function uses a non-reentrant model
-  1090 ;;
-  1091                           
-  1092                           	psect	intcodelo
-  1093  000018                     __pintcodelo:
-  1094                           	opt stack 0
-  1095  000018                     _interrupcionBaixa:
-  1096                           	opt stack 27
-  1097                           
-  1098                           ;incstack = 0
-  1099  000018  802E               	bsf	btemp,0,c	;set compiler interrupt flag (level 1)
-  1100  00001A  CFD8 F013          	movff	status,??_interrupcionBaixa+4
-  1101  00001E  CFE8 F014          	movff	wreg,??_interrupcionBaixa+5
-  1102  000022  CFE0 F015          	movff	bsr,??_interrupcionBaixa+6
-  1103  000026  CFFA F016          	movff	pclath,??_interrupcionBaixa+7
-  1104  00002A  CFFB F017          	movff	pclatu,??_interrupcionBaixa+8
-  1105  00002E  CFE9 F018          	movff	fsr0l,??_interrupcionBaixa+9
-  1106  000032  CFEA F019          	movff	fsr0h,??_interrupcionBaixa+10
-  1107  000036  CFE1 F01A          	movff	fsr1l,??_interrupcionBaixa+11
-  1108  00003A  CFE2 F01B          	movff	fsr1h,??_interrupcionBaixa+12
-  1109  00003E  CFD9 F01C          	movff	fsr2l,??_interrupcionBaixa+13
-  1110  000042  CFDA F01D          	movff	fsr2h,??_interrupcionBaixa+14
-  1111  000046  CFF3 F01E          	movff	prodl,??_interrupcionBaixa+15
-  1112  00004A  CFF4 F01F          	movff	prodh,??_interrupcionBaixa+16
-  1113  00004E  CFF6 F020          	movff	tblptrl,??_interrupcionBaixa+17
-  1114  000052  CFF7 F021          	movff	tblptrh,??_interrupcionBaixa+18
-  1115  000056  CFF8 F022          	movff	tblptru,??_interrupcionBaixa+19
-  1116  00005A  CFF5 F023          	movff	tablat,??_interrupcionBaixa+20
-  1117                           
-  1118                           ;main.c: 25: if (PIR1bits.ADIF){
-  1119  00005E  AC9E               	btfss	3998,6,c	;volatile
-  1120  000060  D045               	goto	i1l40
-  1121                           
-  1122                           ;main.c: 26: PIR1bits.ADIF=0;
-  1123  000062  9C9E               	bcf	3998,6,c	;volatile
-  1124                           
-  1125                           ;main.c: 27: if(actual == 0){
-  1126  000064  5028               	movf	_actual,w,c
-  1127  000066  1029               	iorwf	_actual+1,w,c
-  1128  000068  A4D8               	btfss	status,2,c
-  1129  00006A  D01E               	goto	i1l861
-  1130                           
-  1131                           ;main.c: 28: ultimaLectura0=(ADRESH<<2)&ADRESL;
-  1132  00006C  50C4               	movf	4036,w,c	;volatile
-  1133  00006E  6E0F               	movwf	??_interrupcionBaixa& (0+255),c
-  1134  000070  6A10               	clrf	(??_interrupcionBaixa+1)& (0+255),c
-  1135  000072  90D8               	bcf	status,0,c
-  1136  000074  360F               	rlcf	??_interrupcionBaixa,f,c
-  1137  000076  3610               	rlcf	??_interrupcionBaixa+1,f,c
-  1138  000078  90D8               	bcf	status,0,c
-  1139  00007A  360F               	rlcf	??_interrupcionBaixa,f,c
-  1140  00007C  3610               	rlcf	??_interrupcionBaixa+1,f,c
-  1141  00007E  50C3               	movf	4035,w,c	;volatile
-  1142  000080  140F               	andwf	??_interrupcionBaixa,w,c
-  1143  000082  6E2A               	movwf	_ultimaLectura0,c
-  1144  000084  0E00               	movlw	0
-  1145  000086  1410               	andwf	??_interrupcionBaixa+1,w,c
-  1146  000088  6E2B               	movwf	_ultimaLectura0+1,c
-  1147                           
-  1148                           ;main.c: 29: ultimaLectura0=ADRES;
-  1149  00008A  CFC3 F02A          	movff	4035,_ultimaLectura0	;volatile
-  1150  00008E  CFC4 F02B          	movff	4036,_ultimaLectura0+1	;volatile
-  1151                           
-  1152                           ;main.c: 30: actual=1;
-  1153  000092  0E00               	movlw	0
-  1154  000094  6E29               	movwf	_actual+1,c
-  1155  000096  0E01               	movlw	1
-  1156  000098  6E28               	movwf	_actual,c
-  1157                           
-  1158                           ;main.c: 31: ADCON0bits.CHS=1;
-  1159  00009A  50C2               	movf	4034,w,c	;volatile
-  1160  00009C  0BC3               	andlw	-61
-  1161  00009E  0904               	iorlw	4
-  1162  0000A0  6EC2               	movwf	4034,c	;volatile
+  1062                           ;Configuracion.c: 105: ADCON2bits.ADFM = 0;
+  1063  0002E4  9EC0               	bcf	4032,7,c	;volatile
+  1064                           
+  1065                           ;Configuracion.c: 106: ADCON2bits.ADCS = 0b111;
+  1066  0002E6  80C0               	bsf	4032,0,c	;volatile
+  1067  0002E8  82C0               	bsf	4032,1,c	;volatile
+  1068  0002EA  84C0               	bsf	4032,2,c	;volatile
+  1069  0002EC  0012               	return		;funcret
+  1070  0002EE                     __end_of_inicializaAnalogicas:
+  1071                           	opt stack 0
+  1072                           intcon	equ	0xFF2
+  1073                           intcon2	equ	0xFF1
+  1074                           intcon3	equ	0xFF0
+  1075                           
+  1076 ;; *************** function _inicializaAN1_I *****************
+  1077 ;; Defined at:
+  1078 ;;		line 90 in file "Configuracion.c"
+  1079 ;; Parameters:    Size  Location     Type
+  1080 ;;		None
+  1081 ;; Auto vars:     Size  Location     Type
+  1082 ;;		None
+  1083 ;; Return value:  Size  Location     Type
+  1084 ;;                  1    wreg      void 
+  1085 ;; Registers used:
+  1086 ;;		None
+  1087 ;; Tracked objects:
+  1088 ;;		On entry : 0/0
+  1089 ;;		On exit  : 0/0
+  1090 ;;		Unchanged: 0/0
+  1091 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1092 ;;      Params:         0       0       0       0       0       0       0
+  1093 ;;      Locals:         0       0       0       0       0       0       0
+  1094 ;;      Temps:          0       0       0       0       0       0       0
+  1095 ;;      Totals:         0       0       0       0       0       0       0
+  1096 ;;Total ram usage:        0 bytes
+  1097 ;; Hardware stack levels used:    1
+  1098 ;; Hardware stack levels required when called:    2
+  1099 ;; This function calls:
+  1100 ;;		Nothing
+  1101 ;; This function is called by:
+  1102 ;;		_inicializaManipuladorMagnetico
+  1103 ;; This function uses a non-reentrant model
+  1104 ;;
+  1105                           
+  1106                           	psect	text15
+  1107  0003A0                     __ptext15:
+  1108                           	opt stack 0
+  1109  0003A0                     _inicializaAN1_I:
+  1110                           	opt stack 27
+  1111                           
+  1112                           ;Configuracion.c: 91: TRISAbits.RA1 = 1;
+  1113                           
+  1114                           ;incstack = 0
+  1115  0003A0  8292               	bsf	3986,1,c	;volatile
+  1116                           
+  1117                           ;Configuracion.c: 92: ANSELbits.ANS1 = 1;
+  1118  0003A2  827E               	bsf	3966,1,c	;volatile
+  1119  0003A4  0012               	return		;funcret
+  1120  0003A6                     __end_of_inicializaAN1_I:
+  1121                           	opt stack 0
+  1122                           intcon	equ	0xFF2
+  1123                           intcon2	equ	0xFF1
+  1124                           intcon3	equ	0xFF0
+  1125                           
+  1126 ;; *************** function _inicializaAN0_I *****************
+  1127 ;; Defined at:
+  1128 ;;		line 86 in file "Configuracion.c"
+  1129 ;; Parameters:    Size  Location     Type
+  1130 ;;		None
+  1131 ;; Auto vars:     Size  Location     Type
+  1132 ;;		None
+  1133 ;; Return value:  Size  Location     Type
+  1134 ;;                  1    wreg      void 
+  1135 ;; Registers used:
+  1136 ;;		None
+  1137 ;; Tracked objects:
+  1138 ;;		On entry : 0/0
+  1139 ;;		On exit  : 0/0
+  1140 ;;		Unchanged: 0/0
+  1141 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1142 ;;      Params:         0       0       0       0       0       0       0
+  1143 ;;      Locals:         0       0       0       0       0       0       0
+  1144 ;;      Temps:          0       0       0       0       0       0       0
+  1145 ;;      Totals:         0       0       0       0       0       0       0
+  1146 ;;Total ram usage:        0 bytes
+  1147 ;; Hardware stack levels used:    1
+  1148 ;; Hardware stack levels required when called:    2
+  1149 ;; This function calls:
+  1150 ;;		Nothing
+  1151 ;; This function is called by:
+  1152 ;;		_inicializaManipuladorMagnetico
+  1153 ;; This function uses a non-reentrant model
+  1154 ;;
+  1155                           
+  1156                           	psect	text16
+  1157  0003A6                     __ptext16:
+  1158                           	opt stack 0
+  1159  0003A6                     _inicializaAN0_I:
+  1160                           	opt stack 27
+  1161                           
+  1162                           ;Configuracion.c: 87: TRISAbits.RA0 = 1;
   1163                           
-  1164                           ;main.c: 32: CCPR1L = ADRESH;
-  1165  0000A2  CFC4 FFBE          	movff	4036,4030	;volatile
+  1164                           ;incstack = 0
+  1165  0003A6  8092               	bsf	3986,0,c	;volatile
   1166                           
-  1167                           ;main.c: 33: }else{
-  1168  0000A6  D021               	goto	i1l869
-  1169  0000A8                     i1l861:
-  1170                           
-  1171                           ;main.c: 34: ultimaLectura1=(ADRESH<<2)+(ADRESL>>6);
-  1172  0000A8  CFC3 F00F          	movff	4035,??_interrupcionBaixa	;volatile
-  1173  0000AC  0E06               	movlw	6
-  1174  0000AE  6E10               	movwf	(??_interrupcionBaixa+1)& (0+255),c
-  1175  0000B0                     i1u6_25:
-  1176  0000B0  90D8               	bcf	status,0,c
-  1177  0000B2  320F               	rrcf	??_interrupcionBaixa,f,c
-  1178  0000B4  2E10               	decfsz	(??_interrupcionBaixa+1)& (0+255),f,c
-  1179  0000B6  D7FC               	goto	i1u6_25
-  1180  0000B8  50C4               	movf	4036,w,c	;volatile
-  1181  0000BA  6E11               	movwf	(??_interrupcionBaixa+2)& (0+255),c
-  1182  0000BC  6A12               	clrf	(??_interrupcionBaixa+3)& (0+255),c
-  1183  0000BE  90D8               	bcf	status,0,c
-  1184  0000C0  3611               	rlcf	??_interrupcionBaixa+2,f,c
-  1185  0000C2  3612               	rlcf	??_interrupcionBaixa+3,f,c
-  1186  0000C4  90D8               	bcf	status,0,c
-  1187  0000C6  3611               	rlcf	??_interrupcionBaixa+2,f,c
-  1188  0000C8  3612               	rlcf	??_interrupcionBaixa+3,f,c
-  1189  0000CA  500F               	movf	??_interrupcionBaixa,w,c
-  1190  0000CC  2411               	addwf	??_interrupcionBaixa+2,w,c
-  1191  0000CE  6E2C               	movwf	_ultimaLectura1,c
-  1192  0000D0  0E00               	movlw	0
-  1193  0000D2  2012               	addwfc	??_interrupcionBaixa+3,w,c
-  1194  0000D4  6E2D               	movwf	_ultimaLectura1+1,c
-  1195                           
-  1196                           ;main.c: 36: ADCON0bits.CHS=0;
-  1197  0000D6  94C2               	bcf	4034,2,c	;volatile
-  1198  0000D8  96C2               	bcf	4034,3,c	;volatile
-  1199  0000DA  98C2               	bcf	4034,4,c	;volatile
-  1200  0000DC  9AC2               	bcf	4034,5,c	;volatile
-  1201                           
-  1202                           ;main.c: 37: actual=0;
-  1203  0000DE  0E00               	movlw	0
-  1204  0000E0  6E29               	movwf	_actual+1,c
-  1205  0000E2  0E00               	movlw	0
-  1206  0000E4  6E28               	movwf	_actual,c
-  1207                           
-  1208                           ;main.c: 38: CCPR2L = ADRESH;
-  1209  0000E6  CFC4 FFBB          	movff	4036,4027	;volatile
-  1210  0000EA                     i1l869:
+  1167                           ;Configuracion.c: 88: ANSELbits.ANS0 = 1;
+  1168  0003A8  807E               	bsf	3966,0,c	;volatile
+  1169  0003AA  0012               	return		;funcret
+  1170  0003AC                     __end_of_inicializaAN0_I:
+  1171                           	opt stack 0
+  1172                           intcon	equ	0xFF2
+  1173                           intcon2	equ	0xFF1
+  1174                           intcon3	equ	0xFF0
+  1175                           
+  1176 ;; *************** function _interrupcionBaixa *****************
+  1177 ;; Defined at:
+  1178 ;;		line 25 in file "main.c"
+  1179 ;; Parameters:    Size  Location     Type
+  1180 ;;		None
+  1181 ;; Auto vars:     Size  Location     Type
+  1182 ;;		None
+  1183 ;; Return value:  Size  Location     Type
+  1184 ;;                  1    wreg      void 
+  1185 ;; Registers used:
+  1186 ;;		wreg, status,2, status,0
+  1187 ;; Tracked objects:
+  1188 ;;		On entry : 0/0
+  1189 ;;		On exit  : 0/0
+  1190 ;;		Unchanged: 0/0
+  1191 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1192 ;;      Params:         0       0       0       0       0       0       0
+  1193 ;;      Locals:         0       0       0       0       0       0       0
+  1194 ;;      Temps:         21       0       0       0       0       0       0
+  1195 ;;      Totals:        21       0       0       0       0       0       0
+  1196 ;;Total ram usage:       21 bytes
+  1197 ;; Hardware stack levels used:    1
+  1198 ;; Hardware stack levels required when called:    1
+  1199 ;; This function calls:
+  1200 ;;		Nothing
+  1201 ;; This function is called by:
+  1202 ;;		Interrupt level 1
+  1203 ;; This function uses a non-reentrant model
+  1204 ;;
+  1205                           
+  1206                           	psect	intcodelo
+  1207  000018                     __pintcodelo:
+  1208                           	opt stack 0
+  1209  000018                     _interrupcionBaixa:
+  1210                           	opt stack 27
   1211                           
-  1212                           ;main.c: 39: }
-  1213                           ;main.c: 40: ADCON0bits.GO=1;
-  1214  0000EA  82C2               	bsf	4034,1,c	;volatile
-  1215  0000EC                     i1l40:
-  1216  0000EC  C023  FFF5         	movff	??_interrupcionBaixa+20,tablat
-  1217  0000F0  C022  FFF8         	movff	??_interrupcionBaixa+19,tblptru
-  1218  0000F4  C021  FFF7         	movff	??_interrupcionBaixa+18,tblptrh
-  1219  0000F8  C020  FFF6         	movff	??_interrupcionBaixa+17,tblptrl
-  1220  0000FC  C01F  FFF4         	movff	??_interrupcionBaixa+16,prodh
-  1221  000100  C01E  FFF3         	movff	??_interrupcionBaixa+15,prodl
-  1222  000104  C01D  FFDA         	movff	??_interrupcionBaixa+14,fsr2h
-  1223  000108  C01C  FFD9         	movff	??_interrupcionBaixa+13,fsr2l
-  1224  00010C  C01B  FFE2         	movff	??_interrupcionBaixa+12,fsr1h
-  1225  000110  C01A  FFE1         	movff	??_interrupcionBaixa+11,fsr1l
-  1226  000114  C019  FFEA         	movff	??_interrupcionBaixa+10,fsr0h
-  1227  000118  C018  FFE9         	movff	??_interrupcionBaixa+9,fsr0l
-  1228  00011C  C017  FFFB         	movff	??_interrupcionBaixa+8,pclatu
-  1229  000120  C016  FFFA         	movff	??_interrupcionBaixa+7,pclath
-  1230  000124  C015  FFE0         	movff	??_interrupcionBaixa+6,bsr
-  1231  000128  C014  FFE8         	movff	??_interrupcionBaixa+5,wreg
-  1232  00012C  C013  FFD8         	movff	??_interrupcionBaixa+4,status
-  1233  000130  902E               	bcf	btemp,0,c	;clear compiler interrupt flag (level 1)
-  1234  000132  0010               	retfie	
-  1235  000134                     __end_of_interrupcionBaixa:
-  1236                           	opt stack 0
-  1237                           pclatu	equ	0xFFB
-  1238                           pclath	equ	0xFFA
-  1239                           tblptru	equ	0xFF8
-  1240                           tblptrh	equ	0xFF7
-  1241                           tblptrl	equ	0xFF6
-  1242                           tablat	equ	0xFF5
-  1243                           prodh	equ	0xFF4
-  1244                           prodl	equ	0xFF3
-  1245                           intcon	equ	0xFF2
-  1246                           intcon2	equ	0xFF1
-  1247                           intcon3	equ	0xFF0
-  1248                           fsr0h	equ	0xFEA
-  1249                           fsr0l	equ	0xFE9
-  1250                           wreg	equ	0xFE8
-  1251                           fsr1h	equ	0xFE2
-  1252                           fsr1l	equ	0xFE1
-  1253                           bsr	equ	0xFE0
-  1254                           fsr2h	equ	0xFDA
-  1255                           fsr2l	equ	0xFD9
-  1256                           status	equ	0xFD8
-  1257                           
-  1258 ;; *************** function _interrupcionAlta *****************
-  1259 ;; Defined at:
-  1260 ;;		line 13 in file "main.c"
-  1261 ;; Parameters:    Size  Location     Type
-  1262 ;;		None
-  1263 ;; Auto vars:     Size  Location     Type
-  1264 ;;		None
-  1265 ;; Return value:  Size  Location     Type
-  1266 ;;                  1    wreg      void 
-  1267 ;; Registers used:
-  1268 ;;		None
-  1269 ;; Tracked objects:
-  1270 ;;		On entry : 0/0
-  1271 ;;		On exit  : 0/0
-  1272 ;;		Unchanged: 0/0
-  1273 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-  1274 ;;      Params:         0       0       0       0       0       0       0
-  1275 ;;      Locals:         0       0       0       0       0       0       0
-  1276 ;;      Temps:         14       0       0       0       0       0       0
-  1277 ;;      Totals:        14       0       0       0       0       0       0
-  1278 ;;Total ram usage:       14 bytes
-  1279 ;; Hardware stack levels used:    1
-  1280 ;; This function calls:
-  1281 ;;		Nothing
-  1282 ;; This function is called by:
-  1283 ;;		Interrupt level 2
-  1284 ;; This function uses a non-reentrant model
-  1285 ;;
-  1286                           
-  1287                           	psect	intcode
-  1288  000008                     __pintcode:
-  1289                           	opt stack 0
-  1290  000008                     _interrupcionAlta:
-  1291                           	opt stack 27
-  1292                           
-  1293                           ;incstack = 0
-  1294  000008  822E               	bsf	btemp,1,c	;set compiler interrupt flag (level 2)
-  1295  00000A  CFFA F001          	movff	pclath,??_interrupcionAlta
-  1296  00000E  CFFB F002          	movff	pclatu,??_interrupcionAlta+1
-  1297  000012  EF9C  F000         	goto	int_func
-  1298                           pclatu	equ	0xFFB
-  1299                           pclath	equ	0xFFA
-  1300                           tblptru	equ	0xFF8
-  1301                           tblptrh	equ	0xFF7
-  1302                           tblptrl	equ	0xFF6
-  1303                           tablat	equ	0xFF5
-  1304                           prodh	equ	0xFF4
-  1305                           prodl	equ	0xFF3
-  1306                           intcon	equ	0xFF2
-  1307                           intcon2	equ	0xFF1
-  1308                           intcon3	equ	0xFF0
-  1309                           fsr0h	equ	0xFEA
-  1310                           fsr0l	equ	0xFE9
-  1311                           wreg	equ	0xFE8
-  1312                           fsr1h	equ	0xFE2
-  1313                           fsr1l	equ	0xFE1
-  1314                           bsr	equ	0xFE0
-  1315                           fsr2h	equ	0xFDA
-  1316                           fsr2l	equ	0xFD9
-  1317                           status	equ	0xFD8
-  1318                           
-  1319                           	psect	intcode_body
-  1320  000138                     __pintcode_body:
-  1321                           	opt stack 27
-  1322  000138                     int_func:
-  1323                           	opt stack 27
-  1324  000138  CFE9 F003          	movff	fsr0l,??_interrupcionAlta+2
-  1325  00013C  CFEA F004          	movff	fsr0h,??_interrupcionAlta+3
-  1326  000140  CFE1 F005          	movff	fsr1l,??_interrupcionAlta+4
-  1327  000144  CFE2 F006          	movff	fsr1h,??_interrupcionAlta+5
-  1328  000148  CFD9 F007          	movff	fsr2l,??_interrupcionAlta+6
-  1329  00014C  CFDA F008          	movff	fsr2h,??_interrupcionAlta+7
-  1330  000150  CFF3 F009          	movff	prodl,??_interrupcionAlta+8
-  1331  000154  CFF4 F00A          	movff	prodh,??_interrupcionAlta+9
-  1332  000158  CFF6 F00B          	movff	tblptrl,??_interrupcionAlta+10
-  1333  00015C  CFF7 F00C          	movff	tblptrh,??_interrupcionAlta+11
-  1334  000160  CFF8 F00D          	movff	tblptru,??_interrupcionAlta+12
-  1335  000164  CFF5 F00E          	movff	tablat,??_interrupcionAlta+13
-  1336                           
-  1337                           ;main.c: 14: if (INTCONbits.INT0IF){
-  1338  000168  B2F2               	btfsc	intcon,1,c	;volatile
+  1212                           ;incstack = 0
+  1213  000018  8033               	bsf	btemp,0,c	;set compiler interrupt flag (level 1)
+  1214  00001A  CFD8 F013          	movff	status,??_interrupcionBaixa+4
+  1215  00001E  CFE8 F014          	movff	wreg,??_interrupcionBaixa+5
+  1216  000022  CFE0 F015          	movff	bsr,??_interrupcionBaixa+6
+  1217  000026  CFFA F016          	movff	pclath,??_interrupcionBaixa+7
+  1218  00002A  CFFB F017          	movff	pclatu,??_interrupcionBaixa+8
+  1219  00002E  CFE9 F018          	movff	fsr0l,??_interrupcionBaixa+9
+  1220  000032  CFEA F019          	movff	fsr0h,??_interrupcionBaixa+10
+  1221  000036  CFE1 F01A          	movff	fsr1l,??_interrupcionBaixa+11
+  1222  00003A  CFE2 F01B          	movff	fsr1h,??_interrupcionBaixa+12
+  1223  00003E  CFD9 F01C          	movff	fsr2l,??_interrupcionBaixa+13
+  1224  000042  CFDA F01D          	movff	fsr2h,??_interrupcionBaixa+14
+  1225  000046  CFF3 F01E          	movff	prodl,??_interrupcionBaixa+15
+  1226  00004A  CFF4 F01F          	movff	prodh,??_interrupcionBaixa+16
+  1227  00004E  CFF6 F020          	movff	tblptrl,??_interrupcionBaixa+17
+  1228  000052  CFF7 F021          	movff	tblptrh,??_interrupcionBaixa+18
+  1229  000056  CFF8 F022          	movff	tblptru,??_interrupcionBaixa+19
+  1230  00005A  CFF5 F023          	movff	tablat,??_interrupcionBaixa+20
+  1231                           
+  1232                           ;main.c: 26: if (PIR1bits.ADIF){
+  1233  00005E  AC9E               	btfss	3998,6,c	;volatile
+  1234  000060  D04F               	goto	i1l897
+  1235                           
+  1236                           ;main.c: 27: PIR1bits.ADIF=0;
+  1237  000062  9C9E               	bcf	3998,6,c	;volatile
+  1238                           
+  1239                           ;main.c: 28: if(actual == 0){
+  1240  000064  5029               	movf	_actual,w,c
+  1241  000066  102A               	iorwf	_actual+1,w,c
+  1242  000068  A4D8               	btfss	status,2,c
+  1243  00006A  D023               	goto	i1l883
+  1244                           
+  1245                           ;main.c: 29: ultimaLectura0=(ADRESH<<2)&ADRESL;
+  1246  00006C  50C4               	movf	4036,w,c	;volatile
+  1247  00006E  6E0F               	movwf	??_interrupcionBaixa& (0+255),c
+  1248  000070  6A10               	clrf	(??_interrupcionBaixa+1)& (0+255),c
+  1249  000072  90D8               	bcf	status,0,c
+  1250  000074  360F               	rlcf	??_interrupcionBaixa,f,c
+  1251  000076  3610               	rlcf	??_interrupcionBaixa+1,f,c
+  1252  000078  90D8               	bcf	status,0,c
+  1253  00007A  360F               	rlcf	??_interrupcionBaixa,f,c
+  1254  00007C  3610               	rlcf	??_interrupcionBaixa+1,f,c
+  1255  00007E  50C3               	movf	4035,w,c	;volatile
+  1256  000080  140F               	andwf	??_interrupcionBaixa,w,c
+  1257  000082  6E2B               	movwf	_ultimaLectura0,c
+  1258  000084  0E00               	movlw	0
+  1259  000086  1410               	andwf	??_interrupcionBaixa+1,w,c
+  1260  000088  6E2C               	movwf	_ultimaLectura0+1,c
+  1261                           
+  1262                           ;main.c: 30: ultimaLectura0=ADRES;
+  1263  00008A  CFC3 F02B          	movff	4035,_ultimaLectura0	;volatile
+  1264  00008E  CFC4 F02C          	movff	4036,_ultimaLectura0+1	;volatile
+  1265                           
+  1266                           ;main.c: 31: actual=1;
+  1267  000092  0E00               	movlw	0
+  1268  000094  6E2A               	movwf	_actual+1,c
+  1269  000096  0E01               	movlw	1
+  1270  000098  6E29               	movwf	_actual,c
+  1271                           
+  1272                           ;main.c: 32: ADCON0bits.CHS=1;
+  1273  00009A  50C2               	movf	4034,w,c	;volatile
+  1274  00009C  0BC3               	andlw	-61
+  1275  00009E  0904               	iorlw	4
+  1276  0000A0  6EC2               	movwf	4034,c	;volatile
+  1277                           
+  1278                           ;main.c: 33: CCPR1L = ADRESH;
+  1279  0000A2  CFC4 FFBE          	movff	4036,4030	;volatile
+  1280                           
+  1281                           ;main.c: 34: if(CCPR1L > 249) CCPR1L=249;
+  1282  0000A6  0EF9               	movlw	249
+  1283  0000A8  64BE               	cpfsgt	4030,c	;volatile
+  1284  0000AA  D029               	goto	i1l895
+  1285  0000AC  0EF9               	movlw	249
+  1286  0000AE  6EBE               	movwf	4030,c	;volatile
+  1287                           
+  1288                           ;main.c: 35: }else{
+  1289  0000B0  D026               	goto	i1l895
+  1290  0000B2                     i1l883:
+  1291                           
+  1292                           ;main.c: 36: ultimaLectura1=(ADRESH<<2)+(ADRESL>>6);
+  1293  0000B2  CFC3 F00F          	movff	4035,??_interrupcionBaixa	;volatile
+  1294  0000B6  0E06               	movlw	6
+  1295  0000B8  6E10               	movwf	(??_interrupcionBaixa+1)& (0+255),c
+  1296  0000BA                     i1u7_25:
+  1297  0000BA  90D8               	bcf	status,0,c
+  1298  0000BC  320F               	rrcf	??_interrupcionBaixa,f,c
+  1299  0000BE  2E10               	decfsz	(??_interrupcionBaixa+1)& (0+255),f,c
+  1300  0000C0  D7FC               	goto	i1u7_25
+  1301  0000C2  50C4               	movf	4036,w,c	;volatile
+  1302  0000C4  6E11               	movwf	(??_interrupcionBaixa+2)& (0+255),c
+  1303  0000C6  6A12               	clrf	(??_interrupcionBaixa+3)& (0+255),c
+  1304  0000C8  90D8               	bcf	status,0,c
+  1305  0000CA  3611               	rlcf	??_interrupcionBaixa+2,f,c
+  1306  0000CC  3612               	rlcf	??_interrupcionBaixa+3,f,c
+  1307  0000CE  90D8               	bcf	status,0,c
+  1308  0000D0  3611               	rlcf	??_interrupcionBaixa+2,f,c
+  1309  0000D2  3612               	rlcf	??_interrupcionBaixa+3,f,c
+  1310  0000D4  500F               	movf	??_interrupcionBaixa,w,c
+  1311  0000D6  2411               	addwf	??_interrupcionBaixa+2,w,c
+  1312  0000D8  6E2D               	movwf	_ultimaLectura1,c
+  1313  0000DA  0E00               	movlw	0
+  1314  0000DC  2012               	addwfc	??_interrupcionBaixa+3,w,c
+  1315  0000DE  6E2E               	movwf	_ultimaLectura1+1,c
+  1316                           
+  1317                           ;main.c: 38: ADCON0bits.CHS=0;
+  1318  0000E0  94C2               	bcf	4034,2,c	;volatile
+  1319  0000E2  96C2               	bcf	4034,3,c	;volatile
+  1320  0000E4  98C2               	bcf	4034,4,c	;volatile
+  1321  0000E6  9AC2               	bcf	4034,5,c	;volatile
+  1322                           
+  1323                           ;main.c: 39: actual=0;
+  1324  0000E8  0E00               	movlw	0
+  1325  0000EA  6E2A               	movwf	_actual+1,c
+  1326  0000EC  0E00               	movlw	0
+  1327  0000EE  6E29               	movwf	_actual,c
+  1328                           
+  1329                           ;main.c: 40: CCPR2L = ADRESH;
+  1330  0000F0  CFC4 FFBB          	movff	4036,4027	;volatile
+  1331                           
+  1332                           ;main.c: 41: if(CCPR2L > 249) CCPR2L=249;
+  1333  0000F4  0EF9               	movlw	249
+  1334  0000F6  64BB               	cpfsgt	4027,c	;volatile
+  1335  0000F8  D002               	goto	i1l895
+  1336  0000FA  0EF9               	movlw	249
+  1337  0000FC  6EBB               	movwf	4027,c	;volatile
+  1338  0000FE                     i1l895:
   1339                           
-  1340                           ;main.c: 15: INTCONbits.INT0IF = 0;
-  1341  00016A  92F2               	bcf	intcon,1,c	;volatile
-  1342                           
-  1343                           ;main.c: 16: }
-  1344                           ;main.c: 17: if (INTCON3bits.INT1IF){
-  1345  00016C  B0F0               	btfsc	intcon3,0,c	;volatile
-  1346                           
-  1347                           ;main.c: 18: INTCON3bits.INT1IF = 0;
-  1348  00016E  90F0               	bcf	intcon3,0,c	;volatile
+  1340                           ;main.c: 42: }
+  1341                           ;main.c: 43: ADCON0bits.GO=1;
+  1342  0000FE  82C2               	bsf	4034,1,c	;volatile
+  1343  000100                     i1l897:
+  1344                           
+  1345                           ;main.c: 44: }
+  1346                           ;main.c: 45: if (INTCONbits.RBIF){
+  1347  000100  A0F2               	btfss	intcon,0,c	;volatile
+  1348  000102  D042               	goto	i1l51
   1349                           
-  1350                           ;main.c: 19: }
-  1351                           ;main.c: 20: if (INTCON3bits.INT2IF){
-  1352  000170  B2F0               	btfsc	intcon3,1,c	;volatile
-  1353                           
-  1354                           ;main.c: 21: INTCON3bits.INT2IF = 0;
-  1355  000172  92F0               	bcf	intcon3,1,c	;volatile
-  1356  000174  C00E  FFF5         	movff	??_interrupcionAlta+13,tablat
-  1357  000178  C00D  FFF8         	movff	??_interrupcionAlta+12,tblptru
-  1358  00017C  C00C  FFF7         	movff	??_interrupcionAlta+11,tblptrh
-  1359  000180  C00B  FFF6         	movff	??_interrupcionAlta+10,tblptrl
-  1360  000184  C00A  FFF4         	movff	??_interrupcionAlta+9,prodh
-  1361  000188  C009  FFF3         	movff	??_interrupcionAlta+8,prodl
-  1362  00018C  C008  FFDA         	movff	??_interrupcionAlta+7,fsr2h
-  1363  000190  C007  FFD9         	movff	??_interrupcionAlta+6,fsr2l
-  1364  000194  C006  FFE2         	movff	??_interrupcionAlta+5,fsr1h
-  1365  000198  C005  FFE1         	movff	??_interrupcionAlta+4,fsr1l
-  1366  00019C  C004  FFEA         	movff	??_interrupcionAlta+3,fsr0h
-  1367  0001A0  C003  FFE9         	movff	??_interrupcionAlta+2,fsr0l
-  1368  0001A4  C002  FFFB         	movff	??_interrupcionAlta+1,pclatu
-  1369  0001A8  C001  FFFA         	movff	??_interrupcionAlta,pclath
-  1370  0001AC  922E               	bcf	btemp,1,c	;clear compiler interrupt flag (level 2)
-  1371  0001AE  0011               	retfie		f
-  1372  0001B0                     __end_of_interrupcionAlta:
-  1373                           	opt stack 0
-  1374  0000                     pclatu	equ	0xFFB
-  1375                           pclath	equ	0xFFA
-  1376                           tblptru	equ	0xFF8
-  1377                           tblptrh	equ	0xFF7
-  1378                           tblptrl	equ	0xFF6
-  1379                           tablat	equ	0xFF5
-  1380                           prodh	equ	0xFF4
-  1381                           prodl	equ	0xFF3
-  1382                           intcon	equ	0xFF2
-  1383                           intcon2	equ	0xFF1
-  1384                           intcon3	equ	0xFF0
-  1385                           fsr0h	equ	0xFEA
-  1386                           fsr0l	equ	0xFE9
-  1387                           wreg	equ	0xFE8
-  1388                           fsr1h	equ	0xFE2
-  1389                           fsr1l	equ	0xFE1
-  1390                           bsr	equ	0xFE0
-  1391                           fsr2h	equ	0xFDA
-  1392                           fsr2l	equ	0xFD9
-  1393                           status	equ	0xFD8
-  1394                           pclatu	equ	0xFFB
-  1395                           pclath	equ	0xFFA
-  1396                           tblptru	equ	0xFF8
-  1397                           tblptrh	equ	0xFF7
-  1398                           tblptrl	equ	0xFF6
-  1399                           tablat	equ	0xFF5
-  1400                           prodh	equ	0xFF4
-  1401                           prodl	equ	0xFF3
-  1402                           intcon	equ	0xFF2
-  1403                           intcon2	equ	0xFF1
-  1404                           intcon3	equ	0xFF0
-  1405                           fsr0h	equ	0xFEA
-  1406                           fsr0l	equ	0xFE9
-  1407                           wreg	equ	0xFE8
-  1408                           fsr1h	equ	0xFE2
-  1409                           fsr1l	equ	0xFE1
-  1410                           bsr	equ	0xFE0
-  1411                           fsr2h	equ	0xFDA
-  1412                           fsr2l	equ	0xFD9
-  1413                           status	equ	0xFD8
-  1414                           
-  1415                           	psect	rparam
-  1416  0000                     pclatu	equ	0xFFB
-  1417                           pclath	equ	0xFFA
-  1418                           tblptru	equ	0xFF8
-  1419                           tblptrh	equ	0xFF7
-  1420                           tblptrl	equ	0xFF6
-  1421                           tablat	equ	0xFF5
-  1422                           prodh	equ	0xFF4
-  1423                           prodl	equ	0xFF3
-  1424                           intcon	equ	0xFF2
-  1425                           intcon2	equ	0xFF1
-  1426                           intcon3	equ	0xFF0
-  1427                           fsr0h	equ	0xFEA
-  1428                           fsr0l	equ	0xFE9
-  1429                           wreg	equ	0xFE8
-  1430                           fsr1h	equ	0xFE2
-  1431                           fsr1l	equ	0xFE1
-  1432                           bsr	equ	0xFE0
-  1433                           fsr2h	equ	0xFDA
-  1434                           fsr2l	equ	0xFD9
-  1435                           status	equ	0xFD8
-  1436                           
-  1437                           	psect	temp
-  1438  00002E                     btemp:
-  1439                           	opt stack 0
-  1440  00002E                     	ds	1
-  1441  0000                     int$flags	set	btemp
-  1442                           pclatu	equ	0xFFB
-  1443                           pclath	equ	0xFFA
-  1444                           tblptru	equ	0xFF8
-  1445                           tblptrh	equ	0xFF7
-  1446                           tblptrl	equ	0xFF6
-  1447                           tablat	equ	0xFF5
-  1448                           prodh	equ	0xFF4
-  1449                           prodl	equ	0xFF3
-  1450                           intcon	equ	0xFF2
-  1451                           intcon2	equ	0xFF1
-  1452                           intcon3	equ	0xFF0
-  1453                           fsr0h	equ	0xFEA
-  1454                           fsr0l	equ	0xFE9
-  1455                           wreg	equ	0xFE8
-  1456                           fsr1h	equ	0xFE2
-  1457                           fsr1l	equ	0xFE1
-  1458                           bsr	equ	0xFE0
-  1459                           fsr2h	equ	0xFDA
-  1460                           fsr2l	equ	0xFD9
-  1461                           status	equ	0xFD8
+  1350                           ;main.c: 46: INTCONbits.RBIF = 0;
+  1351  000104  90F2               	bcf	intcon,0,c	;volatile
+  1352                           
+  1353                           ;main.c: 47: if(!anteriorRB4 & PORTBbits.RB4){
+  1354  000106  502F               	movf	_anteriorRB4,w,c
+  1355  000108  1030               	iorwf	_anteriorRB4+1,w,c
+  1356  00010A  A4D8               	btfss	status,2,c
+  1357  00010C  D002               	goto	i1u10_20
+  1358  00010E  0E01               	movlw	1
+  1359  000110  D001               	goto	i1u11_20
+  1360  000112                     i1u10_20:
+  1361  000112  0E00               	movlw	0
+  1362  000114                     i1u11_20:
+  1363  000114  6E0F               	movwf	??_interrupcionBaixa& (0+255),c
+  1364  000116  6A10               	clrf	(??_interrupcionBaixa+1)& (0+255),c
+  1365  000118  A881               	btfss	3969,4,c	;volatile
+  1366  00011A  D003               	goto	i1u12_20
+  1367  00011C  6A11               	clrf	(??_interrupcionBaixa+2)& (0+255),c
+  1368  00011E  2A11               	incf	(??_interrupcionBaixa+2)& (0+255),f,c
+  1369  000120  D001               	goto	i1u12_28
+  1370  000122                     i1u12_20:
+  1371  000122  6A11               	clrf	(??_interrupcionBaixa+2)& (0+255),c
+  1372  000124                     i1u12_28:
+  1373  000124  5011               	movf	??_interrupcionBaixa+2,w,c
+  1374  000126  160F               	andwf	??_interrupcionBaixa,f,c
+  1375  000128  0E00               	movlw	0
+  1376  00012A  1610               	andwf	??_interrupcionBaixa+1,f,c
+  1377  00012C  500F               	movf	??_interrupcionBaixa,w,c
+  1378  00012E  1010               	iorwf	??_interrupcionBaixa+1,w,c
+  1379  000130  A4D8               	btfss	status,2,c
+  1380                           
+  1381                           ;main.c: 48: __nop();
+  1382  000132  F000               	nop	
+  1383                           
+  1384                           ;main.c: 50: }
+  1385                           ;main.c: 51: if(!anteriorRB5 & PORTBbits.RB5){
+  1386  000134  5031               	movf	_anteriorRB5,w,c
+  1387  000136  1032               	iorwf	_anteriorRB5+1,w,c
+  1388  000138  A4D8               	btfss	status,2,c
+  1389  00013A  D002               	goto	i1u14_20
+  1390  00013C  0E01               	movlw	1
+  1391  00013E  D001               	goto	i1u15_20
+  1392  000140                     i1u14_20:
+  1393  000140  0E00               	movlw	0
+  1394  000142                     i1u15_20:
+  1395  000142  6E0F               	movwf	??_interrupcionBaixa& (0+255),c
+  1396  000144  6A10               	clrf	(??_interrupcionBaixa+1)& (0+255),c
+  1397  000146  AA81               	btfss	3969,5,c	;volatile
+  1398  000148  D003               	goto	i1u16_20
+  1399  00014A  6A11               	clrf	(??_interrupcionBaixa+2)& (0+255),c
+  1400  00014C  2A11               	incf	(??_interrupcionBaixa+2)& (0+255),f,c
+  1401  00014E  D001               	goto	i1u16_28
+  1402  000150                     i1u16_20:
+  1403  000150  6A11               	clrf	(??_interrupcionBaixa+2)& (0+255),c
+  1404  000152                     i1u16_28:
+  1405  000152  5011               	movf	??_interrupcionBaixa+2,w,c
+  1406  000154  160F               	andwf	??_interrupcionBaixa,f,c
+  1407  000156  0E00               	movlw	0
+  1408  000158  1610               	andwf	??_interrupcionBaixa+1,f,c
+  1409  00015A  500F               	movf	??_interrupcionBaixa,w,c
+  1410  00015C  1010               	iorwf	??_interrupcionBaixa+1,w,c
+  1411  00015E  A4D8               	btfss	status,2,c
+  1412                           
+  1413                           ;main.c: 52: __nop();
+  1414  000160  F000               	nop	
+  1415                           
+  1416                           ;main.c: 54: }
+  1417                           ;main.c: 55: anteriorRB4 = PORTBbits.RB4;
+  1418  000162  A881               	btfss	3969,4,c	;volatile
+  1419  000164  D003               	goto	i1u18_20
+  1420  000166  6A0F               	clrf	??_interrupcionBaixa& (0+255),c
+  1421  000168  2A0F               	incf	??_interrupcionBaixa& (0+255),f,c
+  1422  00016A  D001               	goto	i1u18_28
+  1423  00016C                     i1u18_20:
+  1424  00016C  6A0F               	clrf	??_interrupcionBaixa& (0+255),c
+  1425  00016E                     i1u18_28:
+  1426  00016E  500F               	movf	??_interrupcionBaixa,w,c
+  1427  000170  6E2F               	movwf	_anteriorRB4,c
+  1428  000172  6A30               	clrf	_anteriorRB4+1,c
+  1429                           
+  1430                           ;main.c: 56: anteriorRB5 = PORTBbits.RB5;
+  1431  000174  AA81               	btfss	3969,5,c	;volatile
+  1432  000176  D003               	goto	i1u19_20
+  1433  000178  6A0F               	clrf	??_interrupcionBaixa& (0+255),c
+  1434  00017A  2A0F               	incf	??_interrupcionBaixa& (0+255),f,c
+  1435  00017C  D001               	goto	i1u19_28
+  1436  00017E                     i1u19_20:
+  1437  00017E  6A0F               	clrf	??_interrupcionBaixa& (0+255),c
+  1438  000180                     i1u19_28:
+  1439  000180  500F               	movf	??_interrupcionBaixa,w,c
+  1440  000182  6E31               	movwf	_anteriorRB5,c
+  1441  000184  6A32               	clrf	_anteriorRB5+1,c
+  1442                           
+  1443                           ;main.c: 57: INTCONbits.RBIF = 0;
+  1444  000186  90F2               	bcf	intcon,0,c	;volatile
+  1445  000188                     i1l51:
+  1446  000188  C023  FFF5         	movff	??_interrupcionBaixa+20,tablat
+  1447  00018C  C022  FFF8         	movff	??_interrupcionBaixa+19,tblptru
+  1448  000190  C021  FFF7         	movff	??_interrupcionBaixa+18,tblptrh
+  1449  000194  C020  FFF6         	movff	??_interrupcionBaixa+17,tblptrl
+  1450  000198  C01F  FFF4         	movff	??_interrupcionBaixa+16,prodh
+  1451  00019C  C01E  FFF3         	movff	??_interrupcionBaixa+15,prodl
+  1452  0001A0  C01D  FFDA         	movff	??_interrupcionBaixa+14,fsr2h
+  1453  0001A4  C01C  FFD9         	movff	??_interrupcionBaixa+13,fsr2l
+  1454  0001A8  C01B  FFE2         	movff	??_interrupcionBaixa+12,fsr1h
+  1455  0001AC  C01A  FFE1         	movff	??_interrupcionBaixa+11,fsr1l
+  1456  0001B0  C019  FFEA         	movff	??_interrupcionBaixa+10,fsr0h
+  1457  0001B4  C018  FFE9         	movff	??_interrupcionBaixa+9,fsr0l
+  1458  0001B8  C017  FFFB         	movff	??_interrupcionBaixa+8,pclatu
+  1459  0001BC  C016  FFFA         	movff	??_interrupcionBaixa+7,pclath
+  1460  0001C0  C015  FFE0         	movff	??_interrupcionBaixa+6,bsr
+  1461  0001C4  C014  FFE8         	movff	??_interrupcionBaixa+5,wreg
+  1462  0001C8  C013  FFD8         	movff	??_interrupcionBaixa+4,status
+  1463  0001CC  9033               	bcf	btemp,0,c	;clear compiler interrupt flag (level 1)
+  1464  0001CE  0010               	retfie	
+  1465  0001D0                     __end_of_interrupcionBaixa:
+  1466                           	opt stack 0
+  1467                           pclatu	equ	0xFFB
+  1468                           pclath	equ	0xFFA
+  1469                           tblptru	equ	0xFF8
+  1470                           tblptrh	equ	0xFF7
+  1471                           tblptrl	equ	0xFF6
+  1472                           tablat	equ	0xFF5
+  1473                           prodh	equ	0xFF4
+  1474                           prodl	equ	0xFF3
+  1475                           intcon	equ	0xFF2
+  1476                           intcon2	equ	0xFF1
+  1477                           intcon3	equ	0xFF0
+  1478                           fsr0h	equ	0xFEA
+  1479                           fsr0l	equ	0xFE9
+  1480                           wreg	equ	0xFE8
+  1481                           fsr1h	equ	0xFE2
+  1482                           fsr1l	equ	0xFE1
+  1483                           bsr	equ	0xFE0
+  1484                           fsr2h	equ	0xFDA
+  1485                           fsr2l	equ	0xFD9
+  1486                           status	equ	0xFD8
+  1487                           
+  1488 ;; *************** function _interrupcionAlta *****************
+  1489 ;; Defined at:
+  1490 ;;		line 14 in file "main.c"
+  1491 ;; Parameters:    Size  Location     Type
+  1492 ;;		None
+  1493 ;; Auto vars:     Size  Location     Type
+  1494 ;;		None
+  1495 ;; Return value:  Size  Location     Type
+  1496 ;;                  1    wreg      void 
+  1497 ;; Registers used:
+  1498 ;;		None
+  1499 ;; Tracked objects:
+  1500 ;;		On entry : 0/0
+  1501 ;;		On exit  : 0/0
+  1502 ;;		Unchanged: 0/0
+  1503 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1504 ;;      Params:         0       0       0       0       0       0       0
+  1505 ;;      Locals:         0       0       0       0       0       0       0
+  1506 ;;      Temps:         14       0       0       0       0       0       0
+  1507 ;;      Totals:        14       0       0       0       0       0       0
+  1508 ;;Total ram usage:       14 bytes
+  1509 ;; Hardware stack levels used:    1
+  1510 ;; This function calls:
+  1511 ;;		Nothing
+  1512 ;; This function is called by:
+  1513 ;;		Interrupt level 2
+  1514 ;; This function uses a non-reentrant model
+  1515 ;;
+  1516                           
+  1517                           	psect	intcode
+  1518  000008                     __pintcode:
+  1519                           	opt stack 0
+  1520  000008                     _interrupcionAlta:
+  1521                           	opt stack 27
+  1522                           
+  1523                           ;incstack = 0
+  1524  000008  8233               	bsf	btemp,1,c	;set compiler interrupt flag (level 2)
+  1525  00000A  CFFA F001          	movff	pclath,??_interrupcionAlta
+  1526  00000E  CFFB F002          	movff	pclatu,??_interrupcionAlta+1
+  1527  000012  EFEA  F000         	goto	int_func
+  1528                           pclatu	equ	0xFFB
+  1529                           pclath	equ	0xFFA
+  1530                           tblptru	equ	0xFF8
+  1531                           tblptrh	equ	0xFF7
+  1532                           tblptrl	equ	0xFF6
+  1533                           tablat	equ	0xFF5
+  1534                           prodh	equ	0xFF4
+  1535                           prodl	equ	0xFF3
+  1536                           intcon	equ	0xFF2
+  1537                           intcon2	equ	0xFF1
+  1538                           intcon3	equ	0xFF0
+  1539                           fsr0h	equ	0xFEA
+  1540                           fsr0l	equ	0xFE9
+  1541                           wreg	equ	0xFE8
+  1542                           fsr1h	equ	0xFE2
+  1543                           fsr1l	equ	0xFE1
+  1544                           bsr	equ	0xFE0
+  1545                           fsr2h	equ	0xFDA
+  1546                           fsr2l	equ	0xFD9
+  1547                           status	equ	0xFD8
+  1548                           
+  1549                           	psect	intcode_body
+  1550  0001D4                     __pintcode_body:
+  1551                           	opt stack 27
+  1552  0001D4                     int_func:
+  1553                           	opt stack 27
+  1554  0001D4  CFE9 F003          	movff	fsr0l,??_interrupcionAlta+2
+  1555  0001D8  CFEA F004          	movff	fsr0h,??_interrupcionAlta+3
+  1556  0001DC  CFE1 F005          	movff	fsr1l,??_interrupcionAlta+4
+  1557  0001E0  CFE2 F006          	movff	fsr1h,??_interrupcionAlta+5
+  1558  0001E4  CFD9 F007          	movff	fsr2l,??_interrupcionAlta+6
+  1559  0001E8  CFDA F008          	movff	fsr2h,??_interrupcionAlta+7
+  1560  0001EC  CFF3 F009          	movff	prodl,??_interrupcionAlta+8
+  1561  0001F0  CFF4 F00A          	movff	prodh,??_interrupcionAlta+9
+  1562  0001F4  CFF6 F00B          	movff	tblptrl,??_interrupcionAlta+10
+  1563  0001F8  CFF7 F00C          	movff	tblptrh,??_interrupcionAlta+11
+  1564  0001FC  CFF8 F00D          	movff	tblptru,??_interrupcionAlta+12
+  1565  000200  CFF5 F00E          	movff	tablat,??_interrupcionAlta+13
+  1566                           
+  1567                           ;main.c: 15: if (INTCONbits.INT0IF){
+  1568  000204  B2F2               	btfsc	intcon,1,c	;volatile
+  1569                           
+  1570                           ;main.c: 16: INTCONbits.INT0IF = 0;
+  1571  000206  92F2               	bcf	intcon,1,c	;volatile
+  1572                           
+  1573                           ;main.c: 17: }
+  1574                           ;main.c: 18: if (INTCON3bits.INT1IF){
+  1575  000208  B0F0               	btfsc	intcon3,0,c	;volatile
+  1576                           
+  1577                           ;main.c: 19: INTCON3bits.INT1IF = 0;
+  1578  00020A  90F0               	bcf	intcon3,0,c	;volatile
+  1579                           
+  1580                           ;main.c: 20: }
+  1581                           ;main.c: 21: if (INTCON3bits.INT2IF){
+  1582  00020C  B2F0               	btfsc	intcon3,1,c	;volatile
+  1583                           
+  1584                           ;main.c: 22: INTCON3bits.INT2IF = 0;
+  1585  00020E  92F0               	bcf	intcon3,1,c	;volatile
+  1586  000210  C00E  FFF5         	movff	??_interrupcionAlta+13,tablat
+  1587  000214  C00D  FFF8         	movff	??_interrupcionAlta+12,tblptru
+  1588  000218  C00C  FFF7         	movff	??_interrupcionAlta+11,tblptrh
+  1589  00021C  C00B  FFF6         	movff	??_interrupcionAlta+10,tblptrl
+  1590  000220  C00A  FFF4         	movff	??_interrupcionAlta+9,prodh
+  1591  000224  C009  FFF3         	movff	??_interrupcionAlta+8,prodl
+  1592  000228  C008  FFDA         	movff	??_interrupcionAlta+7,fsr2h
+  1593  00022C  C007  FFD9         	movff	??_interrupcionAlta+6,fsr2l
+  1594  000230  C006  FFE2         	movff	??_interrupcionAlta+5,fsr1h
+  1595  000234  C005  FFE1         	movff	??_interrupcionAlta+4,fsr1l
+  1596  000238  C004  FFEA         	movff	??_interrupcionAlta+3,fsr0h
+  1597  00023C  C003  FFE9         	movff	??_interrupcionAlta+2,fsr0l
+  1598  000240  C002  FFFB         	movff	??_interrupcionAlta+1,pclatu
+  1599  000244  C001  FFFA         	movff	??_interrupcionAlta,pclath
+  1600  000248  9233               	bcf	btemp,1,c	;clear compiler interrupt flag (level 2)
+  1601  00024A  0011               	retfie		f
+  1602  00024C                     __end_of_interrupcionAlta:
+  1603                           	opt stack 0
+  1604  0000                     pclatu	equ	0xFFB
+  1605                           pclath	equ	0xFFA
+  1606                           tblptru	equ	0xFF8
+  1607                           tblptrh	equ	0xFF7
+  1608                           tblptrl	equ	0xFF6
+  1609                           tablat	equ	0xFF5
+  1610                           prodh	equ	0xFF4
+  1611                           prodl	equ	0xFF3
+  1612                           intcon	equ	0xFF2
+  1613                           intcon2	equ	0xFF1
+  1614                           intcon3	equ	0xFF0
+  1615                           fsr0h	equ	0xFEA
+  1616                           fsr0l	equ	0xFE9
+  1617                           wreg	equ	0xFE8
+  1618                           fsr1h	equ	0xFE2
+  1619                           fsr1l	equ	0xFE1
+  1620                           bsr	equ	0xFE0
+  1621                           fsr2h	equ	0xFDA
+  1622                           fsr2l	equ	0xFD9
+  1623                           status	equ	0xFD8
+  1624                           pclatu	equ	0xFFB
+  1625                           pclath	equ	0xFFA
+  1626                           tblptru	equ	0xFF8
+  1627                           tblptrh	equ	0xFF7
+  1628                           tblptrl	equ	0xFF6
+  1629                           tablat	equ	0xFF5
+  1630                           prodh	equ	0xFF4
+  1631                           prodl	equ	0xFF3
+  1632                           intcon	equ	0xFF2
+  1633                           intcon2	equ	0xFF1
+  1634                           intcon3	equ	0xFF0
+  1635                           fsr0h	equ	0xFEA
+  1636                           fsr0l	equ	0xFE9
+  1637                           wreg	equ	0xFE8
+  1638                           fsr1h	equ	0xFE2
+  1639                           fsr1l	equ	0xFE1
+  1640                           bsr	equ	0xFE0
+  1641                           fsr2h	equ	0xFDA
+  1642                           fsr2l	equ	0xFD9
+  1643                           status	equ	0xFD8
+  1644                           
+  1645                           	psect	rparam
+  1646  0000                     pclatu	equ	0xFFB
+  1647                           pclath	equ	0xFFA
+  1648                           tblptru	equ	0xFF8
+  1649                           tblptrh	equ	0xFF7
+  1650                           tblptrl	equ	0xFF6
+  1651                           tablat	equ	0xFF5
+  1652                           prodh	equ	0xFF4
+  1653                           prodl	equ	0xFF3
+  1654                           intcon	equ	0xFF2
+  1655                           intcon2	equ	0xFF1
+  1656                           intcon3	equ	0xFF0
+  1657                           fsr0h	equ	0xFEA
+  1658                           fsr0l	equ	0xFE9
+  1659                           wreg	equ	0xFE8
+  1660                           fsr1h	equ	0xFE2
+  1661                           fsr1l	equ	0xFE1
+  1662                           bsr	equ	0xFE0
+  1663                           fsr2h	equ	0xFDA
+  1664                           fsr2l	equ	0xFD9
+  1665                           status	equ	0xFD8
+  1666                           
+  1667                           	psect	temp
+  1668  000033                     btemp:
+  1669                           	opt stack 0
+  1670  000033                     	ds	1
+  1671  0000                     int$flags	set	btemp
+  1672                           pclatu	equ	0xFFB
+  1673                           pclath	equ	0xFFA
+  1674                           tblptru	equ	0xFF8
+  1675                           tblptrh	equ	0xFF7
+  1676                           tblptrl	equ	0xFF6
+  1677                           tablat	equ	0xFF5
+  1678                           prodh	equ	0xFF4
+  1679                           prodl	equ	0xFF3
+  1680                           intcon	equ	0xFF2
+  1681                           intcon2	equ	0xFF1
+  1682                           intcon3	equ	0xFF0
+  1683                           fsr0h	equ	0xFEA
+  1684                           fsr0l	equ	0xFE9
+  1685                           wreg	equ	0xFE8
+  1686                           fsr1h	equ	0xFE2
+  1687                           fsr1l	equ	0xFE1
+  1688                           bsr	equ	0xFE0
+  1689                           fsr2h	equ	0xFDA
+  1690                           fsr2l	equ	0xFD9
+  1691                           status	equ	0xFD8
 
 
 Data Sizes:
@@ -1472,12 +1702,12 @@ Data Sizes:
     Constant    0
     Data        0
     BSS         6
-    Persistent  0
+    Persistent  4
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           94     39      45
+    COMRAM           94     40      50
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -1578,8 +1808,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 4     4      0       0
-                                             35 COMRAM     4     4      0
+ (0) _main                                                 5     5      0       0
+                                             35 COMRAM     5     5      0
      _inicializaManipuladorMagnetico
  ---------------------------------------------------------------------------------
  (1) _inicializaManipuladorMagnetico                       0     0      0       0
@@ -1590,6 +1820,7 @@ Call Graph Tables:
                     _inicializaRB0_I
                     _inicializaRB1_I
                     _inicializaRB2_I
+                  _inicializaRB4_5_O
                     _inicializaRC0_O
                   _inicializaRC1_PWM
                   _inicializaRC2_PWM
@@ -1611,6 +1842,8 @@ Call Graph Tables:
  (2) _inicializaRC1_PWM                                    0     0      0       0
  ---------------------------------------------------------------------------------
  (2) _inicializaRC0_O                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _inicializaRB4_5_O                                    0     0      0       0
  ---------------------------------------------------------------------------------
  (2) _inicializaRB2_I                                      0     0      0       0
  ---------------------------------------------------------------------------------
@@ -1654,6 +1887,7 @@ Call Graph Tables:
      _inicializaRB0_I
      _inicializaRB1_I
      _inicializaRB2_I
+     _inicializaRB4_5_O
      _inicializaRC0_O
      _inicializaRC1_PWM
      _inicializaRC2_PWM
@@ -1683,76 +1917,88 @@ BANK1              100      0       0       7        0.0%
 BITBANK0            A0      0       0       4        0.0%
 BANK0               A0      0       0       5        0.0%
 BITCOMRAM           5E      0       0       0        0.0%
-COMRAM              5E     27      2D       1       47.9%
+COMRAM              5E     28      32       1       53.2%
 BITSFR               0      0       0      40        0.0%
 SFR                  0      0       0      40        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      2D      15        0.0%
-DATA                 0      0      2D       3        0.0%
+ABS                  0      0      32      15        0.0%
+DATA                 0      0      32       3        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.38 build -256452561 
-Symbol Table                                                                                   Sat Feb 27 18:06:27 2021
+Symbol Table                                                                                   Sat Feb 27 19:19:47 2021
 
                        ?_inicializaAN0_I 0001                         ?_inicializaAN1_I 0001  
                        ?_inicializaRB0_I 0001                         ?_inicializaRB1_I 0001  
                        ?_inicializaRB2_I 0001                         ?_inicializaRC0_O 0001  
                        ?_inicializaRC3_O 0001                         ?_inicializaRC4_O 0001  
-                       ?_inicializaRC5_O 0001                        _inicializaRC1_PWM 0246  
-                      _inicializaRC2_PWM 0212                                       bsr 000FE0  
+                       ?_inicializaRC5_O 0001                        _inicializaRB4_5_O 034E  
+                      _inicializaRC1_PWM 030A                        _inicializaRC2_PWM 02EE  
+                                     bsr 000FE0                       ?_inicializaRB4_5_O 0001  
                      ?_inicializaRC1_PWM 0001                       ?_inicializaRC2_PWM 0001  
-                                    l873 0232                                      _PR2 000FCB  
-                                    wreg 000FE8                      ??_inicializaRC1_PWM 0024  
-                    ??_inicializaRC2_PWM 0024                             __CFG_LVP$OFF 000000  
-                                   i1l40 00EC                                     _TMR2 000FCC  
-                                   _main 022E                                     fsr0h 000FEA  
-                                   fsr1h 000FE2                                     fsr0l 000FE9  
-                                   fsr2h 000FDA                                     fsr1l 000FE1  
-                                   fsr2l 000FD9                                     btemp 002E  
-               __end_of_interrupcionAlta 01B0                                     pclat 000FFA  
-       ??_inicializaManipuladorMagnetico 0024          ?_inicializaManipuladorMagnetico 0001  
-                                   prodh 000FF4                                     prodl 000FF3  
-                                   start 0134                             ___param_bank 000010  
-              __end_of_inicializaRC1_PWM 025E                __end_of_inicializaRC2_PWM 022E  
+                                    l919 02B8                                      u200 029E  
+                                    u210 02B0                                      u208 02A0  
+                                    u218 02B2                                      _PR2 000FCB  
+                                    wreg 000FE8                      ??_inicializaRB4_5_O 0024  
+                    ??_inicializaRC1_PWM 0024                      ??_inicializaRC2_PWM 0024  
+                           __CFG_LVP$OFF 000000                                     i1l51 0188  
+                                   _TMR2 000FCC                                     _main 0290  
+                                   fsr0h 000FEA                                     fsr1h 000FE2  
+                                   fsr0l 000FE9                                     fsr2h 000FDA  
+                                   fsr1l 000FE1                                     fsr2l 000FD9  
+                                   btemp 0033                 __end_of_interrupcionAlta 024C  
+                                   pclat 000FFA         ??_inicializaManipuladorMagnetico 0024  
+        ?_inicializaManipuladorMagnetico 0001                                     prodh 000FF4  
+                                   prodl 000FF3                                     start 01D0  
+                           ___param_bank 000010                __end_of_inicializaRB4_5_O 035E  
+              __end_of_inicializaRC1_PWM 0322                __end_of_inicializaRC2_PWM 030A  
                                   ?_main 0001                                    _ADRES 000FC3  
-                                  i1l861 00A8                                    i1l869 00EA  
-                                  _PORTD 000F83                                    _TRISD 000F95  
-                                  tablat 000FF5             __end_of_inicializaAnalogicas 0212  
-                                  status 000FD8                          __initialization 025E  
-                           __end_of_main 0246                                   ??_main 0024  
-                          __activetblptr 000000                                   _ADRESH 000FC4  
-                                 _ADRESL 000FC3                                   _CCPR1H 000FBF  
-                                 _CCPR2H 000FBC                                   _CCPR1L 000FBE  
-                                 _CCPR2L 000FBB                                   _ANSELH 000F7F  
-                         __CFG_WDTEN$OFF 000000                                   i1u6_25 00B0  
+                                  i1l883 00B2                                    i1l895 00FE  
+                                  i1l897 0100                                    _PORTD 000F83  
+                                  _TRISD 000F95                                    tablat 000FF5  
+           __end_of_inicializaAnalogicas 02EE                                    status 000FD8  
+                        __initialization 0322                             __end_of_main 02CC  
+                                 ??_main 0024                            __activetblptr 000000  
+                                 _ADRESH 000FC4                                   _ADRESL 000FC3  
+                                 _CCPR1H 000FBF                                   _CCPR2H 000FBC  
+                                 _CCPR1L 000FBE                                   _CCPR2L 000FBB  
+                                 _ANSELH 000F7F                           __CFG_WDTEN$OFF 000000  
+                                 i1u7_25 00BA               __size_of_inicializaRB4_5_O 0010  
              __size_of_inicializaRC1_PWM 0018               __size_of_inicializaRC2_PWM 001C  
-                                 _actual 0028                                   tblptrh 000FF7  
+                                 _actual 0029                                   tblptrh 000FF7  
                                  tblptrl 000FF6                                   tblptru 000FF8  
-                             __accesstop 0060                  __end_of__initialization 026A  
-                        __CFG_PBADEN$OFF 000000             __end_of_inicializaTimer2_PWM 028A  
+                             __accesstop 0060                  __end_of__initialization 032E  
+                        __CFG_PBADEN$OFF 000000             __end_of_inicializaTimer2_PWM 034E  
                           ___rparam_used 000001                           __pcstackCOMRAM 0001  
-                   _inicializaAnalogicas 01F0                           _ultimaLectura0 002A  
-                         _ultimaLectura1 002C                        ?_interrupcionAlta 0001  
-                     ??_interrupcionAlta 0001                    ?_inicializaAnalogicas 0001  
- __end_of_inicializaManipuladorMagnetico 01F0  __size_of_inicializaManipuladorMagnetico 0040  
-         _inicializaManipuladorMagnetico 01B0                 __size_of_inicializaAN0_I 0006  
-               __size_of_inicializaAN1_I 0006                 __size_of_inicializaRB0_I 000A  
-               __size_of_inicializaRB1_I 000A                 __size_of_inicializaRB2_I 000A  
-               _inicializaGlobalRB_I_Int 028A                 __size_of_inicializaRC0_O 0006  
-               __size_of_inicializaRC3_O 0006                 __size_of_inicializaRC4_O 0006  
-               __size_of_inicializaRC5_O 0006                                  __Hparam 0000  
-                                __Lparam 0000                                  __pcinit 025E  
-                              _ANSELbits 000F7E                                  __ramtop 0600  
-                                __ptext0 022E                                  __ptext1 01B0  
-                                __ptext2 0274                                  __ptext3 02B4  
-                                __ptext4 02BA                                  __ptext5 02C0  
-                                __ptext6 0212                                  __ptext7 0246  
-                                __ptext8 02C6                                  __ptext9 0296  
-                              _T2CONbits 000FCA                     _inicializaTimer2_PWM 0274  
-                         __pintcode_body 0138                     end_of_initialization 026A  
-                                int_func 0138                   ??_inicializaAnalogicas 0024  
+                   _inicializaAnalogicas 02CC                           _ultimaLectura0 002B  
+                         _ultimaLectura1 002D                               __pnvCOMRAM 002F  
+                      ?_interrupcionAlta 0001                       ??_interrupcionAlta 0001  
+                  ?_inicializaAnalogicas 0001   __end_of_inicializaManipuladorMagnetico 0290  
+__size_of_inicializaManipuladorMagnetico 0044           _inicializaManipuladorMagnetico 024C  
+               __size_of_inicializaAN0_I 0006                 __size_of_inicializaAN1_I 0006  
+               __size_of_inicializaRB0_I 000A                 __size_of_inicializaRB1_I 000A  
+               __size_of_inicializaRB2_I 000A                 _inicializaGlobalRB_I_Int 035E  
+               __size_of_inicializaRC0_O 0006                 __size_of_inicializaRC3_O 0006  
+               __size_of_inicializaRC4_O 0006                 __size_of_inicializaRC5_O 0006  
+                                i1u10_20 0112                                  i1u11_20 0114  
+                                i1u12_20 0122                                  i1u12_28 0124  
+                                i1u14_20 0140                                  i1u15_20 0142  
+                                i1u16_20 0150                                  i1u16_28 0152  
+                                i1u18_20 016C                                  i1u19_20 017E  
+                                i1u18_28 016E                                  i1u19_28 0180  
+                                __Hparam 0000                                  __Lparam 0000  
+                                __pcinit 0322                                _ANSELbits 000F7E  
+                                __ramtop 0600                                  __ptext0 0290  
+                                __ptext1 024C                                  __ptext2 0338  
+                                __ptext3 0388                                  __ptext4 038E  
+                                __ptext5 0394                                  __ptext6 02EE  
+                                __ptext7 030A                                  __ptext8 039A  
+                                __ptext9 034E                                _T2CONbits 000FCA  
+                   _inicializaTimer2_PWM 0338                           __pintcode_body 01D4  
+                   end_of_initialization 032E                                  int_func 01D4  
+                 ??_inicializaAnalogicas 0024                                _PORTBbits 000F81  
                               _PORTCbits 000F82                    ?_inicializaTimer2_PWM 0001  
                               _TRISAbits 000F92                                _TRISBbits 000F93  
                               _TRISCbits 000F94                        ??_inicializaAN0_I 0024  
@@ -1761,33 +2007,35 @@ Symbol Table                                                                    
                       ??_inicializaRC0_O 0024                        ??_inicializaRC3_O 0024  
                       ??_inicializaRC4_O 0024                        ??_inicializaRC5_O 0024  
                             _CCP1CONbits 000FBD                              _CCP2CONbits 000FBA  
-                    start_initialization 025E               ??_inicializaGlobalRB_I_Int 0024  
-                 ??_inicializaTimer2_PWM 0024                __size_of_interrupcionAlta 01A8  
-                            __pbssCOMRAM 0028                        _interrupcionBaixa 0018  
+                    start_initialization 0322               ??_inicializaGlobalRB_I_Int 0024  
+                 ??_inicializaTimer2_PWM 0024                __size_of_interrupcionAlta 0244  
+                            __pbssCOMRAM 0029                        _interrupcionBaixa 0018  
                      ?_interrupcionBaixa 0001                      ??_interrupcionBaixa 000F  
                               __pintcode 0008                              __pintcodelo 0018  
-              __end_of_interrupcionBaixa 0134                                 _LATBbits 000F8A  
-                               _IPR1bits 000F9F                                 _PIE1bits 000F9D  
-                               _PIR1bits 000F9E                                 _RCONbits 000FD0  
-                        _inicializaAN0_I 02D2                          _inicializaAN1_I 02CC  
-                             _ADCON0bits 000FC2                               _ADCON2bits 000FC0  
-                        _inicializaRB0_I 02AA                          _inicializaRB1_I 02A0  
-                        _inicializaRB2_I 0296                          _inicializaRC0_O 02C6  
-                        _inicializaRC3_O 02C0                          _inicializaRC4_O 02BA  
-                        _inicializaRC5_O 02B4                              _INTCON2bits 000FF1  
-                            _INTCON3bits 000FF0                                 __Hrparam 0000  
-                               __Lrparam 0000         __end_of_inicializaGlobalRB_I_Int 0296  
-          __size_of_inicializaAnalogicas 0022                         _interrupcionAlta 0008  
-             __size_of_interrupcionBaixa 011C                                 __ptext10 02A0  
-                               __ptext11 02AA                                 __ptext12 028A  
-                               __ptext13 01F0                                 __ptext14 02CC  
-                               __ptext15 02D2                            __size_of_main 0018  
-                __end_of_inicializaAN0_I 02D8                  __end_of_inicializaAN1_I 02D2  
-                __end_of_inicializaRB0_I 02B4                  __end_of_inicializaRB1_I 02AA  
-                __end_of_inicializaRB2_I 02A0                  __end_of_inicializaRC0_O 02CC  
-                __end_of_inicializaRC3_O 02C6                  __end_of_inicializaRC4_O 02C0  
-                __end_of_inicializaRC5_O 02BA                                 int$flags 002E  
-                               main@var1 0024                                 main@var2 0026  
+              __end_of_interrupcionBaixa 01D0                                 _IOCBbits 000F7D  
+                               _LATBbits 000F8A                              _anteriorRB4 002F  
+                            _anteriorRB5 0031                                 _IPR1bits 000F9F  
+                               _PIE1bits 000F9D                                 _PIR1bits 000F9E  
+                               _RCONbits 000FD0                          _inicializaAN0_I 03A6  
+                        _inicializaAN1_I 03A0                               _ADCON0bits 000FC2  
+                             _ADCON2bits 000FC0                          _inicializaRB0_I 037E  
+                        _inicializaRB1_I 0374                          _inicializaRB2_I 036A  
+                        _inicializaRC0_O 039A                          _inicializaRC3_O 0394  
+                        _inicializaRC4_O 038E                          _inicializaRC5_O 0388  
+                            _INTCON2bits 000FF1                              _INTCON3bits 000FF0  
+                               __Hrparam 0000                                 __Lrparam 0000  
+       __end_of_inicializaGlobalRB_I_Int 036A            __size_of_inicializaAnalogicas 0022  
+                       _interrupcionAlta 0008               __size_of_interrupcionBaixa 01B8  
+                               __ptext10 036A                                 __ptext11 0374  
+                               __ptext12 037E                                 __ptext13 035E  
+                               __ptext14 02CC                                 __ptext15 03A0  
+                               __ptext16 03A6                            __size_of_main 003C  
+                __end_of_inicializaAN0_I 03AC                  __end_of_inicializaAN1_I 03A6  
+                __end_of_inicializaRB0_I 0388                  __end_of_inicializaRB1_I 037E  
+                __end_of_inicializaRB2_I 0374                  __end_of_inicializaRC0_O 03A0  
+                __end_of_inicializaRC3_O 039A                  __end_of_inicializaRC4_O 0394  
+                __end_of_inicializaRC5_O 038E                                 int$flags 0033  
+                               main@var1 0025                                 main@var2 0027  
                              _INTCONbits 000FF2                                 intlevel1 0000  
                                intlevel2 0000            __size_of_inicializaTimer2_PWM 0016  
       __size_of_inicializaGlobalRB_I_Int 000C                ?_inicializaGlobalRB_I_Int 0001  

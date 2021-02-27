@@ -77,6 +77,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S344 . . . ]
 "6942
 [v _INTCON3bits `VS344 ~T0 @X0 0 e@4080 ]
+"396
+[s S16 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . . IOCB4 IOCB5 IOCB6 IOCB7 ]
+"395
+[u S15 `S16 1 ]
+[n S15 . . ]
+"404
+[v _IOCBbits `VS15 ~T0 @X0 0 e@3965 ]
 "2568
 [s S128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S128 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
@@ -3526,320 +3534,354 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 361 ]
 }
 "35
-[v _inicializaRC3_O `(v ~T0 @X0 1 ef ]
+[v _inicializaRB4_5_O `(v ~T0 @X0 1 ef ]
 {
-[; ;Configuracion.c: 35: void inicializaRC3_O(void){
-[e :U _inicializaRC3_O ]
+[; ;Configuracion.c: 35: void inicializaRB4_5_O(void){
+[e :U _inicializaRB4_5_O ]
 [f ]
-[; ;Configuracion.c: 36: TRISCbits.RC3 = 0;
+[; ;Configuracion.c: 36: TRISBbits.RB4 = 1;
 "36
-[e = . . _TRISCbits 1 3 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 37: PORTCbits.RC3 = 0;
+[e = . . _TRISBbits 1 4 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 37: TRISBbits.RB5 = 1;
 "37
-[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 38: }
-"38
+[e = . . _TRISBbits 1 5 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 39: INTCONbits.RBIE = 1;
+"39
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 40: INTCONbits.RBIF = 0;
+"40
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 42: INTCON2bits.RBIP = 0;
+"42
+[e = . . _INTCON2bits 1 0 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 43: IOCBbits.IOCB4 =1;
+"43
+[e = . . _IOCBbits 0 1 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 44: IOCBbits.IOCB5 = 1;
+"44
+[e = . . _IOCBbits 0 2 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 45: }
+"45
 [e :UE 362 ]
 }
-"39
-[v _inicializaRC4_O `(v ~T0 @X0 1 ef ]
-{
-[; ;Configuracion.c: 39: void inicializaRC4_O(void){
-[e :U _inicializaRC4_O ]
-[f ]
-[; ;Configuracion.c: 40: TRISCbits.RC4 = 0;
-"40
-[e = . . _TRISCbits 1 4 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 41: PORTCbits.RC4 = 0;
-"41
-[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 42: }
-"42
-[e :UE 363 ]
-}
-"44
-[v _inicializaRC1_PWM `(v ~T0 @X0 1 ef ]
-{
-[; ;Configuracion.c: 44: void inicializaRC1_PWM(void){
-[e :U _inicializaRC1_PWM ]
-[f ]
-[; ;Configuracion.c: 45: TRISCbits.RC1 = 0;
-"45
-[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 46: CCP2CONbits.CCP2M = 0b1100;
-"46
-[e = . . _CCP2CONbits 0 0 -> -> 12 `i `uc ]
-[; ;Configuracion.c: 47: CCP2CONbits.DC2B = 0b00;
 "47
-[e = . . _CCP2CONbits 0 1 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 48: CCPR2L = 0;
+[v _inicializaRC3_O `(v ~T0 @X0 1 ef ]
+{
+[; ;Configuracion.c: 47: void inicializaRC3_O(void){
+[e :U _inicializaRC3_O ]
+[f ]
+[; ;Configuracion.c: 48: TRISCbits.RC3 = 0;
 "48
-[e = _CCPR2L -> -> 0 `i `uc ]
-[; ;Configuracion.c: 49: CCPR2H = 0;
+[e = . . _TRISCbits 1 3 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 49: PORTCbits.RC3 = 0;
 "49
-[e = _CCPR2H -> -> 0 `i `uc ]
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
 [; ;Configuracion.c: 50: }
 "50
-[e :UE 364 ]
+[e :UE 363 ]
 }
 "51
-[v _inicializaRC2_PWM `(v ~T0 @X0 1 ef ]
+[v _inicializaRC4_O `(v ~T0 @X0 1 ef ]
 {
-[; ;Configuracion.c: 51: void inicializaRC2_PWM(void){
-[e :U _inicializaRC2_PWM ]
+[; ;Configuracion.c: 51: void inicializaRC4_O(void){
+[e :U _inicializaRC4_O ]
 [f ]
-[; ;Configuracion.c: 52: TRISCbits.RC2 = 0;
+[; ;Configuracion.c: 52: TRISCbits.RC4 = 0;
 "52
-[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 53: CCP1CONbits.P1M = 0b00;
+[e = . . _TRISCbits 1 4 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 53: PORTCbits.RC4 = 0;
 "53
-[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 54: CCP1CONbits.CCP1M = 0b1100;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 54: }
 "54
-[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
-[; ;Configuracion.c: 55: CCP1CONbits.DC1B = 0b00;
-"55
-[e = . . _CCP1CONbits 0 1 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 56: CCPR1L = 0;
+[e :UE 364 ]
+}
 "56
-[e = _CCPR1L -> -> 0 `i `uc ]
-[; ;Configuracion.c: 57: CCPR1H = 0;
+[v _inicializaRC1_PWM `(v ~T0 @X0 1 ef ]
+{
+[; ;Configuracion.c: 56: void inicializaRC1_PWM(void){
+[e :U _inicializaRC1_PWM ]
+[f ]
+[; ;Configuracion.c: 57: TRISCbits.RC1 = 0;
 "57
-[e = _CCPR1H -> -> 0 `i `uc ]
-[; ;Configuracion.c: 58: }
+[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 58: CCP2CONbits.CCP2M = 0b1100;
 "58
+[e = . . _CCP2CONbits 0 0 -> -> 12 `i `uc ]
+[; ;Configuracion.c: 59: CCP2CONbits.DC2B = 0b00;
+"59
+[e = . . _CCP2CONbits 0 1 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 60: CCPR2L = 0;
+"60
+[e = _CCPR2L -> -> 0 `i `uc ]
+[; ;Configuracion.c: 61: CCPR2H = 0;
+"61
+[e = _CCPR2H -> -> 0 `i `uc ]
+[; ;Configuracion.c: 62: }
+"62
 [e :UE 365 ]
 }
-"60
-[v _inicializaTimer2_PWM `(v ~T0 @X0 1 ef ]
+"63
+[v _inicializaRC2_PWM `(v ~T0 @X0 1 ef ]
 {
-[; ;Configuracion.c: 60: void inicializaTimer2_PWM(void){
-[e :U _inicializaTimer2_PWM ]
+[; ;Configuracion.c: 63: void inicializaRC2_PWM(void){
+[e :U _inicializaRC2_PWM ]
 [f ]
-[; ;Configuracion.c: 61: PIE1bits.TMR2IE = 0;
-"61
-[e = . . _PIE1bits 0 1 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 67: PR2 = 249;
+[; ;Configuracion.c: 64: TRISCbits.RC2 = 0;
+"64
+[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 65: CCP1CONbits.P1M = 0b00;
+"65
+[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 66: CCP1CONbits.CCP1M = 0b1100;
+"66
+[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
+[; ;Configuracion.c: 67: CCP1CONbits.DC1B = 0b00;
 "67
-[e = _PR2 -> -> 249 `i `uc ]
-[; ;Configuracion.c: 68: TMR2 = 0;
+[e = . . _CCP1CONbits 0 1 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 68: CCPR1L = 0;
 "68
-[e = _TMR2 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 69: T2CONbits.T2CKPS = 0b01;
+[e = _CCPR1L -> -> 0 `i `uc ]
+[; ;Configuracion.c: 69: CCPR1H = 0;
 "69
-[e = . . _T2CONbits 0 0 -> -> 1 `i `uc ]
-[; ;Configuracion.c: 70: T2CONbits.TMR2ON = 1;
+[e = _CCPR1H -> -> 0 `i `uc ]
+[; ;Configuracion.c: 70: }
 "70
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;Configuracion.c: 72: }
-"72
 [e :UE 366 ]
 }
-"74
-[v _inicializaAN0_I `(v ~T0 @X0 1 ef ]
+"72
+[v _inicializaTimer2_PWM `(v ~T0 @X0 1 ef ]
 {
-[; ;Configuracion.c: 74: void inicializaAN0_I(void){
-[e :U _inicializaAN0_I ]
+[; ;Configuracion.c: 72: void inicializaTimer2_PWM(void){
+[e :U _inicializaTimer2_PWM ]
 [f ]
-[; ;Configuracion.c: 75: TRISAbits.RA0 = 1;
-"75
-[e = . . _TRISAbits 1 0 -> -> 1 `i `uc ]
-[; ;Configuracion.c: 76: ANSELbits.ANS0 = 1;
-"76
-[e = . . _ANSELbits 0 0 -> -> 1 `i `uc ]
-[; ;Configuracion.c: 77: }
-"77
+[; ;Configuracion.c: 73: PIE1bits.TMR2IE = 0;
+"73
+[e = . . _PIE1bits 0 1 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 79: PR2 = 249;
+"79
+[e = _PR2 -> -> 249 `i `uc ]
+[; ;Configuracion.c: 80: TMR2 = 0;
+"80
+[e = _TMR2 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 81: T2CONbits.T2CKPS = 0b01;
+"81
+[e = . . _T2CONbits 0 0 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 82: T2CONbits.TMR2ON = 1;
+"82
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 84: }
+"84
 [e :UE 367 ]
 }
-"78
-[v _inicializaAN1_I `(v ~T0 @X0 1 ef ]
+"86
+[v _inicializaAN0_I `(v ~T0 @X0 1 ef ]
 {
-[; ;Configuracion.c: 78: void inicializaAN1_I(void){
-[e :U _inicializaAN1_I ]
+[; ;Configuracion.c: 86: void inicializaAN0_I(void){
+[e :U _inicializaAN0_I ]
 [f ]
-[; ;Configuracion.c: 79: TRISAbits.RA1 = 1;
-"79
-[e = . . _TRISAbits 1 1 -> -> 1 `i `uc ]
-[; ;Configuracion.c: 80: ANSELbits.ANS1 = 1;
-"80
-[e = . . _ANSELbits 0 1 -> -> 1 `i `uc ]
-[; ;Configuracion.c: 81: }
-"81
+[; ;Configuracion.c: 87: TRISAbits.RA0 = 1;
+"87
+[e = . . _TRISAbits 1 0 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 88: ANSELbits.ANS0 = 1;
+"88
+[e = . . _ANSELbits 0 0 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 89: }
+"89
 [e :UE 368 ]
 }
-"82
-[v _inicializaAnalogicas `(v ~T0 @X0 1 ef ]
-{
-[; ;Configuracion.c: 82: void inicializaAnalogicas(){
-[e :U _inicializaAnalogicas ]
-[f ]
-[; ;Configuracion.c: 83: PIR1bits.ADIF = 0;
-"83
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 84: PIE1bits.ADIE = 1;
-"84
-[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
-[; ;Configuracion.c: 85: IPR1bits.ADIP = 0;
-"85
-[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 88: ADRES = 0;
-"88
-[e = _ADRES -> -> 0 `i `us ]
-[; ;Configuracion.c: 89: ADCON0bits.CHS = 0;
-"89
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 90: ADCON0bits.ADON = 1;
 "90
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;Configuracion.c: 93: ADCON2bits.ADFM = 0;
+[v _inicializaAN1_I `(v ~T0 @X0 1 ef ]
+{
+[; ;Configuracion.c: 90: void inicializaAN1_I(void){
+[e :U _inicializaAN1_I ]
+[f ]
+[; ;Configuracion.c: 91: TRISAbits.RA1 = 1;
+"91
+[e = . . _TRISAbits 1 1 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 92: ANSELbits.ANS1 = 1;
+"92
+[e = . . _ANSELbits 0 1 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 93: }
 "93
-[e = . . _ADCON2bits 0 3 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 94: ADCON2bits.ADCS = 0b111;
-"94
-[e = . . _ADCON2bits 0 0 -> -> 7 `i `uc ]
-[; ;Configuracion.c: 95: }
-"95
 [e :UE 369 ]
 }
-"97
-[v _inicializaRB7_O `(v ~T0 @X0 1 ef ]
+"94
+[v _inicializaAnalogicas `(v ~T0 @X0 1 ef ]
 {
-[; ;Configuracion.c: 97: void inicializaRB7_O(void){
-[e :U _inicializaRB7_O ]
+[; ;Configuracion.c: 94: void inicializaAnalogicas(){
+[e :U _inicializaAnalogicas ]
 [f ]
-[; ;Configuracion.c: 98: TRISBbits.RB7 = 0;
-"98
-[e = . . _TRISBbits 1 7 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 99: LATBbits.LATB7 = 0;
-"99
-[e = . . _LATBbits 0 7 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 100: }
+[; ;Configuracion.c: 95: PIR1bits.ADIF = 0;
+"95
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 96: PIE1bits.ADIE = 1;
+"96
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 97: IPR1bits.ADIP = 0;
+"97
+[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 100: ADRES = 0;
 "100
+[e = _ADRES -> -> 0 `i `us ]
+[; ;Configuracion.c: 101: ADCON0bits.CHS = 0;
+"101
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 102: ADCON0bits.ADON = 1;
+"102
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 105: ADCON2bits.ADFM = 0;
+"105
+[e = . . _ADCON2bits 0 3 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 106: ADCON2bits.ADCS = 0b111;
+"106
+[e = . . _ADCON2bits 0 0 -> -> 7 `i `uc ]
+[; ;Configuracion.c: 107: }
+"107
 [e :UE 370 ]
 }
-"103
-[v _inicializaRC0_O `(v ~T0 @X0 1 ef ]
+"109
+[v _inicializaRB7_O `(v ~T0 @X0 1 ef ]
 {
-[; ;Configuracion.c: 103: void inicializaRC0_O(void){
-[e :U _inicializaRC0_O ]
+[; ;Configuracion.c: 109: void inicializaRB7_O(void){
+[e :U _inicializaRB7_O ]
 [f ]
-[; ;Configuracion.c: 104: TRISCbits.RC0 = 0;
-"104
-[e = . . _TRISCbits 1 0 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 105: PORTCbits.RC0 = 0;
-"105
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 106: }
-"106
+[; ;Configuracion.c: 110: TRISBbits.RB7 = 0;
+"110
+[e = . . _TRISBbits 1 7 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 111: LATBbits.LATB7 = 0;
+"111
+[e = . . _LATBbits 0 7 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 112: }
+"112
 [e :UE 371 ]
 }
-"107
-[v _inicializaRC5_O `(v ~T0 @X0 1 ef ]
+"115
+[v _inicializaRC0_O `(v ~T0 @X0 1 ef ]
 {
-[; ;Configuracion.c: 107: void inicializaRC5_O(void){
-[e :U _inicializaRC5_O ]
+[; ;Configuracion.c: 115: void inicializaRC0_O(void){
+[e :U _inicializaRC0_O ]
 [f ]
-[; ;Configuracion.c: 108: TRISCbits.RC5 = 0;
-"108
-[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 109: PORTCbits.RC5 = 0;
-"109
-[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-[; ;Configuracion.c: 110: }
-"110
+[; ;Configuracion.c: 116: TRISCbits.RC0 = 0;
+"116
+[e = . . _TRISCbits 1 0 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 117: PORTCbits.RC0 = 0;
+"117
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 118: }
+"118
 [e :UE 372 ]
 }
-"112
-[v _inicializaRC6_USART `(v ~T0 @X0 1 ef ]
-{
-[; ;Configuracion.c: 112: void inicializaRC6_USART(void){
-[e :U _inicializaRC6_USART ]
-[f ]
-[; ;Configuracion.c: 114: }
-"114
-[e :UE 373 ]
-}
-"115
-[v _inicializaRC7_USART `(v ~T0 @X0 1 ef ]
-{
-[; ;Configuracion.c: 115: void inicializaRC7_USART(void){
-[e :U _inicializaRC7_USART ]
-[f ]
-[; ;Configuracion.c: 117: }
-"117
-[e :UE 374 ]
-}
 "119
-[v _inicializaPortD_Teclado `(v ~T0 @X0 1 ef ]
+[v _inicializaRC5_O `(v ~T0 @X0 1 ef ]
 {
-[; ;Configuracion.c: 119: void inicializaPortD_Teclado(void){
-[e :U _inicializaPortD_Teclado ]
+[; ;Configuracion.c: 119: void inicializaRC5_O(void){
+[e :U _inicializaRC5_O ]
 [f ]
-[; ;Configuracion.c: 120: TRISD = 0b11110000;
+[; ;Configuracion.c: 120: TRISCbits.RC5 = 0;
 "120
-[e = _TRISD -> -> 240 `i `uc ]
-[; ;Configuracion.c: 121: PORTD = 0;
+[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
+[; ;Configuracion.c: 121: PORTCbits.RC5 = 0;
 "121
-[e = _PORTD -> -> 0 `i `uc ]
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
 [; ;Configuracion.c: 122: }
 "122
-[e :UE 375 ]
+[e :UE 373 ]
 }
 "124
+[v _inicializaRC6_USART `(v ~T0 @X0 1 ef ]
+{
+[; ;Configuracion.c: 124: void inicializaRC6_USART(void){
+[e :U _inicializaRC6_USART ]
+[f ]
+[; ;Configuracion.c: 126: }
+"126
+[e :UE 374 ]
+}
+"127
+[v _inicializaRC7_USART `(v ~T0 @X0 1 ef ]
+{
+[; ;Configuracion.c: 127: void inicializaRC7_USART(void){
+[e :U _inicializaRC7_USART ]
+[f ]
+[; ;Configuracion.c: 129: }
+"129
+[e :UE 375 ]
+}
+"131
+[v _inicializaPortD_Teclado `(v ~T0 @X0 1 ef ]
+{
+[; ;Configuracion.c: 131: void inicializaPortD_Teclado(void){
+[e :U _inicializaPortD_Teclado ]
+[f ]
+[; ;Configuracion.c: 132: TRISD = 0b11110000;
+"132
+[e = _TRISD -> -> 240 `i `uc ]
+[; ;Configuracion.c: 133: PORTD = 0;
+"133
+[e = _PORTD -> -> 0 `i `uc ]
+[; ;Configuracion.c: 134: }
+"134
+[e :UE 376 ]
+}
+"136
 [v _inicializaManipuladorMagnetico `(v ~T0 @X0 1 ef ]
 {
-[; ;Configuracion.c: 124: void inicializaManipuladorMagnetico(){
+[; ;Configuracion.c: 136: void inicializaManipuladorMagnetico(){
 [e :U _inicializaManipuladorMagnetico ]
 [f ]
-[; ;Configuracion.c: 125: inicializaGlobalRB_I_Int();
-"125
-[e ( _inicializaGlobalRB_I_Int ..  ]
-[; ;Configuracion.c: 126: inicializaRB0_I();
-"126
-[e ( _inicializaRB0_I ..  ]
-[; ;Configuracion.c: 127: inicializaRB1_I();
-"127
-[e ( _inicializaRB1_I ..  ]
-[; ;Configuracion.c: 128: inicializaRB2_I();
-"128
-[e ( _inicializaRB2_I ..  ]
-[; ;Configuracion.c: 129: inicializaRC1_PWM();
-"129
-[e ( _inicializaRC1_PWM ..  ]
-[; ;Configuracion.c: 130: inicializaRC2_PWM();
-"130
-[e ( _inicializaRC2_PWM ..  ]
-[; ;Configuracion.c: 131: inicializaRC3_O();
-"131
-[e ( _inicializaRC3_O ..  ]
-[; ;Configuracion.c: 132: inicializaRC4_O();
-"132
-[e ( _inicializaRC4_O ..  ]
-[; ;Configuracion.c: 133: inicializaAnalogicas();
-"133
-[e ( _inicializaAnalogicas ..  ]
-[; ;Configuracion.c: 134: inicializaAN0_I();
-"134
-[e ( _inicializaAN0_I ..  ]
-[; ;Configuracion.c: 135: inicializaAN1_I();
-"135
-[e ( _inicializaAN1_I ..  ]
-[; ;Configuracion.c: 136: inicializaTimer2_PWM();
-"136
-[e ( _inicializaTimer2_PWM ..  ]
-[; ;Configuracion.c: 137: inicializaRC0_O();
+[; ;Configuracion.c: 137: inicializaGlobalRB_I_Int();
 "137
-[e ( _inicializaRC0_O ..  ]
-[; ;Configuracion.c: 138: inicializaRC5_O();
+[e ( _inicializaGlobalRB_I_Int ..  ]
+[; ;Configuracion.c: 138: inicializaRB0_I();
 "138
-[e ( _inicializaRC5_O ..  ]
-[; ;Configuracion.c: 139: inicializaRC0_O();
+[e ( _inicializaRB0_I ..  ]
+[; ;Configuracion.c: 139: inicializaRB1_I();
 "139
-[e ( _inicializaRC0_O ..  ]
-[; ;Configuracion.c: 140: ADCON0bits.GO = 1;
+[e ( _inicializaRB1_I ..  ]
+[; ;Configuracion.c: 140: inicializaRB2_I();
 "140
-[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
-[; ;Configuracion.c: 141: }
+[e ( _inicializaRB2_I ..  ]
+[; ;Configuracion.c: 141: inicializaRC1_PWM();
 "141
-[e :UE 376 ]
+[e ( _inicializaRC1_PWM ..  ]
+[; ;Configuracion.c: 142: inicializaRC2_PWM();
+"142
+[e ( _inicializaRC2_PWM ..  ]
+[; ;Configuracion.c: 143: inicializaRC3_O();
+"143
+[e ( _inicializaRC3_O ..  ]
+[; ;Configuracion.c: 144: inicializaRC4_O();
+"144
+[e ( _inicializaRC4_O ..  ]
+[; ;Configuracion.c: 145: inicializaAnalogicas();
+"145
+[e ( _inicializaAnalogicas ..  ]
+[; ;Configuracion.c: 146: inicializaAN0_I();
+"146
+[e ( _inicializaAN0_I ..  ]
+[; ;Configuracion.c: 147: inicializaAN1_I();
+"147
+[e ( _inicializaAN1_I ..  ]
+[; ;Configuracion.c: 148: inicializaTimer2_PWM();
+"148
+[e ( _inicializaTimer2_PWM ..  ]
+[; ;Configuracion.c: 149: inicializaRC0_O();
+"149
+[e ( _inicializaRC0_O ..  ]
+[; ;Configuracion.c: 150: inicializaRC5_O();
+"150
+[e ( _inicializaRC5_O ..  ]
+[; ;Configuracion.c: 151: inicializaRC0_O();
+"151
+[e ( _inicializaRC0_O ..  ]
+[; ;Configuracion.c: 152: inicializaRB4_5_O();
+"152
+[e ( _inicializaRB4_5_O ..  ]
+[; ;Configuracion.c: 153: ADCON0bits.GO = 1;
+"153
+[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 154: }
+"154
+[e :UE 377 ]
 }

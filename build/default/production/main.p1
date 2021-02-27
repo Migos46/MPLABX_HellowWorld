@@ -77,12 +77,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CCPR1L `Vuc ~T0 @X0 0 e@4030 ]
 "5038
 [v _CCPR2L `Vuc ~T0 @X0 0 e@4027 ]
-[p mainexit ]
-"49 main.c
-[v _inicializaManipuladorMagnetico `(i ~T0 @X0 0 ef ]
+"775
+[s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S33 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"785
+[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S34 . INT0 INT1 INT2 CCP2 KBI0 KBI1 KBI2 KBI3 ]
+"795
+[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S35 . AN12 AN10 AN8 AN9 AN11 PGM PGC PGD ]
+"805
+[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S36 . FLT0 C12IN3M . C12IN2M ]
+"811
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . . C12IN3N . C12IN2N ]
+"817
+[s S38 :3 `uc 1 :1 `uc 1 ]
+[n S38 . . CCP2_PA2 ]
+"774
+[u S32 `S33 1 `S34 1 `S35 1 `S36 1 `S37 1 `S38 1 ]
+[n S32 . . . . . . . ]
+"822
+[v _PORTBbits `VS32 ~T0 @X0 0 e@3969 ]
 "43 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
+[p mainexit ]
+"65 main.c
+[v _inicializaManipuladorMagnetico `(i ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3315,156 +3338,220 @@ Version 3.2 HI-TECH Software Intermediate Code
 "10
 [v _ultimaLectura1 `s ~T0 @X0 1 e ]
 [; ;main.c: 10: short ultimaLectura1;
+"11
+[v _anteriorRB4 `i ~T0 @X0 1 e ]
+[; ;main.c: 11: int anteriorRB4;
+"12
+[v _anteriorRB5 `i ~T0 @X0 1 e ]
+[; ;main.c: 12: int anteriorRB5;
 [v F3606 `(v ~T0 @X0 1 tf ]
-"13
+"14
 [v _interrupcionAlta `IHF3606 ~T0 @X0 1 e ]
 {
-[; ;main.c: 13: void interrupt high_priority interrupcionAlta(){
+[; ;main.c: 14: void interrupt high_priority interrupcionAlta(){
 [e :U _interrupcionAlta ]
 [f ]
-[; ;main.c: 14: if (INTCONbits.INT0IF){
-"14
+[; ;main.c: 15: if (INTCONbits.INT0IF){
+"15
 [e $ ! != -> . . _INTCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 363  ]
 {
-[; ;main.c: 15: INTCONbits.INT0IF = 0;
-"15
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 16: INTCONbits.INT0IF = 0;
 "16
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+"17
 }
 [e :U 363 ]
-[; ;main.c: 16: }
-[; ;main.c: 17: if (INTCON3bits.INT1IF){
-"17
+[; ;main.c: 17: }
+[; ;main.c: 18: if (INTCON3bits.INT1IF){
+"18
 [e $ ! != -> . . _INTCON3bits 0 0 `i -> -> -> 0 `i `Vuc `i 364  ]
 {
-[; ;main.c: 18: INTCON3bits.INT1IF = 0;
-"18
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 19: INTCON3bits.INT1IF = 0;
 "19
+[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
+"20
 }
 [e :U 364 ]
-[; ;main.c: 19: }
-[; ;main.c: 20: if (INTCON3bits.INT2IF){
-"20
+[; ;main.c: 20: }
+[; ;main.c: 21: if (INTCON3bits.INT2IF){
+"21
 [e $ ! != -> . . _INTCON3bits 0 1 `i -> -> -> 0 `i `Vuc `i 365  ]
 {
-[; ;main.c: 21: INTCON3bits.INT2IF = 0;
-"21
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 22: INTCON3bits.INT2IF = 0;
 "22
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
+"23
 }
 [e :U 365 ]
-[; ;main.c: 22: }
 [; ;main.c: 23: }
-"23
+[; ;main.c: 24: }
+"24
 [e :UE 362 ]
 }
 [v F3608 `(v ~T0 @X0 1 tf ]
-"24
+"25
 [v _interrupcionBaixa `ILF3608 ~T0 @X0 1 e ]
 {
-[; ;main.c: 24: void interrupt low_priority interrupcionBaixa(){
+[; ;main.c: 25: void interrupt low_priority interrupcionBaixa(){
 [e :U _interrupcionBaixa ]
 [f ]
-[; ;main.c: 25: if (PIR1bits.ADIF){
-"25
+[; ;main.c: 26: if (PIR1bits.ADIF){
+"26
 [e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 367  ]
 {
-[; ;main.c: 26: PIR1bits.ADIF=0;
-"26
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;main.c: 27: if(actual == 0){
+[; ;main.c: 27: PIR1bits.ADIF=0;
 "27
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;main.c: 28: if(actual == 0){
+"28
 [e $ ! == -> _actual `i -> 0 `i 368  ]
 {
-[; ;main.c: 28: ultimaLectura0=(ADRESH<<2)&ADRESL;
-"28
-[e = _ultimaLectura0 -> & << -> _ADRESH `i -> 2 `i -> _ADRESL `i `s ]
-[; ;main.c: 29: ultimaLectura0=ADRES;
+[; ;main.c: 29: ultimaLectura0=(ADRESH<<2)&ADRESL;
 "29
-[e = _ultimaLectura0 -> _ADRES `s ]
-[; ;main.c: 30: actual=1;
+[e = _ultimaLectura0 -> & << -> _ADRESH `i -> 2 `i -> _ADRESL `i `s ]
+[; ;main.c: 30: ultimaLectura0=ADRES;
 "30
-[e = _actual -> -> 1 `i `s ]
-[; ;main.c: 31: ADCON0bits.CHS=1;
+[e = _ultimaLectura0 -> _ADRES `s ]
+[; ;main.c: 31: actual=1;
 "31
-[e = . . _ADCON0bits 1 2 -> -> 1 `i `uc ]
-[; ;main.c: 32: CCPR1L = ADRESH;
+[e = _actual -> -> 1 `i `s ]
+[; ;main.c: 32: ADCON0bits.CHS=1;
 "32
-[e = _CCPR1L _ADRESH ]
+[e = . . _ADCON0bits 1 2 -> -> 1 `i `uc ]
+[; ;main.c: 33: CCPR1L = ADRESH;
 "33
+[e = _CCPR1L _ADRESH ]
+[; ;main.c: 34: if(CCPR1L > 249) CCPR1L=249;
+"34
+[e $ ! > -> _CCPR1L `i -> 249 `i 369  ]
+[e = _CCPR1L -> -> 249 `i `uc ]
+[e :U 369 ]
+"35
 }
-[; ;main.c: 33: }else{
-[e $U 369  ]
+[; ;main.c: 35: }else{
+[e $U 370  ]
 [e :U 368 ]
 {
-[; ;main.c: 34: ultimaLectura1=(ADRESH<<2)+(ADRESL>>6);
-"34
-[e = _ultimaLectura1 -> + << -> _ADRESH `i -> 2 `i >> -> _ADRESL `i -> 6 `i `s ]
-[; ;main.c: 36: ADCON0bits.CHS=0;
+[; ;main.c: 36: ultimaLectura1=(ADRESH<<2)+(ADRESL>>6);
 "36
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-[; ;main.c: 37: actual=0;
-"37
-[e = _actual -> -> 0 `i `s ]
-[; ;main.c: 38: CCPR2L = ADRESH;
+[e = _ultimaLectura1 -> + << -> _ADRESH `i -> 2 `i >> -> _ADRESL `i -> 6 `i `s ]
+[; ;main.c: 38: ADCON0bits.CHS=0;
 "38
-[e = _CCPR2L _ADRESH ]
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;main.c: 39: actual=0;
 "39
-}
-[e :U 369 ]
-[; ;main.c: 39: }
-[; ;main.c: 40: ADCON0bits.GO=1;
+[e = _actual -> -> 0 `i `s ]
+[; ;main.c: 40: CCPR2L = ADRESH;
 "40
-[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
+[e = _CCPR2L _ADRESH ]
+[; ;main.c: 41: if(CCPR2L > 249) CCPR2L=249;
+"41
+[e $ ! > -> _CCPR2L `i -> 249 `i 371  ]
+[e = _CCPR2L -> -> 249 `i `uc ]
+[e :U 371 ]
 "42
 }
-[e :U 367 ]
+[e :U 370 ]
 [; ;main.c: 42: }
-[; ;main.c: 43: }
+[; ;main.c: 43: ADCON0bits.GO=1;
 "43
+[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
+"44
+}
+[e :U 367 ]
+[; ;main.c: 44: }
+[; ;main.c: 45: if (INTCONbits.RBIF){
+"45
+[e $ ! != -> . . _INTCONbits 0 0 `i -> -> -> 0 `i `Vuc `i 372  ]
+{
+[; ;main.c: 46: INTCONbits.RBIF = 0;
+"46
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 47: if(!anteriorRB4 & PORTBbits.RB4){
+"47
+[e $ ! != & -> ! != _anteriorRB4 -> 0 `i `i -> . . _PORTBbits 0 4 `i -> 0 `i 373  ]
+{
+[; ;main.c: 48: __nop();
+"48
+[e ( ___nop ..  ]
+"50
+}
+[e :U 373 ]
+[; ;main.c: 50: }
+[; ;main.c: 51: if(!anteriorRB5 & PORTBbits.RB5){
+"51
+[e $ ! != & -> ! != _anteriorRB5 -> 0 `i `i -> . . _PORTBbits 0 5 `i -> 0 `i 374  ]
+{
+[; ;main.c: 52: __nop();
+"52
+[e ( ___nop ..  ]
+"54
+}
+[e :U 374 ]
+[; ;main.c: 54: }
+[; ;main.c: 55: anteriorRB4 = PORTBbits.RB4;
+"55
+[e = _anteriorRB4 -> . . _PORTBbits 0 4 `i ]
+[; ;main.c: 56: anteriorRB5 = PORTBbits.RB5;
+"56
+[e = _anteriorRB5 -> . . _PORTBbits 0 5 `i ]
+[; ;main.c: 57: INTCONbits.RBIF = 0;
+"57
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"58
+}
+[e :U 372 ]
+[; ;main.c: 58: }
+[; ;main.c: 59: }
+"59
 [e :UE 366 ]
 }
-"45
+"61
 [v _main `(v ~T0 @X0 1 ef ]
-"46
+"62
 {
-[; ;main.c: 45: void main(void)
-[; ;main.c: 46: {
+[; ;main.c: 61: void main(void)
+[; ;main.c: 62: {
 [e :U _main ]
 [f ]
-"47
+"63
 [v _var1 `s ~T0 @X0 1 a ]
-"48
+"64
 [v _var2 `s ~T0 @X0 1 a ]
-[; ;main.c: 47: short var1;
-[; ;main.c: 48: short var2;
-[; ;main.c: 49: inicializaManipuladorMagnetico();
-"49
+[; ;main.c: 63: short var1;
+[; ;main.c: 64: short var2;
+[; ;main.c: 65: inicializaManipuladorMagnetico();
+"65
 [e ( _inicializaManipuladorMagnetico ..  ]
-[; ;main.c: 50: while (1)
-"50
-[e :U 372 ]
-[; ;main.c: 51: {
-"51
+[; ;main.c: 66: anteriorRB4 = PORTBbits.RB4;
+"66
+[e = _anteriorRB4 -> . . _PORTBbits 0 4 `i ]
+[; ;main.c: 67: anteriorRB5 = PORTBbits.RB5;
+"67
+[e = _anteriorRB5 -> . . _PORTBbits 0 5 `i ]
+[; ;main.c: 68: while (1)
+"68
+[e :U 377 ]
+[; ;main.c: 69: {
+"69
 {
-[; ;main.c: 52: var1=ultimaLectura0;
-"52
+[; ;main.c: 70: var1=ultimaLectura0;
+"70
 [e = _var1 _ultimaLectura0 ]
-[; ;main.c: 53: var2=ultimaLectura1;
-"53
+[; ;main.c: 71: var2=ultimaLectura1;
+"71
 [e = _var2 _ultimaLectura1 ]
-[; ;main.c: 57: __nop();
-"57
+[; ;main.c: 75: __nop();
+"75
 [e ( ___nop ..  ]
-"59
+"77
 }
-[e :U 371 ]
-"50
-[e $U 372  ]
-[e :U 373 ]
-[; ;main.c: 59: }
-[; ;main.c: 60: }
-"60
-[e :UE 370 ]
+[e :U 376 ]
+"68
+[e $U 377  ]
+[e :U 378 ]
+[; ;main.c: 77: }
+[; ;main.c: 78: }
+"78
+[e :UE 375 ]
 }

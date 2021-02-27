@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <FileList>
-<File CRC="4158680783" FileName="Configuracion.c" FilePath="C:/Users/eriveiro/MPLABXProjects/MPLABX_HellowWorld/Configuracion.c">
+<File CRC="1896171580" FileName="Configuracion.c" FilePath="C:/Users/eriveiro/MPLABXProjects/MPLABX_HellowWorld/Configuracion.c">
 <BreakpointList/>
 </File>
-<File CRC="1736909430" FileName="main.c" FilePath="C:/Users/eriveiro/MPLABXProjects/MPLABX_HellowWorld/main.c">
-<BreakpointList/>
+<File CRC="2384971041" FileName="main.c" FilePath="C:/Users/eriveiro/MPLABXProjects/MPLABX_HellowWorld/main.c">
+<BreakpointList>
+<Breakpoint LineNumber="46"/>
+</BreakpointList>
 </File>
-<File CRC="2068605528" FileName="Disassembly" FilePath="Disassembly">
-<BreakpointList/>
+<File CRC="484367225" FileName="Disassembly" FilePath="Disassembly">
+<BreakpointList>
+<Breakpoint LineNumber="154"/>
+</BreakpointList>
 </File>
 </FileList>
