@@ -4286,15 +4286,30 @@ void inicializaAnalogicas(){
 PIR1bits.ADIF = 0;
 PIE1bits.ADIE = 1;
 IPR1bits.ADIP = 0;
-TRISAbits.RA2 = 1;
-TRISAbits.RA3 = 1;
+
+
 ADRES = 0;
 ADCON0bits.CHS = 0;
 ADCON0bits.ADON = 1;
-ADCON1bits.VCFG0 = 1;
-ADCON1bits.VCFG1 = 1;
+
+
 ADCON2bits.ADFM = 0;
 ADCON2bits.ADCS = 0b111;
+}
+
+void inicializaRB7_O(void){
+TRISBbits.RB7 = 0;
+LATBbits.LATB7 = 0;
+}
+
+
+void inicializaRC0_O(void){
+TRISCbits.RC0 = 0;
+PORTCbits.RC0 = 0;
+}
+void inicializaRC5_O(void){
+TRISCbits.RC5 = 0;
+PORTCbits.RC5 = 0;
 }
 
 void inicializaRC6_USART(void){
@@ -4322,6 +4337,8 @@ inicializaAnalogicas();
 inicializaAN0_I();
 inicializaAN1_I();
 inicializaTimer2_PWM();
-
+inicializaRC0_O();
+inicializaRC5_O();
+inicializaRC0_O();
 ADCON0bits.GO = 1;
 }

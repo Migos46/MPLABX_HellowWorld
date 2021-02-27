@@ -73,10 +73,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S260 . . . . . . . . . ]
 "5316
 [v _ADCON0bits `VS260 ~T0 @X0 0 e@4034 ]
-"5143
-[v _CCPR1H `Vuc ~T0 @X0 0 e@4031 ]
-"5044
-[v _CCPR2H `Vuc ~T0 @X0 0 e@4028 ]
+"5137
+[v _CCPR1L `Vuc ~T0 @X0 0 e@4030 ]
+"5038
+[v _CCPR2L `Vuc ~T0 @X0 0 e@4027 ]
 [p mainexit ]
 "49 main.c
 [v _inicializaManipuladorMagnetico `(i ~T0 @X0 0 ef ]
@@ -3389,9 +3389,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 31: ADCON0bits.CHS=1;
 "31
 [e = . . _ADCON0bits 1 2 -> -> 1 `i `uc ]
-[; ;main.c: 32: CCPR1H = ADRESH;
+[; ;main.c: 32: CCPR1L = ADRESH;
 "32
-[e = _CCPR1H _ADRESH ]
+[e = _CCPR1L _ADRESH ]
 "33
 }
 [; ;main.c: 33: }else{
@@ -3407,9 +3407,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 37: actual=0;
 "37
 [e = _actual -> -> 0 `i `s ]
-[; ;main.c: 38: CCPR2H = ADRESH;
+[; ;main.c: 38: CCPR2L = ADRESH;
 "38
-[e = _CCPR2H _ADRESH ]
+[e = _CCPR2L _ADRESH ]
 "39
 }
 [e :U 369 ]

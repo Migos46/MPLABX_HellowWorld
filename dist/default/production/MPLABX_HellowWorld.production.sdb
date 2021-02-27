@@ -47,7 +47,11 @@
 [v _inicializaAN1_I inicializaAN1_I `(v  1 e 1 0 ]
 "82
 [v _inicializaAnalogicas inicializaAnalogicas `(v  1 e 1 0 ]
-"109
+"103
+[v _inicializaRC0_O inicializaRC0_O `(v  1 e 1 0 ]
+"107
+[v _inicializaRC5_O inicializaRC5_O `(v  1 e 1 0 ]
+"124
 [v _inicializaManipuladorMagnetico inicializaManipuladorMagnetico `(i  1 e 2 0 ]
 "13 C:\Users\eriveiro\MPLABXProjects\MPLABX_HellowWorld\main.c
 [v _interrupcionAlta interrupcionAlta `IIH(v  1 e 1 0 ]
@@ -111,6 +115,41 @@
 [v _PORTCbits PORTCbits `VES534  1 e 1 @3970 ]
 "1166
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+[s S887 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"1710
+[s S896 . 1 `uc 1 LB0 1 0 :1:0 
+]
+[s S898 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+]
+[s S901 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LB2 1 0 :1:2 
+]
+[s S904 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LB3 1 0 :1:3 
+]
+[s S907 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LB4 1 0 :1:4 
+]
+[s S910 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LB5 1 0 :1:5 
+]
+[s S913 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LB6 1 0 :1:6 
+]
+[s S916 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S919 . 1 `S887 1 . 1 0 `S896 1 . 1 0 `S898 1 . 1 0 `S901 1 . 1 0 `S904 1 . 1 0 `S907 1 . 1 0 `S910 1 . 1 0 `S913 1 . 1 0 `S916 1 . 1 0 ]
+[v _LATBbits LATBbits `VES919  1 e 1 @3978 ]
 [s S703 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
@@ -258,37 +297,21 @@
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
 "5143
 [v _CCPR1H CCPR1H `VEuc  1 e 1 @4031 ]
-[s S891 . 1 `uc 1 ADCS 1 0 :3:0 
+[s S859 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "5170
-[s S896 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S864 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[u S903 . 1 `S891 1 . 1 0 `S896 1 . 1 0 ]
-[v _ADCON2bits ADCON2bits `VES903  1 e 1 @4032 ]
-[s S859 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 VCFG 1 0 :2:4 
-]
-"5243
-[s S862 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 VCFG0 1 0 :1:4 
-`uc 1 VCFG1 1 0 :1:5 
-]
-[s S866 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 VCFG01 1 0 :1:4 
-]
-[s S869 . 1 `uc 1 . 1 0 :5:0 
-`uc 1 VCFG11 1 0 :1:5 
-]
-[u S872 . 1 `S859 1 . 1 0 `S862 1 . 1 0 `S866 1 . 1 0 `S869 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES872  1 e 1 @4033 ]
+[u S871 . 1 `S859 1 . 1 0 `S864 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES871  1 e 1 @4032 ]
 [s S148 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
@@ -457,15 +480,20 @@
 [v main@var1 var1 `s  1 a 2 35 ]
 "60
 } 0
-"109 C:\Users\eriveiro\MPLABXProjects\MPLABX_HellowWorld\Configuracion.c
+"124 C:\Users\eriveiro\MPLABXProjects\MPLABX_HellowWorld\Configuracion.c
 [v _inicializaManipuladorMagnetico inicializaManipuladorMagnetico `(i  1 e 2 0 ]
 {
-"124
+"141
 } 0
 "60
 [v _inicializaTimer2_PWM inicializaTimer2_PWM `(v  1 e 1 0 ]
 {
 "72
+} 0
+"107
+[v _inicializaRC5_O inicializaRC5_O `(v  1 e 1 0 ]
+{
+"110
 } 0
 "39
 [v _inicializaRC4_O inicializaRC4_O `(v  1 e 1 0 ]
@@ -486,6 +514,11 @@
 [v _inicializaRC1_PWM inicializaRC1_PWM `(v  1 e 1 0 ]
 {
 "50
+} 0
+"103
+[v _inicializaRC0_O inicializaRC0_O `(v  1 e 1 0 ]
+{
+"106
 } 0
 "27
 [v _inicializaRB2_I inicializaRB2_I `(v  1 e 1 0 ]

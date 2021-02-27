@@ -29,13 +29,13 @@ void interrupt low_priority interrupcionBaixa(){
             ultimaLectura0=ADRES;
             actual=1;
             ADCON0bits.CHS=1;
-            CCPR1H = ADRESH;
+            CCPR1L = ADRESH;
         }else{
             ultimaLectura1=(ADRESH<<2)+(ADRESL>>6);
           //  ultimaLectura1=ADRES;
             ADCON0bits.CHS=0;
             actual=0;
-            CCPR2H = ADRESH;
+            CCPR2L = ADRESH;
         }
         ADCON0bits.GO=1;
         

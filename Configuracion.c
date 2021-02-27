@@ -83,15 +83,30 @@ void inicializaAnalogicas(){
     PIR1bits.ADIF   = 0; // Borra flag de interrupcion
     PIE1bits.ADIE   = 1; // Habilita interrupción de entrada analóxica
     IPR1bits.ADIP   = 0; // Prioridade baixa na interrupción
-    TRISAbits.RA2   = 1; // Entrada de referencia positiva
-    TRISAbits.RA3   = 1; // Entrada de referencia negativa
+    //TRISAbits.RA2   = 1; // Entrada de referencia positiva
+    //TRISAbits.RA3   = 1; // Entrada de referencia negativa
     ADRES           = 0; // Borra rexistro de valor analóxico
     ADCON0bits.CHS  = 0; // Primeira entrada a ler a AN0
     ADCON0bits.ADON = 1; // Habilita ADC
-    ADCON1bits.VCFG0 = 1; // Referencia negativa de tensión externa
-    ADCON1bits.VCFG1 = 1; // Referencia positiva de tensión externa
+   // ADCON1bits.VCFG0 = 1; // Referencia negativa de tensión externa
+   // ADCON1bits.VCFG1 = 1; // Referencia positiva de tensión externa
     ADCON2bits.ADFM = 0; // Xustificación esquerda;
     ADCON2bits.ADCS = 0b111; // Reloxo propio
+}
+
+void inicializaRB7_O(void){
+    TRISBbits.RB7       = 0;
+    LATBbits.LATB7      = 0;
+}
+
+// RC0 e RC5 como sa'eddas para os rel\'e9s das l\e1mparas incandescentes
+void inicializaRC0_O(void){
+    TRISCbits.RC0   = 0;
+    PORTCbits.RC0   = 0;
+}
+void inicializaRC5_O(void){
+    TRISCbits.RC5   = 0;
+    PORTCbits.RC5   = 0;
 }
 
 void inicializaRC6_USART(void){
@@ -119,6 +134,8 @@ void inicializaManipuladorMagnetico(){
     inicializaAN0_I();
     inicializaAN1_I();
     inicializaTimer2_PWM();
-    
+    inicializaRC0_O();
+    inicializaRC5_O();
+    inicializaRC0_O();
     ADCON0bits.GO = 1;
 }
