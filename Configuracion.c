@@ -129,7 +129,7 @@ void inicializaRC7_USART(void){
 }
 
 void inicializaPortD_Teclado(void){
-    TRISD   = 0b11110000;   // 4 saidas e catro entradas dixitais no portD
+    TRISD   = 0b00001111;   // 4 saidas e catro entradas dixitais no portD
     PORTD   = 0;            // Todas as saidas a 0
 }
 
@@ -150,5 +150,6 @@ void inicializaManipuladorMagnetico(){
     inicializaRC5_O();
     inicializaRC0_O();
     inicializaRB4_5_O();
+    inicializaPortD_Teclado();
     ADCON0bits.GO = 1;
 }

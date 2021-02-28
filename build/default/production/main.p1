@@ -103,8 +103,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 "43 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
+"1172 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18f45k20.h
+[s S48 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S48 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"1182
+[s S49 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S49 . PSP0 PSP1 PSP2 PSP3 PSP4 PSP5 PSP6 PSP7 ]
+"1192
+[s S50 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S50 . . P1B P1C P1D ]
+"1198
+[s S51 :7 `uc 1 :1 `uc 1 ]
+[n S51 . . SS2 ]
+"1171
+[u S47 `S48 1 `S49 1 `S50 1 `S51 1 ]
+[n S47 . . . . . ]
+"1203
+[v _PORTDbits `VS47 ~T0 @X0 0 e@3971 ]
+"1926
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
 [p mainexit ]
-"65 main.c
+"119 main.c
 [v _inicializaManipuladorMagnetico `(i ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -3344,214 +3363,441 @@ Version 3.2 HI-TECH Software Intermediate Code
 "12
 [v _anteriorRB5 `i ~T0 @X0 1 e ]
 [; ;main.c: 12: int anteriorRB5;
-[v F3606 `(v ~T0 @X0 1 tf ]
+"13
+[v _turnoTecla `i ~T0 @X0 1 e ]
+[i _turnoTecla
+-> 0 `i
+]
+[; ;main.c: 13: int turnoTecla=0;
 "14
+[v _teclaPulsada `i ~T0 @X0 1 e ]
+[; ;main.c: 14: int teclaPulsada;
+[v F3606 `(v ~T0 @X0 1 tf ]
+"16
 [v _interrupcionAlta `IHF3606 ~T0 @X0 1 e ]
 {
-[; ;main.c: 14: void interrupt high_priority interrupcionAlta(){
+[; ;main.c: 16: void interrupt high_priority interrupcionAlta(){
 [e :U _interrupcionAlta ]
 [f ]
-[; ;main.c: 15: if (INTCONbits.INT0IF){
-"15
+[; ;main.c: 17: if (INTCONbits.INT0IF){
+"17
 [e $ ! != -> . . _INTCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 363  ]
 {
-[; ;main.c: 16: INTCONbits.INT0IF = 0;
-"16
+[; ;main.c: 18: INTCONbits.INT0IF = 0;
+"18
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"17
+"19
 }
 [e :U 363 ]
-[; ;main.c: 17: }
-[; ;main.c: 18: if (INTCON3bits.INT1IF){
-"18
+[; ;main.c: 19: }
+[; ;main.c: 20: if (INTCON3bits.INT1IF){
+"20
 [e $ ! != -> . . _INTCON3bits 0 0 `i -> -> -> 0 `i `Vuc `i 364  ]
 {
-[; ;main.c: 19: INTCON3bits.INT1IF = 0;
-"19
+[; ;main.c: 21: INTCON3bits.INT1IF = 0;
+"21
 [e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-"20
+"22
 }
 [e :U 364 ]
-[; ;main.c: 20: }
-[; ;main.c: 21: if (INTCON3bits.INT2IF){
-"21
+[; ;main.c: 22: }
+[; ;main.c: 23: if (INTCON3bits.INT2IF){
+"23
 [e $ ! != -> . . _INTCON3bits 0 1 `i -> -> -> 0 `i `Vuc `i 365  ]
 {
-[; ;main.c: 22: INTCON3bits.INT2IF = 0;
-"22
+[; ;main.c: 24: INTCON3bits.INT2IF = 0;
+"24
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-"23
+"25
 }
 [e :U 365 ]
-[; ;main.c: 23: }
-[; ;main.c: 24: }
-"24
+[; ;main.c: 25: }
+[; ;main.c: 26: }
+"26
 [e :UE 362 ]
 }
 [v F3608 `(v ~T0 @X0 1 tf ]
-"25
+"27
 [v _interrupcionBaixa `ILF3608 ~T0 @X0 1 e ]
 {
-[; ;main.c: 25: void interrupt low_priority interrupcionBaixa(){
+[; ;main.c: 27: void interrupt low_priority interrupcionBaixa(){
 [e :U _interrupcionBaixa ]
 [f ]
-[; ;main.c: 26: if (PIR1bits.ADIF){
-"26
+[; ;main.c: 28: if (PIR1bits.ADIF){
+"28
 [e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 367  ]
 {
-[; ;main.c: 27: PIR1bits.ADIF=0;
-"27
+[; ;main.c: 29: PIR1bits.ADIF=0;
+"29
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;main.c: 28: if(actual == 0){
-"28
+[; ;main.c: 30: if(actual == 0){
+"30
 [e $ ! == -> _actual `i -> 0 `i 368  ]
 {
-[; ;main.c: 29: ultimaLectura0=(ADRESH<<2)&ADRESL;
-"29
-[e = _ultimaLectura0 -> & << -> _ADRESH `i -> 2 `i -> _ADRESL `i `s ]
-[; ;main.c: 30: ultimaLectura0=ADRES;
-"30
-[e = _ultimaLectura0 -> _ADRES `s ]
-[; ;main.c: 31: actual=1;
+[; ;main.c: 31: ultimaLectura0=(ADRESH<<2)&ADRESL;
 "31
-[e = _actual -> -> 1 `i `s ]
-[; ;main.c: 32: ADCON0bits.CHS=1;
+[e = _ultimaLectura0 -> & << -> _ADRESH `i -> 2 `i -> _ADRESL `i `s ]
+[; ;main.c: 32: ultimaLectura0=ADRES;
 "32
-[e = . . _ADCON0bits 1 2 -> -> 1 `i `uc ]
-[; ;main.c: 33: CCPR1L = ADRESH;
+[e = _ultimaLectura0 -> _ADRES `s ]
+[; ;main.c: 33: actual=1;
 "33
-[e = _CCPR1L _ADRESH ]
-[; ;main.c: 34: if(CCPR1L > 249) CCPR1L=249;
+[e = _actual -> -> 1 `i `s ]
+[; ;main.c: 34: ADCON0bits.CHS=1;
 "34
-[e $ ! > -> _CCPR1L `i -> 249 `i 369  ]
-[e = _CCPR1L -> -> 249 `i `uc ]
-[e :U 369 ]
+[e = . . _ADCON0bits 1 2 -> -> 1 `i `uc ]
+[; ;main.c: 35: CCPR1L = ADRESH;
 "35
+[e = _CCPR1L _ADRESH ]
+[; ;main.c: 36: if(CCPR1L > 250) CCPR1L=250;
+"36
+[e $ ! > -> _CCPR1L `i -> 250 `i 369  ]
+[e = _CCPR1L -> -> 250 `i `uc ]
+[e :U 369 ]
+"37
 }
-[; ;main.c: 35: }else{
+[; ;main.c: 37: }else{
 [e $U 370  ]
 [e :U 368 ]
 {
-[; ;main.c: 36: ultimaLectura1=(ADRESH<<2)+(ADRESL>>6);
-"36
-[e = _ultimaLectura1 -> + << -> _ADRESH `i -> 2 `i >> -> _ADRESL `i -> 6 `i `s ]
-[; ;main.c: 38: ADCON0bits.CHS=0;
+[; ;main.c: 38: ultimaLectura1=(ADRESH<<2)+(ADRESL>>6);
 "38
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-[; ;main.c: 39: actual=0;
-"39
-[e = _actual -> -> 0 `i `s ]
-[; ;main.c: 40: CCPR2L = ADRESH;
+[e = _ultimaLectura1 -> + << -> _ADRESH `i -> 2 `i >> -> _ADRESL `i -> 6 `i `s ]
+[; ;main.c: 40: ADCON0bits.CHS=0;
 "40
-[e = _CCPR2L _ADRESH ]
-[; ;main.c: 41: if(CCPR2L > 249) CCPR2L=249;
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;main.c: 41: actual=0;
 "41
-[e $ ! > -> _CCPR2L `i -> 249 `i 371  ]
-[e = _CCPR2L -> -> 249 `i `uc ]
-[e :U 371 ]
+[e = _actual -> -> 0 `i `s ]
+[; ;main.c: 42: CCPR2L = ADRESH;
 "42
-}
-[e :U 370 ]
-[; ;main.c: 42: }
-[; ;main.c: 43: ADCON0bits.GO=1;
+[e = _CCPR2L _ADRESH ]
+[; ;main.c: 43: if(CCPR2L > 250) CCPR2L=250;
 "43
-[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
+[e $ ! > -> _CCPR2L `i -> 250 `i 371  ]
+[e = _CCPR2L -> -> 250 `i `uc ]
+[e :U 371 ]
 "44
 }
-[e :U 367 ]
+[e :U 370 ]
 [; ;main.c: 44: }
-[; ;main.c: 45: if (INTCONbits.RBIF){
+[; ;main.c: 45: ADCON0bits.GO=1;
 "45
+[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
+"46
+}
+[e :U 367 ]
+[; ;main.c: 46: }
+[; ;main.c: 47: if (INTCONbits.RBIF){
+"47
 [e $ ! != -> . . _INTCONbits 0 0 `i -> -> -> 0 `i `Vuc `i 372  ]
 {
-[; ;main.c: 46: INTCONbits.RBIF = 0;
-"46
+[; ;main.c: 48: INTCONbits.RBIF = 0;
+"48
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 47: if(!anteriorRB4 & PORTBbits.RB4){
-"47
+[; ;main.c: 49: if(!anteriorRB4 & PORTBbits.RB4){
+"49
 [e $ ! != & -> ! != _anteriorRB4 -> 0 `i `i -> . . _PORTBbits 0 4 `i -> 0 `i 373  ]
 {
-[; ;main.c: 48: __nop();
-"48
-[e ( ___nop ..  ]
+[; ;main.c: 50: __nop();
 "50
+[e ( ___nop ..  ]
+"52
 }
 [e :U 373 ]
-[; ;main.c: 50: }
-[; ;main.c: 51: if(!anteriorRB5 & PORTBbits.RB5){
-"51
+[; ;main.c: 52: }
+[; ;main.c: 53: if(!anteriorRB5 & PORTBbits.RB5){
+"53
 [e $ ! != & -> ! != _anteriorRB5 -> 0 `i `i -> . . _PORTBbits 0 5 `i -> 0 `i 374  ]
 {
-[; ;main.c: 52: __nop();
-"52
-[e ( ___nop ..  ]
+[; ;main.c: 54: __nop();
 "54
+[e ( ___nop ..  ]
+"56
 }
 [e :U 374 ]
-[; ;main.c: 54: }
-[; ;main.c: 55: anteriorRB4 = PORTBbits.RB4;
-"55
-[e = _anteriorRB4 -> . . _PORTBbits 0 4 `i ]
-[; ;main.c: 56: anteriorRB5 = PORTBbits.RB5;
-"56
-[e = _anteriorRB5 -> . . _PORTBbits 0 5 `i ]
-[; ;main.c: 57: INTCONbits.RBIF = 0;
+[; ;main.c: 56: }
+[; ;main.c: 57: anteriorRB4 = PORTBbits.RB4;
 "57
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[e = _anteriorRB4 -> . . _PORTBbits 0 4 `i ]
+[; ;main.c: 58: anteriorRB5 = PORTBbits.RB5;
 "58
+[e = _anteriorRB5 -> . . _PORTBbits 0 5 `i ]
+[; ;main.c: 59: INTCONbits.RBIF = 0;
+"59
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"60
 }
 [e :U 372 ]
-[; ;main.c: 58: }
-[; ;main.c: 59: }
-"59
+[; ;main.c: 60: }
+[; ;main.c: 61: }
+"61
 [e :UE 366 ]
 }
-"61
-[v _main `(v ~T0 @X0 1 ef ]
-"62
+"63
+[v _teclado `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 61: void main(void)
-[; ;main.c: 62: {
+[; ;main.c: 63: void teclado(void){
+[e :U _teclado ]
+[f ]
+"64
+[v _muestraVariable `i ~T0 @X0 1 a ]
+[; ;main.c: 64: int muestraVariable;
+[; ;main.c: 65: teclaPulsada=0x10;
+"65
+[e = _teclaPulsada -> 16 `i ]
+[; ;main.c: 66: switch (turnoTecla){
+"66
+[e $U 377  ]
+{
+[; ;main.c: 67: case 0:
+"67
+[e :U 378 ]
+[; ;main.c: 68: if(PORTDbits.RD0) teclaPulsada=12;
+"68
+[e $ ! != -> . . _PORTDbits 0 0 `i -> -> -> 0 `i `Vuc `i 379  ]
+[e = _teclaPulsada -> 12 `i ]
+[e :U 379 ]
+[; ;main.c: 69: if(PORTDbits.RD1) teclaPulsada=13;
+"69
+[e $ ! != -> . . _PORTDbits 0 1 `i -> -> -> 0 `i `Vuc `i 380  ]
+[e = _teclaPulsada -> 13 `i ]
+[e :U 380 ]
+[; ;main.c: 70: if(PORTDbits.RD2) teclaPulsada=14;
+"70
+[e $ ! != -> . . _PORTDbits 0 2 `i -> -> -> 0 `i `Vuc `i 381  ]
+[e = _teclaPulsada -> 14 `i ]
+[e :U 381 ]
+[; ;main.c: 71: if(PORTDbits.RD3) teclaPulsada=15;
+"71
+[e $ ! != -> . . _PORTDbits 0 3 `i -> -> -> 0 `i `Vuc `i 382  ]
+[e = _teclaPulsada -> 15 `i ]
+[e :U 382 ]
+[; ;main.c: 72: break;
+"72
+[e $U 376  ]
+[; ;main.c: 73: case 1:
+"73
+[e :U 383 ]
+[; ;main.c: 74: if(PORTDbits.RD0) teclaPulsada=0;
+"74
+[e $ ! != -> . . _PORTDbits 0 0 `i -> -> -> 0 `i `Vuc `i 384  ]
+[e = _teclaPulsada -> 0 `i ]
+[e :U 384 ]
+[; ;main.c: 75: if(PORTDbits.RD1) teclaPulsada=1;
+"75
+[e $ ! != -> . . _PORTDbits 0 1 `i -> -> -> 0 `i `Vuc `i 385  ]
+[e = _teclaPulsada -> 1 `i ]
+[e :U 385 ]
+[; ;main.c: 76: if(PORTDbits.RD2) teclaPulsada=2;
+"76
+[e $ ! != -> . . _PORTDbits 0 2 `i -> -> -> 0 `i `Vuc `i 386  ]
+[e = _teclaPulsada -> 2 `i ]
+[e :U 386 ]
+[; ;main.c: 77: if(PORTDbits.RD3) teclaPulsada=3;
+"77
+[e $ ! != -> . . _PORTDbits 0 3 `i -> -> -> 0 `i `Vuc `i 387  ]
+[e = _teclaPulsada -> 3 `i ]
+[e :U 387 ]
+[; ;main.c: 78: break;
+"78
+[e $U 376  ]
+[; ;main.c: 79: case 2:
+"79
+[e :U 388 ]
+[; ;main.c: 80: if(PORTDbits.RD0) teclaPulsada=4;
+"80
+[e $ ! != -> . . _PORTDbits 0 0 `i -> -> -> 0 `i `Vuc `i 389  ]
+[e = _teclaPulsada -> 4 `i ]
+[e :U 389 ]
+[; ;main.c: 81: if(PORTDbits.RD1) teclaPulsada=5;
+"81
+[e $ ! != -> . . _PORTDbits 0 1 `i -> -> -> 0 `i `Vuc `i 390  ]
+[e = _teclaPulsada -> 5 `i ]
+[e :U 390 ]
+[; ;main.c: 82: if(PORTDbits.RD2) teclaPulsada=6;
+"82
+[e $ ! != -> . . _PORTDbits 0 2 `i -> -> -> 0 `i `Vuc `i 391  ]
+[e = _teclaPulsada -> 6 `i ]
+[e :U 391 ]
+[; ;main.c: 83: if(PORTDbits.RD3) teclaPulsada=7;
+"83
+[e $ ! != -> . . _PORTDbits 0 3 `i -> -> -> 0 `i `Vuc `i 392  ]
+[e = _teclaPulsada -> 7 `i ]
+[e :U 392 ]
+[; ;main.c: 84: break;
+"84
+[e $U 376  ]
+[; ;main.c: 85: case 3:
+"85
+[e :U 393 ]
+[; ;main.c: 86: if(PORTDbits.RD0) teclaPulsada=8;
+"86
+[e $ ! != -> . . _PORTDbits 0 0 `i -> -> -> 0 `i `Vuc `i 394  ]
+[e = _teclaPulsada -> 8 `i ]
+[e :U 394 ]
+[; ;main.c: 87: if(PORTDbits.RD1) teclaPulsada=9;
+"87
+[e $ ! != -> . . _PORTDbits 0 1 `i -> -> -> 0 `i `Vuc `i 395  ]
+[e = _teclaPulsada -> 9 `i ]
+[e :U 395 ]
+[; ;main.c: 88: if(PORTDbits.RD2) teclaPulsada=10;
+"88
+[e $ ! != -> . . _PORTDbits 0 2 `i -> -> -> 0 `i `Vuc `i 396  ]
+[e = _teclaPulsada -> 10 `i ]
+[e :U 396 ]
+[; ;main.c: 89: if(PORTDbits.RD3) teclaPulsada=11;
+"89
+[e $ ! != -> . . _PORTDbits 0 3 `i -> -> -> 0 `i `Vuc `i 397  ]
+[e = _teclaPulsada -> 11 `i ]
+[e :U 397 ]
+[; ;main.c: 90: break;
+"90
+[e $U 376  ]
+"91
+}
+[; ;main.c: 91: }
+[e $U 376  ]
+"66
+[e :U 377 ]
+[e [\ _turnoTecla , $ -> 0 `i 378
+ , $ -> 1 `i 383
+ , $ -> 2 `i 388
+ , $ -> 3 `i 393
+ 376 ]
+"91
+[e :U 376 ]
+[; ;main.c: 92: muestraVariable=teclaPulsada;
+"92
+[e = _muestraVariable _teclaPulsada ]
+[; ;main.c: 93: if (teclaPulsada<0x10){
+"93
+[e $ ! < _teclaPulsada -> 16 `i 398  ]
+{
+[; ;main.c: 94: __nop();
+"94
+[e ( ___nop ..  ]
+"95
+}
+[e :U 398 ]
+[; ;main.c: 95: }
+[; ;main.c: 96: LATD = 0;
+"96
+[e = _LATD -> -> 0 `i `uc ]
+[; ;main.c: 97: switch (turnoTecla){
+"97
+[e $U 400  ]
+{
+[; ;main.c: 98: case 0:
+"98
+[e :U 401 ]
+[; ;main.c: 99: PORTDbits.RD4 =1;
+"99
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 100: break;
+"100
+[e $U 399  ]
+[; ;main.c: 101: case 1:
+"101
+[e :U 402 ]
+[; ;main.c: 102: PORTDbits.RD5=1;
+"102
+[e = . . _PORTDbits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 103: break;
+"103
+[e $U 399  ]
+[; ;main.c: 104: case 2:
+"104
+[e :U 403 ]
+[; ;main.c: 105: PORTDbits.RD6=1;
+"105
+[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 106: break;
+"106
+[e $U 399  ]
+[; ;main.c: 107: case 3:
+"107
+[e :U 404 ]
+[; ;main.c: 108: PORTDbits.RD7=1;
+"108
+[e = . . _PORTDbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 109: break;
+"109
+[e $U 399  ]
+"110
+}
+[; ;main.c: 110: }
+[e $U 399  ]
+"97
+[e :U 400 ]
+[e [\ _turnoTecla , $ -> 0 `i 401
+ , $ -> 1 `i 402
+ , $ -> 2 `i 403
+ , $ -> 3 `i 404
+ 399 ]
+"110
+[e :U 399 ]
+[; ;main.c: 111: turnoTecla += 1;
+"111
+[e =+ _turnoTecla -> 1 `i ]
+[; ;main.c: 112: if(turnoTecla>3) turnoTecla=0;
+"112
+[e $ ! > _turnoTecla -> 3 `i 405  ]
+[e = _turnoTecla -> 0 `i ]
+[e :U 405 ]
+[; ;main.c: 113: }
+"113
+[e :UE 375 ]
+}
+"115
+[v _main `(v ~T0 @X0 1 ef ]
+"116
+{
+[; ;main.c: 115: void main(void)
+[; ;main.c: 116: {
 [e :U _main ]
 [f ]
-"63
+"117
 [v _var1 `s ~T0 @X0 1 a ]
-"64
+"118
 [v _var2 `s ~T0 @X0 1 a ]
-[; ;main.c: 63: short var1;
-[; ;main.c: 64: short var2;
-[; ;main.c: 65: inicializaManipuladorMagnetico();
-"65
+[; ;main.c: 117: short var1;
+[; ;main.c: 118: short var2;
+[; ;main.c: 119: inicializaManipuladorMagnetico();
+"119
 [e ( _inicializaManipuladorMagnetico ..  ]
-[; ;main.c: 66: anteriorRB4 = PORTBbits.RB4;
-"66
+[; ;main.c: 120: anteriorRB4 = PORTBbits.RB4;
+"120
 [e = _anteriorRB4 -> . . _PORTBbits 0 4 `i ]
-[; ;main.c: 67: anteriorRB5 = PORTBbits.RB5;
-"67
+[; ;main.c: 121: anteriorRB5 = PORTBbits.RB5;
+"121
 [e = _anteriorRB5 -> . . _PORTBbits 0 5 `i ]
-[; ;main.c: 68: while (1)
-"68
-[e :U 377 ]
-[; ;main.c: 69: {
-"69
+[; ;main.c: 122: while (1)
+"122
+[e :U 408 ]
+[; ;main.c: 123: {
+"123
 {
-[; ;main.c: 70: var1=ultimaLectura0;
-"70
+[; ;main.c: 124: teclado();
+"124
+[e ( _teclado ..  ]
+[; ;main.c: 125: var1=ultimaLectura0;
+"125
 [e = _var1 _ultimaLectura0 ]
-[; ;main.c: 71: var2=ultimaLectura1;
-"71
+[; ;main.c: 126: var2=ultimaLectura1;
+"126
 [e = _var2 _ultimaLectura1 ]
-[; ;main.c: 75: __nop();
-"75
+[; ;main.c: 130: __nop();
+"130
 [e ( ___nop ..  ]
-"77
+"132
 }
-[e :U 376 ]
-"68
-[e $U 377  ]
-[e :U 378 ]
-[; ;main.c: 77: }
-[; ;main.c: 78: }
-"78
-[e :UE 375 ]
+[e :U 407 ]
+"122
+[e $U 408  ]
+[e :U 409 ]
+[; ;main.c: 132: }
+[; ;main.c: 133: }
+"133
+[e :UE 406 ]
 }

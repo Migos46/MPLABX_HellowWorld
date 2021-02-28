@@ -3814,9 +3814,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Configuracion.c: 131: void inicializaPortD_Teclado(void){
 [e :U _inicializaPortD_Teclado ]
 [f ]
-[; ;Configuracion.c: 132: TRISD = 0b11110000;
+[; ;Configuracion.c: 132: TRISD = 0b00001111;
 "132
-[e = _TRISD -> -> 240 `i `uc ]
+[e = _TRISD -> -> 15 `i `uc ]
 [; ;Configuracion.c: 133: PORTD = 0;
 "133
 [e = _PORTD -> -> 0 `i `uc ]
@@ -3878,10 +3878,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Configuracion.c: 152: inicializaRB4_5_O();
 "152
 [e ( _inicializaRB4_5_O ..  ]
-[; ;Configuracion.c: 153: ADCON0bits.GO = 1;
+[; ;Configuracion.c: 153: inicializaPortD_Teclado();
 "153
-[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
-[; ;Configuracion.c: 154: }
+[e ( _inicializaPortD_Teclado ..  ]
+[; ;Configuracion.c: 154: ADCON0bits.GO = 1;
 "154
+[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
+[; ;Configuracion.c: 155: }
+"155
 [e :UE 377 ]
 }
